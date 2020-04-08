@@ -7,20 +7,92 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movies-->
+        <scene sceneID="iFa-t6-m6X">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Movies" id="fJU-wU-6va" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="8RM-il-RfP"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wL6-9u-S7a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169" y="902"/>
+        </scene>
+        <!--Dashboard View Controller-->
         <scene sceneID="SS0-GM-Pr8">
             <objects>
-                <viewController id="McT-Af-mup" customClass="ViewController" customModule="EntainmentWorld" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="McT-Af-mup" customClass="DashboardViewController" customModule="EntainmentWorld" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="i4F-Gu-1PS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ei-Re-x5x">
+                                <rect key="frame" x="20" y="225" width="147" height="126"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="0Br-6C-Mb2"/>
+                                    <constraint firstAttribute="width" constant="147" id="CmU-ZB-sdE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <state key="normal" title="Movies">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <segue destination="fJU-wU-6va" kind="show" id="kY4-DB-Jl6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rJ-cn-vCh">
+                                <rect key="frame" x="247" y="225" width="147" height="126"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="YGB-RV-sId"/>
+                                    <constraint firstAttribute="width" constant="147" id="sLZ-rh-n6X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <state key="normal" title="Profile">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="bLu-4D-Vce" kind="show" id="Va5-sf-pAl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TDR-Fc-4Bc">
+                                <rect key="frame" x="134" y="494" width="147" height="126"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="126" id="UWv-bg-SqX"/>
+                                    <constraint firstAttribute="width" constant="147" id="b65-aw-Uz9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="20"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="oId-Sr-cVN" kind="show" id="Lw4-32-h2t"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <accessibility key="accessibilityConfiguration">
                             <bool key="isElement" value="YES"/>
                         </accessibility>
+                        <constraints>
+                            <constraint firstItem="n1w-YN-5Y8" firstAttribute="trailing" secondItem="6rJ-cn-vCh" secondAttribute="trailing" constant="20" id="Ab2-Rz-MHJ"/>
+                            <constraint firstItem="TDR-Fc-4Bc" firstAttribute="leading" secondItem="n1w-YN-5Y8" secondAttribute="leading" constant="134" id="CWV-I8-LVk"/>
+                            <constraint firstItem="n1w-YN-5Y8" firstAttribute="bottom" secondItem="TDR-Fc-4Bc" secondAttribute="bottom" constant="242" id="Pmy-Zb-8QP"/>
+                            <constraint firstItem="n1w-YN-5Y8" firstAttribute="trailing" secondItem="TDR-Fc-4Bc" secondAttribute="trailing" constant="133" id="TRa-7D-n2g"/>
+                            <constraint firstItem="6rJ-cn-vCh" firstAttribute="top" secondItem="n1w-YN-5Y8" secondAttribute="top" constant="137" id="YWW-qW-GAy"/>
+                            <constraint firstItem="2Ei-Re-x5x" firstAttribute="top" secondItem="n1w-YN-5Y8" secondAttribute="top" constant="137" id="gXL-K3-lPT"/>
+                            <constraint firstItem="2Ei-Re-x5x" firstAttribute="leading" secondItem="n1w-YN-5Y8" secondAttribute="leading" constant="20" id="r9m-qK-T0y"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="n1w-YN-5Y8"/>
                     </view>
                     <navigationItem key="navigationItem" id="pis-Ya-TuZ"/>
+                    <connections>
+                        <outlet property="loginButton" destination="TDR-Fc-4Bc" id="5Ql-IQ-ZgF"/>
+                        <outlet property="movieButton" destination="2Ei-Re-x5x" id="sqq-Kf-AXa"/>
+                        <outlet property="profileButton" destination="6rJ-cn-vCh" id="5Rv-bU-EyY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ds6-ih-4bY" sceneMemberID="firstResponder"/>
             </objects>
@@ -44,6 +116,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJD-Bv-Mga" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-359.4202898550725" y="485.49107142857139"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="kaP-nR-FkU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="bLu-4D-Vce" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="MPa-Fi-4PM"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hOw-XT-A9f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="567" y="901"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="trh-Dz-r4V">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="oId-Sr-cVN" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="ihI-6t-ap9"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VIp-yb-lsT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="964" y="905"/>
         </scene>
     </scenes>
     <resources>
