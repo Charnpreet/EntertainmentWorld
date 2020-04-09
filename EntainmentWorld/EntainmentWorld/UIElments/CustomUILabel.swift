@@ -9,7 +9,12 @@
 import UIKit
 
 class CustomUILabel: UILabel {
-
+//    fileprivate var needStyle: Bool
+//    var styleNeeded: Bool {
+//        didSet {
+//            needStyle = true
+//        }
+//    }
     override init(frame: CGRect) {
         super.init(frame:frame)
         setupLabel()
@@ -21,8 +26,10 @@ class CustomUILabel: UILabel {
     func setupLabel(){
         textAlignment = .left
         font = font.withSize(25)
-       // setShadow()
-        styleButton()
+       // if(needStyle){
+            style()
+       // }
+        
     }
     private func setShadow(){
         layer.shadowColor = UIColor.black.cgColor
@@ -32,7 +39,7 @@ class CustomUILabel: UILabel {
         clipsToBounds = true
         layer.masksToBounds = false
       }
-      private func styleButton(){
+      private func style(){
         layer.cornerRadius = 10
         layer.borderWidth = 2.0
         layer.borderColor = UIColor.darkGray.cgColor

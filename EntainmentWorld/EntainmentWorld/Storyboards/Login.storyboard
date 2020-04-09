@@ -14,13 +14,35 @@
                     <view key="view" contentMode="scaleToFill" id="Mbn-03-oOq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WRK-IP-iAi">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="ah9-3C-RnX"/>
+                                    <constraint firstAttribute="height" constant="818" id="bLT-rM-CLo"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WRK-IP-iAi" firstAttribute="top" secondItem="nlZ-Td-7sX" secondAttribute="top" id="HSH-VQ-f4Y"/>
+                            <constraint firstItem="WRK-IP-iAi" firstAttribute="bottom" secondItem="nlZ-Td-7sX" secondAttribute="bottom" id="Trf-hU-hM6"/>
+                            <constraint firstItem="WRK-IP-iAi" firstAttribute="leading" secondItem="nlZ-Td-7sX" secondAttribute="leading" constant="20" id="cRV-3K-aWn"/>
+                            <constraint firstItem="nlZ-Td-7sX" firstAttribute="trailing" secondItem="WRK-IP-iAi" secondAttribute="trailing" constant="20" id="uSB-h4-wQ8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nlZ-Td-7sX"/>
                     </view>
+                    <connections>
+                        <outlet property="webViewKit" destination="WRK-IP-iAi" id="hl0-pu-eqQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6Z-Mu-23h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>

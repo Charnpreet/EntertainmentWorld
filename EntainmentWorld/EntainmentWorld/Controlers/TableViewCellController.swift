@@ -30,7 +30,6 @@ class TableViewCellController: UITableViewCell {
         collection.register(CollectionViewCellController.self, forCellWithReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
         contentView.addSubview(collection)
        }
-
 }
 
 extension TableViewCellController: UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UICollectionViewDelegate{

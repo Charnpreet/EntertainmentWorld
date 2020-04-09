@@ -23,6 +23,6 @@ class Constants{
     static let DARK_MODE_UI_LABEL_TEXT = " Dark Mode"
     static let USER_NAME_UI_LABEL_FRAME = CGRect(x: 10, y: Constants.IOS_SCREEN_HEIGHT/2, width: Constants.IOS_SCREEN_WIDTH-20, height: 50)
     static let USER_EMAIL_UI_LABEL_FRAME = CGRect(x: 10, y: Constants.IOS_SCREEN_HEIGHT/2, width: Constants.IOS_SCREEN_WIDTH-20, height: 50)
-    
-    
+    static let WEBVIEW_LOGINSCREEN_URL = "https://www.themoviedb.org/login"
+    static let WEBVIEW_KEYPATH = "estimatedProgress"
 }
