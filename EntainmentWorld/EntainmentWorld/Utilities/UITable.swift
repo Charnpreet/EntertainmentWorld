@@ -8,8 +8,7 @@
 import UIKit
 import Foundation
 class UITable {
-    
-    
+
     // return UI table View
     public static func getUITable()-> UITableView{
         return UITableView()

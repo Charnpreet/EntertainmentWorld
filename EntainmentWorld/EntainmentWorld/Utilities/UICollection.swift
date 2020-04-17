@@ -15,11 +15,14 @@ class UICollection{
     public static func getUICollections(HScrolling:Bool, frame: CGRect, layout: UICollectionViewFlowLayout)->UICollectionView{
         if(HScrolling){
            layout.scrollDirection = .horizontal
+             layout.minimumLineSpacing = 15
         }else{
             layout.scrollDirection = .vertical
+             layout.minimumLineSpacing = 8
         }
-        
-        layout.minimumLineSpacing = 15
-        return UICollectionView(frame: frame, collectionViewLayout: layout)
+        let collection = UICollectionView(frame: frame, collectionViewLayout: layout)
+        collection.backgroundColor = .black
+       collection.translatesAutoresizingMaskIntoConstraints = false
+        return collection
     }
 }
