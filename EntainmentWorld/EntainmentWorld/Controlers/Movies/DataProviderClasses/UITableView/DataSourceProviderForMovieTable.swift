@@ -175,23 +175,22 @@ extension DataSourceProviderForMovieTable :LoadMoreMovieDataProtocol{
     
     func loadMoreTopRatedmoviesData(completionHandler: @escaping () -> Void) {
         currentPageForTopRatedMovies += 1
-        
+        print(currentPageForTopRatedMovies)
         if(currentPageForTopRatedMovies <= totaltPagesForTopRatedMovies){
             loadTopratedMovies(pageNO: currentPageForTopRatedMovies, completionHandler: {
                 completionHandler()
             })
         }
-        print("no more pages to Load")
     }
     
     func loadMoreNowPlayingMoviesData(completionHandler: @escaping () -> Void) {
         currentPageForNowPlayingMovies += 1
+        print(currentPageForNowPlayingMovies)
         if(currentPageForNowPlayingMovies <= totalPagesForNowPlayingMovies){
             loadUpcomingMovies(pageNO: currentPageForNowPlayingMovies , completionHandler:{
                 completionHandler()
             })
         }
-        print("no more pages to Load")
     }
     
     
@@ -199,22 +198,22 @@ extension DataSourceProviderForMovieTable :LoadMoreMovieDataProtocol{
     func loadMorePopularMoviesData(completionHandler: @escaping () -> Void) {
         currentPageForPopularMovies += 1
         //
+        print(currentPageForPopularMovies)
         if(currentPageForPopularMovies  <= totalPagesForPopularMovies){
             loadPopularMovies(pageNO: currentPageForPopularMovies, completionHandler: {
                 completionHandler()
             })
         }
-        print("no more pages to Load")
     }
     func loadMoreUpComingMoviesData(completionHandler: @escaping () -> Void) {
         currentPageForUpComingMovies += 1
         //
+        print(currentPageForUpComingMovies)
         if(currentPageForUpComingMovies  <= totalPagesForUpComingMovies){
             loadUpcomingMovies(pageNO: currentPageForUpComingMovies, completionHandler: {
                 completionHandler()
             })
         }
-        print("no more pages to Load")
     }
 }
 

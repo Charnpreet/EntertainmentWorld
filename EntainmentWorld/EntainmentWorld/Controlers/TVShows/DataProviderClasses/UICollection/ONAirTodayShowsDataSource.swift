@@ -14,7 +14,7 @@ class ONAirTodayShowsDataSource : NSObject, UICollectionViewDataSource,  UIColle
     var onAirTodayShows: [TVShows] = []
     var loadMoreOnAirTodayContent : LoadMoreDataProtocol!
     let db = DBConnection()
-    
+    var delegate :CollectionViewSelectedProtocol!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return onAirTodayShows.count
         
@@ -33,6 +33,10 @@ class ONAirTodayShowsDataSource : NSObject, UICollectionViewDataSource,  UIColle
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/3.5, height: collectionView.frame.width/2.3)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.delegate.collectionViewSelected(item: onAirTodayShows[indexPath.row])
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

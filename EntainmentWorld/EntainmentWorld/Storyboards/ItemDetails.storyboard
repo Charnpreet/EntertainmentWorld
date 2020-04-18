@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O3y-GK-RZl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O3y-GK-RZl">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -7,16 +7,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Item Detail View Controller-->
         <scene sceneID="6JV-BY-YAS">
             <objects>
-                <viewController id="O3y-GK-RZl" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="gfL-oM-qVY">
+                <viewController storyboardIdentifier="ItemDetails" id="O3y-GK-RZl" customClass="ItemDetailViewController" customModule="EntainmentWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="gfL-oM-qVY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WsD-Xf-hGC">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="WsD-Xf-hGC" firstAttribute="top" secondItem="bsb-XS-Idm" secondAttribute="top" id="3nl-1S-TUn"/>
+                            <constraint firstItem="WsD-Xf-hGC" firstAttribute="trailing" secondItem="bsb-XS-Idm" secondAttribute="trailing" id="bv5-mv-lbw"/>
+                            <constraint firstItem="WsD-Xf-hGC" firstAttribute="leading" secondItem="bsb-XS-Idm" secondAttribute="leading" id="cKb-az-Ppe"/>
+                            <constraint firstAttribute="bottom" secondItem="WsD-Xf-hGC" secondAttribute="bottom" id="ryW-Bh-gbQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bsb-XS-Idm"/>
                     </view>
+                    <connections>
+                        <outlet property="backGroundImage" destination="WsD-Xf-hGC" id="Cts-jM-fcW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xKM-w8-isz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

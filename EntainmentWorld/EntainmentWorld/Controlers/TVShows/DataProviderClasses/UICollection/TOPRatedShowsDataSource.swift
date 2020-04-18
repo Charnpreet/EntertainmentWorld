@@ -14,13 +14,22 @@ class TOPRatedShowsDataSource : NSObject, UICollectionViewDataSource,  UICollect
     var topRatedShows: [TVShows] = []
     var loadMoreTopRatedContent : LoadMoreDataProtocol!
     let db = DBConnection()
+    var delegate :CollectionViewSelectedProtocol!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return topRatedShows.count
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.delegate.collectionViewSelected(item: topRatedShows[indexPath.row])
+    }
     //
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
+//        guard let image = cell.cellImage.image else {
+//            self.delegate.collectionViewSelected(item: topRatedShows[indexPath.row], img: UIImage(named: "img1")!)
+//            return
+//        }
         
         let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(topRatedShows[indexPath.row].poster_path ?? "")"
         

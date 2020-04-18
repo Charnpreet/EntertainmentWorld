@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
         setUp()
         self.collection.dataSource = self
         self.collection.delegate = self
+        self.collection.keyboardDismissMode = .onDrag
         // Do any additional setup after loading the view.
     }
     //header: HeaderForCollectionReusableView

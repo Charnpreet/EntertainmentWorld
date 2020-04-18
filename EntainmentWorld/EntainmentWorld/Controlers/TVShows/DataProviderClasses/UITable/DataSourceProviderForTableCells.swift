@@ -14,7 +14,7 @@ class DataSourceProviderForTable : NSObject{
     // MARK: - variables
     var storedOffsets = [Int: CGFloat]()
     let db = DBConnection()
-    
+    var screenSegus : DoSegus!
     // MARK: - popular shows variables
     var popularShows: [TVShows] = []
     var currentPageForPopularShows: Int = 1
@@ -132,12 +132,18 @@ extension DataSourceProviderForTable : UITableViewDataSource, UITableViewDelegat
         let tablecell = tableView.dequeueReusableCell(withIdentifier: Constants.TABLE_VIEW_CELL_IDENTIFIER, for: indexPath) as! TVTableViewCell
         popularShowsDataSource      = PopularShowsDataSource()
         popularShowsDataSource.loadMorePopularContent = self
+        popularShowsDataSource.delegate = self
+        
         topRatedShowsDataSource     = TOPRatedShowsDataSource()
         topRatedShowsDataSource.loadMoreTopRatedContent = self
+        topRatedShowsDataSource.delegate = self
+        
         onAirShowsDataSource        = OnAirShowsDataSource()
         onAirShowsDataSource.onAirLoadMoreContent = self
+        onAirShowsDataSource.delegate = self
         onAirTodayShowsDataSource   = ONAirTodayShowsDataSource()
         onAirTodayShowsDataSource.loadMoreOnAirTodayContent = self
+        onAirTodayShowsDataSource.delegate = self
         self.loadingDataFirstTime(tablecell: tablecell, indexPath: indexPath)
         return tablecell
     }
@@ -176,7 +182,6 @@ extension DataSourceProviderForTable : LoadMoreDataProtocol{
                 completionHandler()
             })
         }
-    print("no more pages to Load")
     }
     
     func loadMorePopularShowData(completionHandler: @escaping () -> Void) {
@@ -185,7 +190,6 @@ extension DataSourceProviderForTable : LoadMoreDataProtocol{
             print("unable load popular show")
            completionHandler()
         }
-       print("no more pages to Load")
     }
     
     func loadMoreTopRatedShowData(completionHandler: @escaping () -> Void) {
@@ -196,7 +200,6 @@ extension DataSourceProviderForTable : LoadMoreDataProtocol{
                        completionHandler()
                    })
         }
-        print("no more pages to Load")
     }
     
     func loadMoreOnAirShowData(completionHandler:@escaping()->Void) {
@@ -208,8 +211,16 @@ extension DataSourceProviderForTable : LoadMoreDataProtocol{
                   })
         }
         else{
-            print("no more pages to Load")
         }
       
     }
+}
+
+extension DataSourceProviderForTable : CollectionViewSelectedProtocol {
+
+    func collectionViewSelected(item : TVShows) {
+        print("data provider recieved your ")
+        self.screenSegus.LoadSegus(item: item)
+    }
+    
 }

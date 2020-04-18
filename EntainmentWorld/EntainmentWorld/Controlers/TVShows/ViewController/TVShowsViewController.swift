@@ -9,22 +9,25 @@
 import UIKit
 
 class TVShowsViewController: UIViewController{
-     var dataprovider: DataSourceProviderForTable!
+    var dataprovider: DataSourceProviderForTable!
     var table : CustomTable!
     var safeArea: UILayoutGuide!
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
     }
+    
+    
     // MARK:- inital setup for view controller
     func  initialSetup(){
         setupTable()
         dataprovider = DataSourceProviderForTable()
+        dataprovider.screenSegus = self
         table.dataSource = dataprovider
         table.delegate = dataprovider
         navigationBarSetUp()
     }
-     // MARK:- INITILIZING TABLE
+    // MARK:- INITILIZING TABLE
     func setupTable(){
         let frame = CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: Constants.IOS_SCREEN_HEIGHT)
         table = CustomTable(frame: frame, style: .plain)
@@ -34,11 +37,20 @@ class TVShowsViewController: UIViewController{
         self.table.rowHeight = Constants.IOS_SCREEN_HEIGHT/5
     }
     
-       // MARK:- set up for navigation bar controller
+    // MARK:- set up for navigation bar controller
     func navigationBarSetUp(){
         navigationController?.navigationBar.barTintColor = .black
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.topItem?.title = "TV Shows"
+        navigationController?.navigationBar.topItem?.title = "Shows"
     }
 }
 
+extension TVShowsViewController : DoSegus {
+    func LoadSegus(item : TVShows) {
+        let detailVC = UIStoryboard(name: "ItemDetails", bundle: nil).instantiateViewController(withIdentifier: "ItemDetails") as! ItemDetailViewController
+        detailVC.item = item
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    
+}

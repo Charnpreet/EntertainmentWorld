@@ -14,7 +14,7 @@ class CollectionViewCell: UICollectionViewCell {
     override init(frame : CGRect) {
         super.init(frame : frame)
          contentView.addSubview(cellImage)
-        backgroundColor = .clear
+        backgroundColor = .black
         cellImage.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         cellImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         cellImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true

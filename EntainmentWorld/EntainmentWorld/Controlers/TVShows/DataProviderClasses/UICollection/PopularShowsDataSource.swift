@@ -14,7 +14,7 @@ class PopularShowsDataSource : NSObject, UICollectionViewDataSource,  UICollecti
     var popularShows: [TVShows] = []
     var loadMorePopularContent : LoadMoreDataProtocol!
     let db = DBConnection()
-    
+    var delegate :CollectionViewSelectedProtocol!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return popularShows.count
         
@@ -31,6 +31,10 @@ class PopularShowsDataSource : NSObject, UICollectionViewDataSource,  UICollecti
         })
         return cell
     }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        self.delegate.collectionViewSelected(item: popularShows[indexPath.row])
+       }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/3.5, height: collectionView.frame.width/2.3)
     }

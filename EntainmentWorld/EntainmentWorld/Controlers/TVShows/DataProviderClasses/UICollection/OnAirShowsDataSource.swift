@@ -14,10 +14,15 @@ class OnAirShowsDataSource : NSObject, UICollectionViewDataSource,  UICollection
     var onAirLoadMoreContent : LoadMoreDataProtocol!
     var onAirShows: [TVShows] = []
     let db = DBConnection()
+    var delegate :CollectionViewSelectedProtocol!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return onAirShows.count
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+             self.delegate.collectionViewSelected(item: onAirShows[indexPath.row])
+       }
     //
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
