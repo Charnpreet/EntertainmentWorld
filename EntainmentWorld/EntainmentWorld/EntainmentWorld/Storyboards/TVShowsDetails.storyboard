@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O3y-GK-RZl">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item Detail View Controller For Table-->
+        <scene sceneID="6JV-BY-YAS">
+            <objects>
+                <viewController storyboardIdentifier="ItemDetails" id="O3y-GK-RZl" customClass="ItemDetailViewControllerForTable" customModule="EntainmentWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" contentMode="scaleToFill" id="gfL-oM-qVY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WsD-Xf-hGC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="WsD-Xf-hGC" secondAttribute="bottom" id="B11-nl-b7Q"/>
+                            <constraint firstItem="WsD-Xf-hGC" firstAttribute="trailing" secondItem="bsb-XS-Idm" secondAttribute="trailing" id="aj1-Na-6ch"/>
+                            <constraint firstItem="WsD-Xf-hGC" firstAttribute="leading" secondItem="bsb-XS-Idm" secondAttribute="leading" id="qYk-th-pg5"/>
+                            <constraint firstItem="WsD-Xf-hGC" firstAttribute="top" secondItem="gfL-oM-qVY" secondAttribute="top" id="uWM-jC-nGj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bsb-XS-Idm"/>
+                    </view>
+                    <connections>
+                        <outlet property="backGroundImage" destination="WsD-Xf-hGC" id="Cts-jM-fcW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xKM-w8-isz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="92.410714285714278"/>
+        </scene>
+    </scenes>
+</document>

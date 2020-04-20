@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GXA-dW-lo5">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movies Details Controller-->
+        <scene sceneID="pMs-q8-hfS">
+            <objects>
+                <viewController storyboardIdentifier="moviesDiscription" id="GXA-dW-lo5" customClass="MoviesDetailsController" customModule="EntainmentWorld" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zu4-YL-Xul">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iTL-6l-Ci3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iTL-6l-Ci3" firstAttribute="leading" secondItem="sDR-bh-apw" secondAttribute="leading" id="8TX-Nl-VP6"/>
+                            <constraint firstAttribute="bottom" secondItem="iTL-6l-Ci3" secondAttribute="bottom" id="ZQA-Au-MEE"/>
+                            <constraint firstItem="iTL-6l-Ci3" firstAttribute="top" secondItem="zu4-YL-Xul" secondAttribute="top" id="frn-U8-ibK"/>
+                            <constraint firstItem="iTL-6l-Ci3" firstAttribute="trailing" secondItem="sDR-bh-apw" secondAttribute="trailing" id="x0O-ne-Slz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="sDR-bh-apw"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vxE-Tm-ULP"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="backGroundImage" destination="iTL-6l-Ci3" id="Hwn-WJ-hkq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qec-vF-kPk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1060.8695652173915" y="101.78571428571428"/>
+        </scene>
+    </scenes>
+</document>
