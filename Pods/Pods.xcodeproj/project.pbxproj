@@ -1,0 +1,821 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1B9A587B8440DF85EE99314A5F640717 /* YouTubePlayer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 415B57D582BEDEE9A735B476B95392F9 /* YouTubePlayer-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		26C033F7551F891E8233D233E76C3A6F /* YouTubePlayer-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 90EB803122007474B52B228FF34F2FFE /* YouTubePlayer-dummy.m */; };
+		3A461CFB65FA514004CC74ECBA78968E /* Pods-EntainmentWorldTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E6F42511DE1F6AF0BC24825218116803 /* Pods-EntainmentWorldTests-dummy.m */; };
+		454643A0D7427E030E82A3D3358C8C0F /* Pods-EntainmentWorld-EntainmentWorldUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2AE40A58102E5D5726FC2D0E8675444 /* Pods-EntainmentWorld-EntainmentWorldUITests-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		816BF73CD61D1EB7D5A250F2D48F5926 /* Pods-EntainmentWorld-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3098A01A9747618768750720FE753DE2 /* Pods-EntainmentWorld-dummy.m */; };
+		A9F49E1978D1ABCC36CBE9A29E574ADF /* YouTubePlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5488B90E4674746D1D1E00CDC7C5B84A /* YouTubePlayer.swift */; };
+		CCB28C668009560721F010DA42C01F17 /* Pods-EntainmentWorld-EntainmentWorldUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AA1600BCF3FA9AA7BA3FB85F2DD2BF4 /* Pods-EntainmentWorld-EntainmentWorldUITests-dummy.m */; };
+		FC030FF653839C70EC7A1F5040061C7C /* Pods-EntainmentWorld-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C7FD57DE60C66B837774C182D2609A95 /* Pods-EntainmentWorld-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28FB16FFA7462B0B654145F3A22C44B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6273C43DC7FF94E93DBFF580DB584296;
+			remoteInfo = YouTubePlayer;
+		};
+		3043D422ED854A1FF60CD52EB9BD7A95 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6273C43DC7FF94E93DBFF580DB584296;
+			remoteInfo = YouTubePlayer;
+		};
+		A55377F214EAD3FC90F1B10A82738950 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5F18E12E8F9CCB11C9D1A56364CAD682;
+			remoteInfo = "Pods-EntainmentWorld";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		01A4B3D662FAFEEA275F573DD694B22E /* YouTubePlayer.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YouTubePlayer.modulemap; sourceTree = "<group>"; };
+		02270B7C4B37CDBC06FBF3DC5F971EE1 /* Pods-EntainmentWorldTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EntainmentWorldTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		0B51908EE5A161B70134F8EED8DD7CFE /* Pods-EntainmentWorld.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EntainmentWorld.debug.xcconfig"; sourceTree = "<group>"; };
+		0C7307292A32EC27CB1FCEECE29E930C /* Pods-EntainmentWorld-EntainmentWorldUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EntainmentWorld-EntainmentWorldUITests.modulemap"; sourceTree = "<group>"; };
+		1F11C9EDAF3E6BE69DD2D28341260193 /* libYouTubePlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libYouTubePlayer.a; path = libYouTubePlayer.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		23398CE091F81B9925B49F828A5BFED2 /* Pods-EntainmentWorld-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EntainmentWorld-acknowledgements.markdown"; sourceTree = "<group>"; };
+		27060F273FBFDC5B4F8388FB1E3D79C4 /* Pods-EntainmentWorld-EntainmentWorldUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EntainmentWorld-EntainmentWorldUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2850A237632FF2B3671F8645E1599540 /* libPods-EntainmentWorld.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-EntainmentWorld.a"; path = "libPods-EntainmentWorld.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D4E476DBB1D57A34D24EA8FEFFD5F59 /* YouTubePlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YouTubePlayer.debug.xcconfig; sourceTree = "<group>"; };
+		3098A01A9747618768750720FE753DE2 /* Pods-EntainmentWorld-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EntainmentWorld-dummy.m"; sourceTree = "<group>"; };
+		415B57D582BEDEE9A735B476B95392F9 /* YouTubePlayer-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YouTubePlayer-umbrella.h"; sourceTree = "<group>"; };
+		504A63EBE9E362D63D3B92680960F4D2 /* Pods-EntainmentWorldTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EntainmentWorldTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		50EA146E4930F1DA84BD2CFF592DE28D /* Pods-EntainmentWorld-EntainmentWorldUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-EntainmentWorld-EntainmentWorldUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5488B90E4674746D1D1E00CDC7C5B84A /* YouTubePlayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YouTubePlayer.swift; path = YouTubePlayer/YouTubePlayer/YouTubePlayer.swift; sourceTree = "<group>"; };
+		65B474E22194F231CE50FE0A7A5197DF /* libPods-EntainmentWorldTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-EntainmentWorldTests.a"; path = "libPods-EntainmentWorldTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C811E466EE4E31408A8599E4DFAF3B2 /* Pods-EntainmentWorld-EntainmentWorldUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EntainmentWorld-EntainmentWorldUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6D36D487886E7AC320B55D40499DC49D /* Pods-EntainmentWorldTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EntainmentWorldTests.release.xcconfig"; sourceTree = "<group>"; };
+		86D87565B6869E3586F5C3C3CF00428F /* YTPlayer.html */ = {isa = PBXFileReference; includeInIndex = 1; name = YTPlayer.html; path = YouTubePlayer/YouTubePlayer/YTPlayer.html; sourceTree = "<group>"; };
+		8AA1600BCF3FA9AA7BA3FB85F2DD2BF4 /* Pods-EntainmentWorld-EntainmentWorldUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EntainmentWorld-EntainmentWorldUITests-dummy.m"; sourceTree = "<group>"; };
+		8D9120D6731B5B3248A18DF22F85C59A /* Pods-EntainmentWorldTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EntainmentWorldTests.debug.xcconfig"; sourceTree = "<group>"; };
+		90EB803122007474B52B228FF34F2FFE /* YouTubePlayer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YouTubePlayer-dummy.m"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A4AE22724387B50296772B966BB6D72D /* YouTubePlayer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YouTubePlayer-prefix.pch"; sourceTree = "<group>"; };
+		AC555CBEFE049F13403E22C856E273A2 /* Pods-EntainmentWorld-EntainmentWorldUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EntainmentWorld-EntainmentWorldUITests-resources.sh"; sourceTree = "<group>"; };
+		B556DFEA33C4C30DCABF6DBDCA202305 /* Pods-EntainmentWorld-EntainmentWorldUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EntainmentWorld-EntainmentWorldUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		C54E47951F6FA8FCAADB3EF123416426 /* Pods-EntainmentWorld-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-EntainmentWorld-resources.sh"; sourceTree = "<group>"; };
+		C7FD57DE60C66B837774C182D2609A95 /* Pods-EntainmentWorld-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EntainmentWorld-umbrella.h"; sourceTree = "<group>"; };
+		CFB382EAAA4DBFEB0E2A1945D0EFCC75 /* libPods-EntainmentWorld-EntainmentWorldUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-EntainmentWorld-EntainmentWorldUITests.a"; path = "libPods-EntainmentWorld-EntainmentWorldUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE476F7CC9C7522988EC834767DE8968 /* Pods-EntainmentWorld.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-EntainmentWorld.release.xcconfig"; sourceTree = "<group>"; };
+		E6F42511DE1F6AF0BC24825218116803 /* Pods-EntainmentWorldTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-EntainmentWorldTests-dummy.m"; sourceTree = "<group>"; };
+		F27B6804771701D8F84C61320627FAAA /* Pods-EntainmentWorld-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-EntainmentWorld-acknowledgements.plist"; sourceTree = "<group>"; };
+		F2AE40A58102E5D5726FC2D0E8675444 /* Pods-EntainmentWorld-EntainmentWorldUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-EntainmentWorld-EntainmentWorldUITests-umbrella.h"; sourceTree = "<group>"; };
+		FF16CDA87B4C81841BE02240C9C2EFEC /* Pods-EntainmentWorld.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-EntainmentWorld.modulemap"; sourceTree = "<group>"; };
+		FFDAA5E193B357A8FEF3DD1C7F68242F /* YouTubePlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YouTubePlayer.release.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		10169A1E288A1AE27A53AEB33094F52F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		375C53D10A97B9A0E997FC92932FE1B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3E29252B93F9FADA32CBA29A4DBC5584 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A70490CD3E44F45BB4190AEE90A59F08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23AAB0B42BA00D0839376A6C2E8A4001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2850A237632FF2B3671F8645E1599540 /* libPods-EntainmentWorld.a */,
+				CFB382EAAA4DBFEB0E2A1945D0EFCC75 /* libPods-EntainmentWorld-EntainmentWorldUITests.a */,
+				65B474E22194F231CE50FE0A7A5197DF /* libPods-EntainmentWorldTests.a */,
+				1F11C9EDAF3E6BE69DD2D28341260193 /* libYouTubePlayer.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		25C3A6D0D0C9E929F465968541A26196 /* Pods-EntainmentWorld-EntainmentWorldUITests */ = {
+			isa = PBXGroup;
+			children = (
+				0C7307292A32EC27CB1FCEECE29E930C /* Pods-EntainmentWorld-EntainmentWorldUITests.modulemap */,
+				50EA146E4930F1DA84BD2CFF592DE28D /* Pods-EntainmentWorld-EntainmentWorldUITests-acknowledgements.markdown */,
+				B556DFEA33C4C30DCABF6DBDCA202305 /* Pods-EntainmentWorld-EntainmentWorldUITests-acknowledgements.plist */,
+				8AA1600BCF3FA9AA7BA3FB85F2DD2BF4 /* Pods-EntainmentWorld-EntainmentWorldUITests-dummy.m */,
+				AC555CBEFE049F13403E22C856E273A2 /* Pods-EntainmentWorld-EntainmentWorldUITests-resources.sh */,
+				F2AE40A58102E5D5726FC2D0E8675444 /* Pods-EntainmentWorld-EntainmentWorldUITests-umbrella.h */,
+				27060F273FBFDC5B4F8388FB1E3D79C4 /* Pods-EntainmentWorld-EntainmentWorldUITests.debug.xcconfig */,
+				6C811E466EE4E31408A8599E4DFAF3B2 /* Pods-EntainmentWorld-EntainmentWorldUITests.release.xcconfig */,
+			);
+			name = "Pods-EntainmentWorld-EntainmentWorldUITests";
+			path = "Target Support Files/Pods-EntainmentWorld-EntainmentWorldUITests";
+			sourceTree = "<group>";
+		};
+		2B2A0367A301BD4FD0AB23A36A961B25 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A9666E247076455D54E5D2906D2D3C49 /* YouTubePlayer */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		73D418C0680ED87E5A5AB91EB28513BC /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				01A4B3D662FAFEEA275F573DD694B22E /* YouTubePlayer.modulemap */,
+				90EB803122007474B52B228FF34F2FFE /* YouTubePlayer-dummy.m */,
+				A4AE22724387B50296772B966BB6D72D /* YouTubePlayer-prefix.pch */,
+				415B57D582BEDEE9A735B476B95392F9 /* YouTubePlayer-umbrella.h */,
+				2D4E476DBB1D57A34D24EA8FEFFD5F59 /* YouTubePlayer.debug.xcconfig */,
+				FFDAA5E193B357A8FEF3DD1C7F68242F /* YouTubePlayer.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/YouTubePlayer";
+			sourceTree = "<group>";
+		};
+		9672C4033799B14F47A06B2E7B541EDA /* Pods-EntainmentWorldTests */ = {
+			isa = PBXGroup;
+			children = (
+				504A63EBE9E362D63D3B92680960F4D2 /* Pods-EntainmentWorldTests-acknowledgements.markdown */,
+				02270B7C4B37CDBC06FBF3DC5F971EE1 /* Pods-EntainmentWorldTests-acknowledgements.plist */,
+				E6F42511DE1F6AF0BC24825218116803 /* Pods-EntainmentWorldTests-dummy.m */,
+				8D9120D6731B5B3248A18DF22F85C59A /* Pods-EntainmentWorldTests.debug.xcconfig */,
+				6D36D487886E7AC320B55D40499DC49D /* Pods-EntainmentWorldTests.release.xcconfig */,
+			);
+			name = "Pods-EntainmentWorldTests";
+			path = "Target Support Files/Pods-EntainmentWorldTests";
+			sourceTree = "<group>";
+		};
+		A6AA53A026FFE29F9F3C436F662BE117 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8E15D3C700A9B9E6DBAAE28A08C41C1 /* Pods-EntainmentWorld */,
+				25C3A6D0D0C9E929F465968541A26196 /* Pods-EntainmentWorld-EntainmentWorldUITests */,
+				9672C4033799B14F47A06B2E7B541EDA /* Pods-EntainmentWorldTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		A9666E247076455D54E5D2906D2D3C49 /* YouTubePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				5488B90E4674746D1D1E00CDC7C5B84A /* YouTubePlayer.swift */,
+				B52F3715634AE3A551A933BD0644E809 /* Resources */,
+				73D418C0680ED87E5A5AB91EB28513BC /* Support Files */,
+			);
+			name = YouTubePlayer;
+			path = YouTubePlayer;
+			sourceTree = "<group>";
+		};
+		B52F3715634AE3A551A933BD0644E809 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				86D87565B6869E3586F5C3C3CF00428F /* YTPlayer.html */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				2B2A0367A301BD4FD0AB23A36A961B25 /* Pods */,
+				23AAB0B42BA00D0839376A6C2E8A4001 /* Products */,
+				A6AA53A026FFE29F9F3C436F662BE117 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8E15D3C700A9B9E6DBAAE28A08C41C1 /* Pods-EntainmentWorld */ = {
+			isa = PBXGroup;
+			children = (
+				FF16CDA87B4C81841BE02240C9C2EFEC /* Pods-EntainmentWorld.modulemap */,
+				23398CE091F81B9925B49F828A5BFED2 /* Pods-EntainmentWorld-acknowledgements.markdown */,
+				F27B6804771701D8F84C61320627FAAA /* Pods-EntainmentWorld-acknowledgements.plist */,
+				3098A01A9747618768750720FE753DE2 /* Pods-EntainmentWorld-dummy.m */,
+				C54E47951F6FA8FCAADB3EF123416426 /* Pods-EntainmentWorld-resources.sh */,
+				C7FD57DE60C66B837774C182D2609A95 /* Pods-EntainmentWorld-umbrella.h */,
+				0B51908EE5A161B70134F8EED8DD7CFE /* Pods-EntainmentWorld.debug.xcconfig */,
+				DE476F7CC9C7522988EC834767DE8968 /* Pods-EntainmentWorld.release.xcconfig */,
+			);
+			name = "Pods-EntainmentWorld";
+			path = "Target Support Files/Pods-EntainmentWorld";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		205A45276FF873AC838D1A0247A1D417 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC030FF653839C70EC7A1F5040061C7C /* Pods-EntainmentWorld-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39CE13AE4B7941E69DACE721045AB3BA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64A6148A13CAF8E11134A4746D8EE032 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B9A587B8440DF85EE99314A5F640717 /* YouTubePlayer-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C26FAEAA26AC16227E48088E5CCF7835 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454643A0D7427E030E82A3D3358C8C0F /* Pods-EntainmentWorld-EntainmentWorldUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		388DF9E6A85AABBEB87E0AB7282C0115 /* Pods-EntainmentWorld-EntainmentWorldUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3414CCDFE4D2D163350888950EF75952 /* Build configuration list for PBXNativeTarget "Pods-EntainmentWorld-EntainmentWorldUITests" */;
+			buildPhases = (
+				C26FAEAA26AC16227E48088E5CCF7835 /* Headers */,
+				4B758AEFEE4829042E09C0F1E5A2412D /* Sources */,
+				10169A1E288A1AE27A53AEB33094F52F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0B001DA2467E0F483AB818C0919ED37 /* PBXTargetDependency */,
+			);
+			name = "Pods-EntainmentWorld-EntainmentWorldUITests";
+			productName = "Pods-EntainmentWorld-EntainmentWorldUITests";
+			productReference = CFB382EAAA4DBFEB0E2A1945D0EFCC75 /* libPods-EntainmentWorld-EntainmentWorldUITests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5DBE04CBD59CEF690890C50B4B491AFC /* Pods-EntainmentWorldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0886254A6C663D08EAEFF365939A3943 /* Build configuration list for PBXNativeTarget "Pods-EntainmentWorldTests" */;
+			buildPhases = (
+				39CE13AE4B7941E69DACE721045AB3BA /* Headers */,
+				6D5D60D3A35C507212A0354B111224A1 /* Sources */,
+				375C53D10A97B9A0E997FC92932FE1B3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D7067835B79FDEDAE6AAA396447A87DD /* PBXTargetDependency */,
+			);
+			name = "Pods-EntainmentWorldTests";
+			productName = "Pods-EntainmentWorldTests";
+			productReference = 65B474E22194F231CE50FE0A7A5197DF /* libPods-EntainmentWorldTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5F18E12E8F9CCB11C9D1A56364CAD682 /* Pods-EntainmentWorld */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 20406FC31A68AD7F3981580085269E5B /* Build configuration list for PBXNativeTarget "Pods-EntainmentWorld" */;
+			buildPhases = (
+				205A45276FF873AC838D1A0247A1D417 /* Headers */,
+				28C91BF27B5F8BBA422CE907301738B8 /* Sources */,
+				A70490CD3E44F45BB4190AEE90A59F08 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				589C9FC5AD8443787C3FF61242CBB13A /* PBXTargetDependency */,
+			);
+			name = "Pods-EntainmentWorld";
+			productName = "Pods-EntainmentWorld";
+			productReference = 2850A237632FF2B3671F8645E1599540 /* libPods-EntainmentWorld.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6273C43DC7FF94E93DBFF580DB584296 /* YouTubePlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E172B36A597B271F39DEAACAF707E047 /* Build configuration list for PBXNativeTarget "YouTubePlayer" */;
+			buildPhases = (
+				64A6148A13CAF8E11134A4746D8EE032 /* Headers */,
+				0E112C6347DBF89FA9E8A27E13DB1EBA /* Sources */,
+				3E29252B93F9FADA32CBA29A4DBC5584 /* Frameworks */,
+				9366005F670B48B8AC187B80DCCD4300 /* Copy generated compatibility header */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YouTubePlayer;
+			productName = YouTubePlayer;
+			productReference = 1F11C9EDAF3E6BE69DD2D28341260193 /* libYouTubePlayer.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 23AAB0B42BA00D0839376A6C2E8A4001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F18E12E8F9CCB11C9D1A56364CAD682 /* Pods-EntainmentWorld */,
+				388DF9E6A85AABBEB87E0AB7282C0115 /* Pods-EntainmentWorld-EntainmentWorldUITests */,
+				5DBE04CBD59CEF690890C50B4B491AFC /* Pods-EntainmentWorldTests */,
+				6273C43DC7FF94E93DBFF580DB584296 /* YouTubePlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9366005F670B48B8AC187B80DCCD4300 /* Copy generated compatibility header */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h",
+				"${PODS_ROOT}/Headers/Public/YouTubePlayer/YouTubePlayer.modulemap",
+				"${PODS_ROOT}/Headers/Public/YouTubePlayer/YouTubePlayer-umbrella.h",
+			);
+			name = "Copy generated compatibility header";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer-umbrella.h",
+				"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "COMPATIBILITY_HEADER_PATH=\"${BUILT_PRODUCTS_DIR}/Swift Compatibility Header/${PRODUCT_MODULE_NAME}-Swift.h\"\nMODULE_MAP_PATH=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_MODULE_NAME}.modulemap\"\n\nditto \"${DERIVED_SOURCES_DIR}/${PRODUCT_MODULE_NAME}-Swift.h\" \"${COMPATIBILITY_HEADER_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/YouTubePlayer/YouTubePlayer.modulemap\" \"${MODULE_MAP_PATH}\"\nditto \"${PODS_ROOT}/Headers/Public/YouTubePlayer/YouTubePlayer-umbrella.h\" \"${BUILT_PRODUCTS_DIR}\"\nprintf \"\\n\\nmodule ${PRODUCT_MODULE_NAME}.Swift {\\n  header \\\"${COMPATIBILITY_HEADER_PATH}\\\"\\n  requires objc\\n}\\n\" >> \"${MODULE_MAP_PATH}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0E112C6347DBF89FA9E8A27E13DB1EBA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26C033F7551F891E8233D233E76C3A6F /* YouTubePlayer-dummy.m in Sources */,
+				A9F49E1978D1ABCC36CBE9A29E574ADF /* YouTubePlayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28C91BF27B5F8BBA422CE907301738B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				816BF73CD61D1EB7D5A250F2D48F5926 /* Pods-EntainmentWorld-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B758AEFEE4829042E09C0F1E5A2412D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCB28C668009560721F010DA42C01F17 /* Pods-EntainmentWorld-EntainmentWorldUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6D5D60D3A35C507212A0354B111224A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A461CFB65FA514004CC74ECBA78968E /* Pods-EntainmentWorldTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		589C9FC5AD8443787C3FF61242CBB13A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YouTubePlayer;
+			target = 6273C43DC7FF94E93DBFF580DB584296 /* YouTubePlayer */;
+			targetProxy = 3043D422ED854A1FF60CD52EB9BD7A95 /* PBXContainerItemProxy */;
+		};
+		B0B001DA2467E0F483AB818C0919ED37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = YouTubePlayer;
+			target = 6273C43DC7FF94E93DBFF580DB584296 /* YouTubePlayer */;
+			targetProxy = 28FB16FFA7462B0B654145F3A22C44B9 /* PBXContainerItemProxy */;
+		};
+		D7067835B79FDEDAE6AAA396447A87DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-EntainmentWorld";
+			target = 5F18E12E8F9CCB11C9D1A56364CAD682 /* Pods-EntainmentWorld */;
+			targetProxy = A55377F214EAD3FC90F1B10A82738950 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		012808E4BCE2B71B99573B46C8197AC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D36D487886E7AC320B55D40499DC49D /* Pods-EntainmentWorldTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1794BFB044D0C492391C017C06BA7FD2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C811E466EE4E31408A8599E4DFAF3B2 /* Pods-EntainmentWorld-EntainmentWorldUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EntainmentWorld-EntainmentWorldUITests/Pods-EntainmentWorld-EntainmentWorldUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		19BD331E99B91E7D9946F1C06D593297 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE476F7CC9C7522988EC834767DE8968 /* Pods-EntainmentWorld.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EntainmentWorld/Pods-EntainmentWorld.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		25B9FE9DC74C5BBFA917EBF4BED4220F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFDAA5E193B357A8FEF3DD1C7F68242F /* YouTubePlayer.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/YouTubePlayer/YouTubePlayer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/YouTubePlayer/YouTubePlayer.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = YouTubePlayer;
+				PRODUCT_NAME = YouTubePlayer;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		562A9A0D56656554A2DAD720CDDAC8BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D4E476DBB1D57A34D24EA8FEFFD5F59 /* YouTubePlayer.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/YouTubePlayer/YouTubePlayer-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MODULEMAP_FILE = Headers/Public/YouTubePlayer/YouTubePlayer.modulemap;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = YouTubePlayer;
+				PRODUCT_NAME = YouTubePlayer;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		648F27FAC881A1D2621A05B02FBCE442 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D9120D6731B5B3248A18DF22F85C59A /* Pods-EntainmentWorldTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F17DC3A99F99FBAD606CE6963886315 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		916E0404255105F480DC4950B7625F7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		A8A67AFEDE241AD26D74A2F1360AA8F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B51908EE5A161B70134F8EED8DD7CFE /* Pods-EntainmentWorld.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EntainmentWorld/Pods-EntainmentWorld.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F49964CD18A0475BE41315DCEE9EB530 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27060F273FBFDC5B4F8388FB1E3D79C4 /* Pods-EntainmentWorld-EntainmentWorldUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-EntainmentWorld-EntainmentWorldUITests/Pods-EntainmentWorld-EntainmentWorldUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0886254A6C663D08EAEFF365939A3943 /* Build configuration list for PBXNativeTarget "Pods-EntainmentWorldTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				648F27FAC881A1D2621A05B02FBCE442 /* Debug */,
+				012808E4BCE2B71B99573B46C8197AC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		20406FC31A68AD7F3981580085269E5B /* Build configuration list for PBXNativeTarget "Pods-EntainmentWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A8A67AFEDE241AD26D74A2F1360AA8F1 /* Debug */,
+				19BD331E99B91E7D9946F1C06D593297 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3414CCDFE4D2D163350888950EF75952 /* Build configuration list for PBXNativeTarget "Pods-EntainmentWorld-EntainmentWorldUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F49964CD18A0475BE41315DCEE9EB530 /* Debug */,
+				1794BFB044D0C492391C017C06BA7FD2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				916E0404255105F480DC4950B7625F7A /* Debug */,
+				8F17DC3A99F99FBAD606CE6963886315 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E172B36A597B271F39DEAACAF707E047 /* Build configuration list for PBXNativeTarget "YouTubePlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				562A9A0D56656554A2DAD720CDDAC8BD /* Debug */,
+				25B9FE9DC74C5BBFA917EBF4BED4220F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
