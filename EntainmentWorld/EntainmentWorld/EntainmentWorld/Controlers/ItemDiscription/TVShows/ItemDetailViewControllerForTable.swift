@@ -9,18 +9,17 @@
 import UIKit
 //UIViewController
 //BaseItemDetailController<T>
-class ItemDetailViewControllerForTable: UIViewController{
-   var item: TVShows!
-    let db =  DBConnection()
-    @IBOutlet var backGroundImage: UIImageView! = UIImageView()
+
+
+class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows>{
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
-          loadImage()
+        loadImage()
         // Do any additional setup after loading the view.
     }
     
-    func loadImage(){
+    override  func loadImage(){
         let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(item.poster_path ?? "")"
         
         guard let url = URL(string: urlString) else {
@@ -33,29 +32,43 @@ class ItemDetailViewControllerForTable: UIViewController{
         })
         
     }
-    func addBottomSheetView() {
-           // 1- Init bottomSheetVC
-           let bottomSheetVC = BottomSheetViewController()
-           
-           // 2- Add bottomSheetVC as a child view
-           self.addChild(bottomSheetVC)
-           self.view.addSubview(bottomSheetVC.view)
-           bottomSheetVC.didMove(toParent: self)
-           
-           // 3- Adjust bottomSheet frame and initial position.
-           let height = view.frame.height
-           let width  = view.frame.width
-           bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
-       }
-       override func viewWillAppear(_ animated: Bool) {
-           super.viewWillAppear(animated)
-           addBottomSheetView()
-           self.tabBarController?.tabBar.isHidden = true
-       }
-       override func viewWillDisappear(_ animated: Bool) {
-           super.viewWillDisappear(animated)
-            self.tabBarController?.tabBar.isHidden = false
-       }
     
+    override  func loadVideo(){
+        db.LoadVideo(route: Routes.VIDEO_ROUTE, content_Type: Routes.TV_SHOWS_CONTENT_TYPE, content_ID:item.id,completionHandler:{
+            (videos: VideoResponse) in
+            self.videos = videos.results
+            if(self.videos.count>0){
+                 self.bottomSheetVC.videoUrl = self.videos[0].key
+            }
+           
+        })
+        
+    }
+    override func AddLabelToNavigationBar() {
+        super.AddLabelToNavigationBar()
+        self.firstLabel.text = item.name
+    }
+    func addBottomSheetView() {
+        // 1- Init bottomSheetVC
+        bottomSheetVC = BottomSheetViewController()
+        bottomSheetVC.rating = item.vote_average
+        bottomSheetVC.totalVotes = "\(item.vote_count ?? 0) votes"
+        // 2- Add bottomSheetVC as a child view
+        self.addChild(bottomSheetVC)
+        self.view.addSubview(bottomSheetVC.view)
+        bottomSheetVC.didMove(toParent: self)
+
+        // 3- Adjust bottomSheet frame and initial position.
+        let height = view.frame.height
+        let width  = view.frame.width
+        bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AddLabelToNavigationBar()
+        addBottomSheetView()
+        loadVideo()
+    }
 }
 

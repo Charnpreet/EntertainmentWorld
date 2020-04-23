@@ -9,6 +9,7 @@
 import UIKit
 
 class SearchMovies: SearchViewController<MoviesDetails> {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collection.dataSource = self
@@ -17,7 +18,9 @@ class SearchMovies: SearchViewController<MoviesDetails> {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
-        let url = URL(string: "\(Connection.IMAGE_URL_BASE_PATH)\(searchedItems[indexPath.row].poster_path)")!
+        guard let url = URL(string: "\(Connection.IMAGE_URL_BASE_PATH)\(searchedItems[indexPath.row].poster_path ?? "")") else {
+            return cell
+        }
         db.downloadImage(from: url, completionHandler: {(img) in
             cell.cellImage.image = img
         })
@@ -33,7 +36,6 @@ class SearchMovies: SearchViewController<MoviesDetails> {
                 for movie in movies.results {
                     self.searchedItems.append(movie)
                 }
-                // self.previousSearch = text_To_search
                 self.collection.reloadData()
             })
             
@@ -42,8 +44,22 @@ class SearchMovies: SearchViewController<MoviesDetails> {
         }
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.topItem?.title = ""
+        searchTextField  = setUpSearchTextField()
+        searchTextField.placeholder = "Search Movies"
+        navigationController?.navigationBar.addSubview(self.searchTextField)
+        
+        
+    }
     
-     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.topItem?.title = ""
+        self.searchTextField.removeFromSuperview()
+    }
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         LoadSegus(item: searchedItems[indexPath.row] )
     }
     
@@ -53,5 +69,4 @@ class SearchMovies: SearchViewController<MoviesDetails> {
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
-
 

@@ -44,7 +44,6 @@ class DataSourceProviderForTable : NSObject{
     // this method is used when app first starts
     fileprivate func loadingDataFirstTime(tablecell: UItableCell, indexPath: IndexPath){
         loadPopularShows (pageNO: 1,  completionHandler: {
-            print("loading complete")
         })
         loadTopratedShows(pageNO: 1, completionHandler:{
             self.loadOnAirShows(pageNO: 1, completionHandler:{
@@ -217,7 +216,6 @@ extension DataSourceProviderForTable : LoadMoreDataProtocol{
 extension DataSourceProviderForTable : CollectionViewSelectedProtocol {
 
     func collectionViewSelected(item : TVShows) {
-        print("data provider recieved your ")
         self.screenSegus.LoadSegus(item: item)
     }
     

@@ -47,7 +47,6 @@ class DBConnection {
                     guard let data = data else { return }
                     let movies = try JSONDecoder().decode(T.self, from: data)
                     DispatchQueue.main.async {
-                        print(query)
                         completionHandler(movies)
                     }
                 } catch{
@@ -62,7 +61,6 @@ class DBConnection {
     func LoadGenre<T:Decodable>(route: String, completionHandler:@escaping(T)->Void){
         
         let urlString = "\(Connection.API_BASE_URL)\(route)\(Connection.API_KEY)"
-        print(urlString)
         guard let url = URL(string: urlString) else { return }
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if (error != nil){
@@ -83,10 +81,32 @@ class DBConnection {
         task.resume()
     }
     
+    public func loadContentWithGenreId<T:Decodable>(pageNO: Int, route: String,genreId: Int,completionHandler:@escaping(T)->Void){
+        guard let url = URL(string: "\(Connection.API_BASE_URL)\(route)\(Connection.API_KEY)\(Connection.PAGE)\(pageNO)\(Routes.MOVIE_GENRE_ID )\(genreId)") else { return }
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if (error != nil){
+                print ("error")
+            }else{
+                do{
+                    guard let data = data else { return }
+                    let deocder = JSONDecoder()
+                    deocder.keyDecodingStrategy = .convertFromSnakeCase
+                    let content = try JSONDecoder().decode(T.self, from: data)
+                    DispatchQueue.main.async {
+                        completionHandler(content)
+                    }
+                } catch{
+                    print(error)
+                }
+                
+            }
+        }
+        task.resume()
+        
+    }
     
     
     public func downloadImage(from url: URL ,completionHandler:@escaping(_ img :UIImage)->Void){
-        
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if (error != nil){
                 print (error.debugDescription)
@@ -102,6 +122,30 @@ class DBConnection {
             }
         }
         
+        task.resume()
+    }
+
+    
+    public func LoadVideo <T:Decodable>(route: String, content_Type: String,  content_ID: Int,completionHandler:@escaping(T)->Void){
+        guard let url = URL(string: "\(Connection.API_BASE_URL)\(content_Type)\(content_ID)\(route)\(Connection.API_KEY)") else { return }
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if (error != nil){
+                print ("error")
+            }else{
+                do{
+                    guard let data = data else { return }
+                    let deocder = JSONDecoder()
+                    deocder.keyDecodingStrategy = .convertFromSnakeCase
+                    let content = try JSONDecoder().decode(T.self, from: data)
+                    DispatchQueue.main.async {
+                        completionHandler(content)
+                    }
+                } catch{
+                    print(error)
+                }
+                
+            }
+        }
         task.resume()
     }
 }

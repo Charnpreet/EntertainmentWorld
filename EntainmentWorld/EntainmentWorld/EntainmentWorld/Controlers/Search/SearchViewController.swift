@@ -19,11 +19,13 @@ class SearchViewController<T>: UIViewController,UICollectionViewDataSource,UICol
         self.collection.keyboardDismissMode = .onDrag
     }
     //header: HeaderForCollectionReusableView
-    private func setUpSearchTextField() -> UISearchTextField{
-        let frame = CGRect(x: 1, y: 10, width: Constants.IOS_SCREEN_WIDTH-10, height: 40)
+    public func setUpSearchTextField() -> UISearchTextField{
+                print()
+        let frame = CGRect(x: Constants.IOS_SCREEN_WIDTH/8, y: 0, width: (Constants.IOS_SCREEN_WIDTH - Constants.IOS_SCREEN_WIDTH/5), height: 40)
       let  searchTextField = CustomSearchBar(frame: frame)
         searchTextField.placeholder = "Search Here"
-        searchTextField.backgroundColor = .white
+        searchTextField.backgroundColor = .black
+        searchTextField.textColor = .white
         searchTextField.addTarget(self, action: #selector(getSearchEditFIeldText(_:)), for: .editingDidEndOnExit);
         return searchTextField
     }
@@ -63,9 +65,6 @@ class SearchViewController<T>: UIViewController,UICollectionViewDataSource,UICol
 
      func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
          let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.COLLECTION_VIEW_HEADER_IDENTIFIER, for: indexPath)
-
-         searchTextField  = setUpSearchTextField()
-         header.addSubview(searchTextField)
          return header
      }
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

@@ -24,6 +24,7 @@ class CollectionViewCell: UICollectionViewCell {
         titleTextLabel.center = contentView.center
         titleTextLabel.textAlignment = .center
         titleTextLabel.textColor = .white
+        titleTextLabel.numberOfLines = 2
         contentView.addSubview(titleTextLabel)
         
       }

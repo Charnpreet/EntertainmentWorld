@@ -13,11 +13,17 @@ class NowPlayingMoviesDataSource :BaseDataProviderForMovieCollectionCell<MoviesD
 //MARK:-
 override   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
-       let url = URL(string: "\(Connection.IMAGE_URL_BASE_PATH)\(moviesList [indexPath.row].poster_path)")!
-       db.downloadImage(from: url, completionHandler: {(img) in
-           cell.cellImage.image = img
-       })
-
+    let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(moviesList [indexPath.row].poster_path ?? "")"
+    if(urlString.isEmpty){
+        cell.cellImage.image = UIImage(named: "img1")
+        return cell
+    }else{
+        guard let url = URL(string: urlString) else {return cell}
+        db.downloadImage(from: url, completionHandler: {(img) in
+            cell.cellImage.image = img
+        })
+        
+    }
     return cell
    }
        

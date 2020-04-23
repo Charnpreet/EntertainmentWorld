@@ -55,7 +55,7 @@ extension LoginViewController : WKNavigationDelegate {
     }
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         cp.progress.strokeEnd = 0.0
-        cp.LoadingBarAnimation()
+        cp.LoadingBarAnimation(toValue: 0.8)
         
         // pulsing is not working as expected
         //cp.pulsatingAnimation()

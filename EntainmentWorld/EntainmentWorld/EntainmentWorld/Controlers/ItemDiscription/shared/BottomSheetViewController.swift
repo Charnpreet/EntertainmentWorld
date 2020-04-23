@@ -7,50 +7,55 @@
 //
 
 import UIKit
-
 class BottomSheetViewController: UIViewController {
+    var rating: Float!
+    var videoUrl : String?
+    var totalVotes: String?
+    fileprivate var voteLabel = UILabel(frame: CGRect(x: 15, y: 20, width: 40, height: 30))
+    let cp = CircularAnimationView(frame: CGRect(x: 10, y: 20, width: 50, height: 30))
+    fileprivate var buttonImage = UIImage(named: "play")
+    fileprivate var noVideButtonImage = UIImage(named: "noPlay")
+    var playButton: UIButton!
     let fullView: CGFloat = 10
     var partialView: CGFloat {
         return UIScreen.main.bounds.height - 80
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BottomSheetViewController.panGesture))
-        view.addGestureRecognizer(gesture)
-        // Do any additional setup after loading the view.
+        InitalSetup()
+        LoadCircularAnimation()
     }
     
-    @objc func panGesture(recognizer: UIPanGestureRecognizer) {
-        let translation = recognizer.translation(in: self.view)
-              let velocity = recognizer.velocity(in: self.view)
-              let y = self.view.frame.minY
-              if (y + translation.y >= fullView) && (y + translation.y <= partialView) {
-                  self.view.frame = CGRect(x: 0, y: y + translation.y, width: view.frame.width, height: view.frame.height)
-                  recognizer.setTranslation(CGPoint.zero, in: self.view)
-              }
-              
-              if recognizer.state == .ended {
-                  var duration =  velocity.y < 0 ? Double((y - fullView) / -velocity.y) : Double((partialView - y) / velocity.y )
-
-                  duration = duration > 1.3 ? 1 : duration
-
-                  UIView.animate(withDuration: duration, delay: 0.0, options: [.allowUserInteraction], animations: {
-                      if  velocity.y >= 0 {
-                          self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
-                      } else {
-                          self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
-                      }
-
-                      }, completion: { [weak self] _ in
-                          if ( velocity.y < 0 ) {
-                             // self?.tableView.isScrollEnabled = true
-                           // self?.navigationController?.navigationBar.isTranslucent = false
-
-                          }
-                  })
-              }
-        
-        
+    func InitalSetup(){
+        setupButton()
+        setUplabel()
+    }
+    func LoadCircularAnimation(){
+        cp.progressColor =  .systemRed
+        view.addSubview(cp)
+        cp.LoadingBarAnimation(toValue: rating/10)
+    }
+    func setupButton(){
+       playButton = UIButton(frame: CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 15, width: 40, height: 40))
+       playButton.backgroundColor = .clear
+       playButton.setImage(buttonImage, for: .normal)
+       playButton.addTarget(self, action: #selector(PlayVideo), for: .touchUpInside)
+        view.addSubview(playButton)
+    }
+    @objc func PlayVideo(){
+        if let mvc = UIStoryboard(name: "VideoPlayerViewHolder", bundle: nil).instantiateViewController(withIdentifier: "VideoPlayerViewHolder") as? VideoPlayerViewHolder {
+            mvc.videoUrl = self.videoUrl
+            self.present(mvc, animated: true, completion: nil)
+        }
+    }
+    //
+    func setUplabel(){
+        voteLabel.text = "\(rating ?? 0.0)"
+        voteLabel.textAlignment = .center
+        voteLabel.textColor = .white
+        voteLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        voteLabel.backgroundColor = .clear
+        view.addSubview(voteLabel)
     }
     
     func prepareBackgroundView(){
@@ -58,8 +63,9 @@ class BottomSheetViewController: UIViewController {
         let blurEffect = UIBlurEffect.init(style: .systemThinMaterialDark)
         let visualEffect = UIVisualEffectView.init(effect: blurEffect)
         let bluredView = UIVisualEffectView.init(effect: blurEffect)
-        bluredView.contentView.addSubview(visualEffect)
-        
+        //  bluredView.contentView.addSubview(visualEffect)
+        visualEffect.backgroundColor = UIColor.black
+        visualEffect.isOpaque  = false
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
         
@@ -67,7 +73,7 @@ class BottomSheetViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-         self.tabBarController?.tabBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = true
         prepareBackgroundView()
         UIView.animate(withDuration: 0.3) { [weak self] in
             let frame = self?.view.frame
@@ -75,12 +81,12 @@ class BottomSheetViewController: UIViewController {
             self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height-100)
         }
     }
-       override func viewDidAppear(_ animated: Bool) {
-           super.viewDidAppear(animated)
-
-       }
-       override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+    }
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-            self.tabBarController?.tabBar.isHidden = false
-       }
+        self.tabBarController?.tabBar.isHidden = false
+    }
 }

@@ -55,4 +55,20 @@ class SearchShows : SearchViewController<TVShows> {
         detailVC.item = item
         navigationController?.pushViewController(detailVC, animated: true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.topItem?.title = ""
+        searchTextField  = setUpSearchTextField()
+        searchTextField.placeholder = "Search Tv Shows"
+        navigationController?.navigationBar.addSubview(self.searchTextField)
+        
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.topItem?.title = ""
+        self.searchTextField.removeFromSuperview()
+    }
 }
