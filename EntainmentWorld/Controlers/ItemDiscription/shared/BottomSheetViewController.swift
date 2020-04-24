@@ -10,11 +10,12 @@ import UIKit
 class BottomSheetViewController: UIViewController {
     var rating: Float!
     var videoUrl : String?
-    var hasVideo : Bool!
+    var totalVotes: String?
     fileprivate var voteLabel = UILabel(frame: CGRect(x: 15, y: 20, width: 40, height: 30))
     let cp = CircularAnimationView(frame: CGRect(x: 10, y: 20, width: 50, height: 30))
     fileprivate var buttonImage = UIImage(named: "play")
     fileprivate var noVideButtonImage = UIImage(named: "noPlay")
+    var playButton: UIButton!
     let fullView: CGFloat = 10
     var partialView: CGFloat {
         return UIScreen.main.bounds.height - 80
@@ -23,7 +24,6 @@ class BottomSheetViewController: UIViewController {
         super.viewDidLoad()
         InitalSetup()
         LoadCircularAnimation()
-        cp.LoadingBarAnimation(toValue: rating/10)
     }
     
     func InitalSetup(){
@@ -31,15 +31,16 @@ class BottomSheetViewController: UIViewController {
         setUplabel()
     }
     func LoadCircularAnimation(){
-        cp.progressColor =  .systemPink
+        cp.progressColor =  .systemRed
         view.addSubview(cp)
+        cp.LoadingBarAnimation(toValue: rating/10)
     }
     func setupButton(){
-        let button = UIButton(frame: CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 15, width: 40, height: 40))
-        button.backgroundColor = .clear
-        button.setImage(buttonImage, for: .normal)
-        button.addTarget(self, action: #selector(PlayVideo), for: .touchUpInside)
-        view.addSubview(button)
+       playButton = UIButton(frame: CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 15, width: 40, height: 40))
+       playButton.backgroundColor = .clear
+       playButton.setImage(buttonImage, for: .normal)
+       playButton.addTarget(self, action: #selector(PlayVideo), for: .touchUpInside)
+        view.addSubview(playButton)
     }
     @objc func PlayVideo(){
         if let mvc = UIStoryboard(name: "VideoPlayerViewHolder", bundle: nil).instantiateViewController(withIdentifier: "VideoPlayerViewHolder") as? VideoPlayerViewHolder {

@@ -52,6 +52,7 @@ class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows
         // 1- Init bottomSheetVC
         bottomSheetVC = BottomSheetViewController()
         bottomSheetVC.rating = item.vote_average
+        bottomSheetVC.totalVotes = "\(item.vote_count ?? 0) votes"
         // 2- Add bottomSheetVC as a child view
         self.addChild(bottomSheetVC)
         self.view.addSubview(bottomSheetVC.view)

@@ -36,9 +36,11 @@ class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
         db.LoadVideo(route: Routes.VIDEO_ROUTE, content_Type: Routes.MOVIE_CONTENT_TYPE, content_ID:item.id,completionHandler:{
             (videos: VideoResponse) in
             self.videos = videos.results
-            self.bottomSheetVC.videoUrl = self.videos[0].key
+            if(self.videos.count>0){
+                self.bottomSheetVC.videoUrl = self.videos[0].key
+            }
+             self.bottomSheetVC.playButton.isHidden = false
         })
-        
     }
     override func AddLabelToNavigationBar() {
         super.AddLabelToNavigationBar()
@@ -48,6 +50,7 @@ class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
         // 1- Init bottomSheetVC
         bottomSheetVC = BottomSheetViewController()
         bottomSheetVC.rating = item.vote_average
+        
         // 2- Add bottomSheetVC as a child view
         self.addChild(bottomSheetVC)
         self.view.addSubview(bottomSheetVC.view)
@@ -57,6 +60,7 @@ class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
         let height = view.frame.height
         let width  = view.frame.width
         bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+         self.bottomSheetVC.playButton.isHidden = true
         
     }
     override func viewWillAppear(_ animated: Bool) {

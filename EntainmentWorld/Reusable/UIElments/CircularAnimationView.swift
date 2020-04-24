@@ -68,7 +68,7 @@ class CircularAnimationView: UIView {
     public func LoadingBarAnimation(toValue: Float){
         let basicAnimation = CABasicAnimation(keyPath: "strokeEnd")
         basicAnimation.toValue = toValue //0.8
-        basicAnimation.duration = 2
+        basicAnimation.duration = 1
         basicAnimation.fillMode = .both
         basicAnimation.isRemovedOnCompletion = false
         progresslayer.add(basicAnimation, forKey: "basic")
