@@ -1,0 +1,6 @@
+module Pods_EntainmentWorld {
+  umbrella header "Pods-EntainmentWorld-umbrella.h"
+
+  export *
+  module * { export * }
+}
