@@ -10,9 +10,9 @@ import Foundation
 
 protocol LoadMoreDataProtocol {
     
-    func loadMoreOnAirShowData(completionHandler:@escaping()->Void)
-    func loadMoreOnAirTodayShowData(completionHandler:@escaping()->Void)
-    func loadMorePopularShowData(completionHandler:@escaping()->Void)
-    func loadMoreTopRatedShowData(completionHandler:@escaping()->Void)
+    func loadMoreOnAirShowData(completionHandler:@escaping(Bool)->Void)
+    func loadMoreOnAirTodayShowData(completionHandler:@escaping(Bool)->Void)
+    func loadMorePopularShowData(completionHandler:@escaping(Bool)->Void)
+    func loadMoreTopRatedShowData(completionHandler:@escaping(Bool)->Void)
     
 }

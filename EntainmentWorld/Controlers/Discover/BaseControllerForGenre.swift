@@ -11,7 +11,7 @@ import UIKit
 class BaseControllerForGenre<T>: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     let db = DBConnection()
     var collection: UICollectionView!
-    var genreList: [T] = []
+    var itemList: [T] = []
     var textlabel: UILabel?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,14 @@ class BaseControllerForGenre<T>: UIViewController,UICollectionViewDataSource,UIC
     func setupCollectionView(){
         let frame = CGRect(x:0 , y:1 , width: Constants.IOS_SCREEN_WIDTH , height: Constants.IOS_SCREEN_HEIGHT)
         collection =  UICollection.getUICollections(HScrolling: false, frame: frame, layout: UICollectionViewFlowLayout())
+        guard let collection = collection else{return}
         collection.register(CollectionViewCell.self, forCellWithReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
         collection.register(HeaderForCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.COLLECTION_VIEW_HEADER_IDENTIFIER)
         view.addSubview(collection)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  genreList.count
+        return  itemList.count
     }
     
     
@@ -41,18 +42,18 @@ class BaseControllerForGenre<T>: UIViewController,UICollectionViewDataSource,UIC
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.COLLECTION_VIEW_HEADER_IDENTIFIER, for: indexPath)
-        textlabel = UILabel(frame: CGRect(x: 0, y: 0, width: header.frame.width-10, height: header.frame.height/2))
-//        textlabel?.text = "Movie Genre" //"Browse  By Genre"
-        textlabel?.textAlignment = .center
-        textlabel?.textColor = .white
-        textlabel?.center = header.center
-        header.addSubview(textlabel ?? UILabel())
-        return header
-    }
+//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.COLLECTION_VIEW_HEADER_IDENTIFIER, for: indexPath)
+//        textlabel = UILabel(frame: CGRect(x: 0, y: 0, width: header.frame.width-10, height: header.frame.height/2))
+////        textlabel?.text = "Movie Genre" //"Browse  By Genre"
+//        textlabel?.textAlignment = .center
+//        textlabel?.textColor = .white
+//        textlabel?.center = header.center
+//        header.addSubview(textlabel ?? UILabel())
+//        return header
+//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: Constants.IOS_SCREEN_WIDTH, height: 60)
+        return .init(width: Constants.IOS_SCREEN_WIDTH, height: 0)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //

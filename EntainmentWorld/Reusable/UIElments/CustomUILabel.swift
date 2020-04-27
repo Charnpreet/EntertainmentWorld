@@ -9,12 +9,6 @@
 import UIKit
 
 class CustomUILabel: UILabel {
-//    fileprivate var needStyle: Bool
-//    var styleNeeded: Bool {
-//        didSet {
-//            needStyle = true
-//        }
-//    }
     override init(frame: CGRect) {
         super.init(frame:frame)
         setupLabel()

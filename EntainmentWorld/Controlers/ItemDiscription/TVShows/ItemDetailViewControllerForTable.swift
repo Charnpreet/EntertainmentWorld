@@ -7,23 +7,25 @@
 //
 
 import UIKit
-//UIViewController
-//BaseItemDetailController<T>
-
 
 class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows>{
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .clear
+        view.backgroundColor = .black
         loadImage()
         // Do any additional setup after loading the view.
     }
     
-    override  func loadImage(){
-        let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(item.poster_path ?? "")"
+    override func loadImage(){
         
+        titleTextLabel.text = ""
+        guard let poster = item.poster_path else {
+            self.titleTextLabel.text = item.name
+            return
+        }
+        let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(poster)"
         guard let url = URL(string: urlString) else {
-            self.backGroundImage.image = UIImage(named: "img1")
+            self.titleTextLabel.text = item.name
             return
             
         }
@@ -38,9 +40,11 @@ class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows
             (videos: VideoResponse) in
             self.videos = videos.results
             if(self.videos.count>0){
-                 self.bottomSheetVC.videoUrl = self.videos[0].key
+                self.bottomSheetVC.videoUrl = self.videos.map({return $0.key})
+                self.bottomSheetVC.totalVideosLabel.text = "\(self.bottomSheetVC.videoUrl.count) videos"
+                self.bottomSheetVC.table.reloadData()
+                self.playButtonState()
             }
-           
         })
         
     }
@@ -48,20 +52,29 @@ class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows
         super.AddLabelToNavigationBar()
         self.firstLabel.text = item.name
     }
-    func addBottomSheetView() {
+    
+    fileprivate func addView(){
         // 1- Init bottomSheetVC
         bottomSheetVC = BottomSheetViewController()
+        guard let bottomSheetVC = bottomSheetVC else{return}
         bottomSheetVC.rating = item.vote_average
-        bottomSheetVC.totalVotes = "\(item.vote_count ?? 0) votes"
+        guard let voteCount = item.vote_count else{return}
+        bottomSheetVC.totalVotes = "\(voteCount) votes"
         // 2- Add bottomSheetVC as a child view
         self.addChild(bottomSheetVC)
         self.view.addSubview(bottomSheetVC.view)
         bottomSheetVC.didMove(toParent: self)
-
+        
         // 3- Adjust bottomSheet frame and initial position.
         let height = view.frame.height
         let width  = view.frame.width
         bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
+    }
+    
+    
+    
+    func addBottomSheetView() {
+        addView()
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +82,10 @@ class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows
         AddLabelToNavigationBar()
         addBottomSheetView()
         loadVideo()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //self.navigationController?.navigationBar.topItem?.title = "Shows"
     }
 }
 

@@ -20,7 +20,7 @@ class CollectionViewCell: UICollectionViewCell {
         cellImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         cellImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         
-        titleTextLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 40))
+        titleTextLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 40)) //40
         titleTextLabel.center = contentView.center
         titleTextLabel.textAlignment = .center
         titleTextLabel.textColor = .white

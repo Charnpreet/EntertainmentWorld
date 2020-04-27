@@ -24,9 +24,9 @@ class SearchViewController<T>: UIViewController,UICollectionViewDataSource,UICol
         let frame = CGRect(x: Constants.IOS_SCREEN_WIDTH/8, y: 0, width: (Constants.IOS_SCREEN_WIDTH - Constants.IOS_SCREEN_WIDTH/5), height: 40)
       let  searchTextField = CustomSearchBar(frame: frame)
         searchTextField.placeholder = "Search Here"
-        searchTextField.backgroundColor = .black
-        searchTextField.textColor = .white
-        searchTextField.addTarget(self, action: #selector(getSearchEditFIeldText(_:)), for: .editingDidEndOnExit);
+        searchTextField.backgroundColor = .white
+        searchTextField.textColor = .black
+        searchTextField.addTarget(self, action: #selector(getSearchEditFIeldText(_:)), for: .editingChanged);
         return searchTextField
     }
     @objc func updateList(_ sender: UISearchTextField){
@@ -35,7 +35,7 @@ class SearchViewController<T>: UIViewController,UICollectionViewDataSource,UICol
     }
     
     func setupCollectionView(){
-        let frame = CGRect(x:  1 , y: 80 , width: Constants.IOS_SCREEN_WIDTH-1 , height: Constants.IOS_SCREEN_HEIGHT)
+        let frame = CGRect(x:  0 , y: 0 , width: Constants.IOS_SCREEN_WIDTH-1 , height: Constants.IOS_SCREEN_HEIGHT-40)
         collection =  UICollection.getUICollections(HScrolling: false, frame: frame, layout: UICollectionViewFlowLayout())
         collection.register(CollectionViewCell.self, forCellWithReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
         collection.register(HeaderForCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.COLLECTION_VIEW_HEADER_IDENTIFIER)

@@ -22,10 +22,16 @@ class  BaseDataProviderShowsCollectionCell<T>  : NSObject, UICollectionViewDataS
           return cell
       }
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-          return CGSize(width: collectionView.frame.width/3.3, height: collectionView.frame.width/2.3)
+          return CGSize(width: collectionView.frame.width/3.3, height: collectionView.frame.height) //collectionView.frame.width/2.3
       }
       
       func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.delegate.collectionViewSelected(item: shows[indexPath.row] as! TVShows)
+        guard let delegate = delegate else{return}
+        delegate.collectionViewSelected(item: shows[indexPath.row] as! TVShows)
+        //self.
       }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+    }
+
 }

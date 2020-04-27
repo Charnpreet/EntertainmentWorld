@@ -17,8 +17,8 @@ class TVShowsGenre: BaseControllerForGenre<Genre> {
         self.collection.delegate = self
         // Do any additional setup after loading the view.
         db.LoadGenre(route: Routes.TV_SHOWS_GENRE, completionHandler: {(tvShowGenre : GenreCollection) in
-            self.genreList.removeAll()
-            self.genreList = tvShowGenre.genres
+            self.itemList.removeAll()
+            self.itemList = tvShowGenre.genres
             self.collection.reloadData()
         })
     }
@@ -29,14 +29,14 @@ class TVShowsGenre: BaseControllerForGenre<Genre> {
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = ""
     }
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header =  super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath)
-        self.textlabel?.text = "TV Shows Genre"
-        return header
-    }
+//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        let header =  super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath)
+//        self.textlabel?.text = "TV Shows Genre"
+//        return header
+//    }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        LoadSegus(genreId: genreList[indexPath.row].id )
+        LoadSegus(genreId: itemList[indexPath.row].id )
     }
     
     func LoadSegus(genreId : Int){
@@ -47,7 +47,7 @@ class TVShowsGenre: BaseControllerForGenre<Genre> {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
-        cell.titleTextLabel.text = genreList[indexPath.row].name
+        cell.titleTextLabel.text = itemList[indexPath.row].name
         return cell
     }
 }

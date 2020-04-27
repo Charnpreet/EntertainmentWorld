@@ -10,13 +10,12 @@ import UIKit
 
 class MoreViewController: BaseViewController {
     let db = DBConnection()
-    var collection: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
-        self.table.rowHeight = Constants.IOS_SCREEN_HEIGHT/15
+        self.table.rowHeight = Constants.IOS_SCREEN_HEIGHT/12
         // Do any additional setup after loading the view.
-        self.table.register(UITableViewCell.self, forCellReuseIdentifier: "hello")
+        self.table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
         self.table.dataSource = self
         self.table.delegate = self
     }
@@ -30,14 +29,6 @@ extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if(section==0){
-            return "Search"
-        }
-        return "Discover"
-        
-    }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
@@ -51,9 +42,19 @@ extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
         
         
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "hello")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)!
+        let cellBckgrdView = UIView()
+        cellBckgrdView.backgroundColor = .clear
+        cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
         cell.accessoryType = .disclosureIndicator
+        cell.layer.cornerRadius = 25
+        //cell.layer.borderColor = UIColor.red.cgColor
+        cell.layer.borderWidth = 5
         if(indexPath.section==0){
             if(indexPath.row==0){
                 cell.textLabel?.text = "Search Movie"

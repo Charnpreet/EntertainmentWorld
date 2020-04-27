@@ -18,12 +18,23 @@ class SearchMovies: SearchViewController<MoviesDetails> {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
-        guard let url = URL(string: "\(Connection.IMAGE_URL_BASE_PATH)\(searchedItems[indexPath.row].poster_path ?? "")") else {
+        cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
+        cell.titleTextLabel.text = ""
+        
+        guard let poster = searchedItems[indexPath.row].poster_path else {
+            cell.titleTextLabel.text = searchedItems[indexPath.row].title
             return cell
         }
+        
+        let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(poster)"
+        guard let url = URL(string: urlString ) else {
+            cell.titleTextLabel.text = searchedItems[indexPath.row].title
+            
+            return cell }
         db.downloadImage(from: url, completionHandler: {(img) in
             cell.cellImage.image = img
         })
+        
         return cell
     }
     override func getSearchEditFIeldText(_ sender: UISearchTextField){
@@ -40,18 +51,17 @@ class SearchMovies: SearchViewController<MoviesDetails> {
             })
             
         }else{
-            print("is empty")
+            print("is empty") // this should presneted to user// either by alert dialog or some other kind of view
         }
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = ""
+         navigationController?.navigationBar.isHidden = false
         searchTextField  = setUpSearchTextField()
         searchTextField.placeholder = "Search Movies"
         navigationController?.navigationBar.addSubview(self.searchTextField)
-        
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

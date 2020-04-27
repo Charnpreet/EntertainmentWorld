@@ -19,6 +19,7 @@ class customUIImage: UIImage {
         iv.layer.cornerRadius = 12
         iv.layer.borderWidth = 1.5
         iv.layer.borderColor = UIColor.red.cgColor
+        iv.backgroundColor = .black
         return iv
     }
     

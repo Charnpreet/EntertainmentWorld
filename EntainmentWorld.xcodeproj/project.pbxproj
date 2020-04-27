@@ -72,7 +72,6 @@
 		A69E95B22444A47200AEE1B3 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69E95B12444A47200AEE1B3 /* Discover.storyboard */; };
 		A69E95B42444A4B900AEE1B3 /* TVShows.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69E95B32444A4B900AEE1B3 /* TVShows.storyboard */; };
 		A69E95B62444A4D600AEE1B3 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69E95B52444A4D600AEE1B3 /* More.storyboard */; };
-		A6A8132024517358002AA51B /* VideoPlayerViewHolder.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6A8131F24517358002AA51B /* VideoPlayerViewHolder.storyboard */; };
 		A6A81323245174A9002AA51B /* VideoPlayerViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A81322245174A9002AA51B /* VideoPlayerViewHolder.swift */; };
 		A6A81326245179B9002AA51B /* BaseControllerForItemDiscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A81325245179B9002AA51B /* BaseControllerForItemDiscription.swift */; };
 		A6B12B182443628300E80E99 /* MovieSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B12B172443628300E80E99 /* MovieSearch.swift */; };
@@ -189,7 +188,6 @@
 		A69E95B12444A47200AEE1B3 /* Discover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		A69E95B32444A4B900AEE1B3 /* TVShows.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TVShows.storyboard; sourceTree = "<group>"; };
 		A69E95B52444A4D600AEE1B3 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
-		A6A8131F24517358002AA51B /* VideoPlayerViewHolder.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VideoPlayerViewHolder.storyboard; sourceTree = "<group>"; };
 		A6A81322245174A9002AA51B /* VideoPlayerViewHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewHolder.swift; sourceTree = "<group>"; };
 		A6A81325245179B9002AA51B /* BaseControllerForItemDiscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseControllerForItemDiscription.swift; sourceTree = "<group>"; };
 		A6B12B172443628300E80E99 /* MovieSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearch.swift; sourceTree = "<group>"; };
@@ -325,7 +323,6 @@
 				A6B9011D244F29CF005378D1 /* TVShowsListByGenre.storyboard */,
 				A6B9011F244F2CC1005378D1 /* MoviesListByGenreID.storyboard */,
 				A696E6252450828A00C0199C /* BottamSheet.storyboard */,
-				A6A8131F24517358002AA51B /* VideoPlayerViewHolder.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -841,7 +838,6 @@
 				A642A6DE244D731000420DC8 /* BottomSheet.storyboard in Resources */,
 				A63E93C9243C493F006A8884 /* Search.storyboard in Resources */,
 				A63E93E0243C5FBE006A8884 /* Login.storyboard in Resources */,
-				A6A8132024517358002AA51B /* VideoPlayerViewHolder.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1210,6 +1206,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 274FU8ZBEU;
 				INFOPLIST_FILE = EntainmentWorld/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1229,6 +1226,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 274FU8ZBEU;
 				INFOPLIST_FILE = EntainmentWorld/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

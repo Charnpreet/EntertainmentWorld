@@ -25,11 +25,11 @@ class UItableCell: UITableViewCell {
              return collection.contentOffset.x
          }
      }
+
     
     // MARK:- class init methods
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
     }
 
     required init?(coder: NSCoder) {
@@ -48,7 +48,7 @@ class UItableCell: UITableViewCell {
     
     // MARK:- INITILIZES COLLECTION VIEW AND SETS ITS DATA SOURCE AND DELGATE PROVIDERS
      func initializeCollectionViewWithDataSource<D: UICollectionViewDataSource,E: UICollectionViewDelegate>(_ dataSource: D, delegate :E, forRow row: Int) {
-         let frame = CGRect(x:  10 , y: 1 , width: Constants.IOS_SCREEN_WIDTH-25 , height: Constants.IOS_SCREEN_HEIGHT/5.1)
+        let frame = CGRect(x:  10 , y: 1 , width: Constants.IOS_SCREEN_WIDTH-25 , height: Constants.IOS_SCREEN_HEIGHT/5.1)
          self.collectionViewDataSource = dataSource
          self.collectionViewDelegate = delegate
          let flowLayout = UICollectionViewFlowLayout()
@@ -61,7 +61,7 @@ class UItableCell: UITableViewCell {
          collectionView.tag = row
          self.addSubview(collectionView)
          self.collection = collectionView
-         collectionView.reloadData()
+          collectionView.reloadData()
      }
 }
 

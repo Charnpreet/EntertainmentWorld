@@ -7,70 +7,153 @@
 //
 
 import UIKit
+import YouTubePlayer
 class BottomSheetViewController: UIViewController {
+    var videoUrl : [String] = []
+    var player : YouTubePlayerView!
+    var table : CustomTable!
     var rating: Float!
-    var videoUrl : String?
     var totalVotes: String?
-    fileprivate var voteLabel = UILabel(frame: CGRect(x: 15, y: 20, width: 40, height: 30))
+    
+    var totalVideosLabel = UILabel(frame: CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 60, width: 100, height: 30))
+    fileprivate var totalVotesLabel = UILabel(frame: CGRect(x: 0, y: 60, width: 100, height: 30))
+    fileprivate var ratingLabel = UILabel(frame: CGRect(x: 15, y: 20, width: 40, height: 30))
     let cp = CircularAnimationView(frame: CGRect(x: 10, y: 20, width: 50, height: 30))
-    fileprivate var buttonImage = UIImage(named: "play")
-    fileprivate var noVideButtonImage = UIImage(named: "noPlay")
     var playButton: UIButton!
-    let fullView: CGFloat = 10
+    // fileprivate var buttonImage = UIImage(named: "play")
+    fileprivate var noVideButtonImage = UIImage(named: "noPlay")
+    let fullView: CGFloat = Constants.IOS_SCREEN_HEIGHT/9.5
     var partialView: CGFloat {
-        return UIScreen.main.bounds.height - 80
+        return UIScreen.main.bounds.height - 100
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         InitalSetup()
-        LoadCircularAnimation()
+        roundViews()
+    }
+    func InitalSetup(){
+        setUpPanGesture()
+        setUpTableView()
+        setUptopView()
+        
     }
     
-    func InitalSetup(){
-        setupButton()
-        setUplabel()
+    
+    
+    
+    func setUptopView(){
+        let topView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: 90))
+        topView.backgroundColor = .black
+        setupButton(view: topView)
+        setUplabel(view: topView)
+        LoadCircularAnimation(view: topView)
+        topView.layer.borderWidth = 3
+        topView.layer.cornerRadius = 25
+        topView.layer.borderColor = UIColor.systemRed.cgColor
+        self.view.addSubview(topView)
+
     }
-    func LoadCircularAnimation(){
-        cp.progressColor =  .systemRed
-        view.addSubview(cp)
-        cp.LoadingBarAnimation(toValue: rating/10)
+    
+    
+    //
+    func setUplabel(view: UIView){
+        guard let rating = rating else{return}
+        //
+        //
+        labelsetup(label: ratingLabel, text: "\(rating)", view: view)
+        guard let totalVotes = totalVotes else {return}
+        //
+        //
+        labelsetup(label: totalVotesLabel, text: totalVotes, view: view)
+        totalVotesLabel.font = UIFont.boldSystemFont(ofSize: 10)
+        totalVideosLabel.textAlignment = .left
+        
+        labelsetup(label: totalVideosLabel, text: "0 videos", view: view) //
+        totalVideosLabel.font = UIFont.boldSystemFont(ofSize: 10)
+        totalVideosLabel.textAlignment = .left
+        
     }
-    func setupButton(){
-       playButton = UIButton(frame: CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 15, width: 40, height: 40))
-       playButton.backgroundColor = .clear
-       playButton.setImage(buttonImage, for: .normal)
-       playButton.addTarget(self, action: #selector(PlayVideo), for: .touchUpInside)
-        view.addSubview(playButton)
+    
+    func LoadCircularAnimation(view: UIView){
+           cp.progressColor =  .systemRed
+           view.addSubview(cp)
+           cp.LoadingBarAnimation(toValue: rating/10)
+       }
+    
+    
+    func setupButton(view: UIView){
+          playButton = UIButton(frame: CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 13, width: 40, height: 40))
+          guard let playButton = playButton else{return}
+          playButton.backgroundColor = .clear
+          playButton.setImage( noVideButtonImage, for: .normal)
+          playButton.isUserInteractionEnabled = false
+          playButton.addTarget(self, action: #selector(ExpandBottamViewSheet), for: .touchUpInside)
+          view.addSubview(playButton)
+      }
+    
+    fileprivate func labelsetup(label: UILabel, text: String, view: UIView){
+        label.text = text
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.backgroundColor = .clear
+        view.addSubview(label)
+       }
+    fileprivate func setUpPanGesture(){
+        let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BottomSheetViewController.panGesture))
+        view.addGestureRecognizer(gesture)
     }
-    @objc func PlayVideo(){
-        if let mvc = UIStoryboard(name: "VideoPlayerViewHolder", bundle: nil).instantiateViewController(withIdentifier: "VideoPlayerViewHolder") as? VideoPlayerViewHolder {
-            mvc.videoUrl = self.videoUrl
-            self.present(mvc, animated: true, completion: nil)
+    fileprivate func setUpTableView(){
+        let frame = CGRect(x: 0, y: 100, width: Constants.IOS_SCREEN_WIDTH, height: self.view.frame.height - 150)
+        table = CustomTable(frame: frame, style: .plain)
+        self.table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.TABLE_VIEW_CELL_IDENTIFIER)
+        self.table.dataSource = self
+        self.table.delegate = self
+        self.view.addSubview(table)
+    }
+    
+    
+    @objc func panGesture(_ recognizer: UIPanGestureRecognizer) {
+        if recognizer.state == .ended {
+            UIView.animate(withDuration: 0.6, animations: {
+                self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+            })
         }
     }
-    //
-    func setUplabel(){
-        voteLabel.text = "\(rating ?? 0.0)"
-        voteLabel.textAlignment = .center
-        voteLabel.textColor = .white
-        voteLabel.font = UIFont.boldSystemFont(ofSize: 16)
-        voteLabel.backgroundColor = .clear
-        view.addSubview(voteLabel)
+    @objc func ExpandBottamViewSheet(){
+        
+        UIView.animate(withDuration: 0.4, animations: {
+            self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
+        })
+        
     }
-    
     func prepareBackgroundView(){
         //view.backgroundColor = .clear
-        let blurEffect = UIBlurEffect.init(style: .systemThinMaterialDark)
+        let blurEffect = UIBlurEffect.init(style: .dark)
         let visualEffect = UIVisualEffectView.init(effect: blurEffect)
         let bluredView = UIVisualEffectView.init(effect: blurEffect)
-        //  bluredView.contentView.addSubview(visualEffect)
+        bluredView.contentView.addSubview(visualEffect)
         visualEffect.backgroundColor = UIColor.black
-        visualEffect.isOpaque  = false
+       // visualEffect.isOpaque  = false
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
-        
+        bluredView.alpha = 1.0
         view.insertSubview(bluredView, at: 0)
     }
+    
+    func roundViews() {
+        view.layer.cornerRadius = 30
+        view.layer.borderWidth = 3
+        view.layer.borderColor = UIColor.systemRed.cgColor
+        view.clipsToBounds = true
+    }
+    
+    func setUpVieoForYouTubePlayer(width: CGFloat, height: CGFloat) ->YouTubePlayerView{
+        player = YouTubePlayerView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        return player
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
@@ -78,7 +161,9 @@ class BottomSheetViewController: UIViewController {
         UIView.animate(withDuration: 0.3) { [weak self] in
             let frame = self?.view.frame
             let yComponent = self?.partialView
-            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height-100)
+            // force unrap needs to fixed
+            // can crash your app
+            self?.view.frame = CGRect(x: 0, y: yComponent!, width: frame!.width, height: frame!.height-85)
         }
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -88,5 +173,34 @@ class BottomSheetViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
+    }
+}
+
+
+extension BottomSheetViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return videoUrl.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TABLE_VIEW_CELL_IDENTIFIER)!
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cell = cell as UITableViewCell
+        let cellBckgrdView = UIView()
+        cell.backgroundColor = .black
+        cellBckgrdView.backgroundColor = .black
+        cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
+        cell.accessoryType = .disclosureIndicator
+        let player = setUpVieoForYouTubePlayer(width: cell.frame.width, height: cell.frame.height)
+        cell.addSubview(player)
+        if(self.videoUrl.count>0){
+            player.loadVideoID(videoUrl[indexPath.row])
+        }
     }
 }

@@ -25,7 +25,8 @@ class VideoPlayerViewHolder: UIViewController, YouTubePlayerDelegate {
         player.layer.borderWidth = 6
         player.layer.borderColor = UIColor.red.cgColor
         self.view.addSubview(player)
-        player.loadVideoID(videoUrl!)
+        guard let videoUrl = videoUrl else{return}
+        player.loadVideoID(videoUrl)
         
     }
 

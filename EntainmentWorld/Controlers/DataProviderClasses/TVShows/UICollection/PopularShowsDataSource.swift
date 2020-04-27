@@ -14,18 +14,36 @@ class PopularShowsDataSource : BaseDataProviderShowsCollectionCell<TVShows>{
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         
-        let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(shows[indexPath.row].poster_path ?? "")"
+                cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
         
-        guard let url = URL(string: urlString ) else { return cell }
-        db.downloadImage(from: url, completionHandler: {(img) in
-            cell.cellImage.image = img
-        })
+            cell.titleTextLabel.text = ""
+        
+        
+        let pPath = shows[indexPath.row].poster_path
+              guard let posterPath = pPath else {
+                cell.titleTextLabel.text = shows[indexPath.row].name
+                  return cell
+                  
+              }
+              let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(posterPath)"
+              
+              guard let url = URL(string: urlString ) else {
+                  cell.titleTextLabel.text = shows[indexPath.row].name
+                  return cell
+                  
+              }
+              db.downloadImage(from: url, completionHandler: {(img) in
+                  cell.cellImage.image = img
+              })
         return cell
     }
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == shows.count - 1 {
-            self.loadMoreContent.loadMorePopularShowData(completionHandler: {
-                collectionView.reloadData()
+            self.loadMoreContent.loadMorePopularShowData(completionHandler: { (loaded) in
+                if(loaded){
+                  collectionView.reloadData()
+                }
+                
             })
         }
     }

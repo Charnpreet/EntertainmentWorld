@@ -15,20 +15,36 @@ class TVShowsListByGenre : BaseControllerForGenre<TVShows>{
         self.collection.dataSource = self
         self.collection.delegate = self
         
+        guard let genreId = genreId else{return}
         self.db.loadContentWithGenreId(pageNO: 1, route: Routes.DISCOVER_SHOWS_BY_GENRE_ID, genreId: genreId, completionHandler: { (shows: TVShowsResponse )in
-            self.genreList = shows.results
+            self.itemList = shows.results
             self.collection.reloadData()
         })
         
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        LoadSegus(item: genreList[indexPath.row])
+        LoadSegus(item: itemList[indexPath.row])
     }
+    
+    
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
-        let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(genreList[indexPath.row].poster_path ?? "")"
-        guard let url = URL(string: urlString ) else { return cell }
+        
+        cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
+        cell.titleTextLabel.text = ""
+        
+        guard let poster = itemList[indexPath.row].poster_path else {
+            cell.titleTextLabel.text = itemList[indexPath.row].name
+            return cell
+        }
+        
+        let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(poster)"
+        guard let url = URL(string: urlString ) else {
+            cell.titleTextLabel.text = itemList[indexPath.row].name
+
+            return cell }
         db.downloadImage(from: url, completionHandler: {(img) in
             cell.cellImage.image = img
         })

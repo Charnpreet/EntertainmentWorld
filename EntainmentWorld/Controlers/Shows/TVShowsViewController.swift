@@ -14,9 +14,9 @@ class TVShowsViewController: BaseViewController {
         SetupDataProviders()
     }
     
-    override func navigationBarSetUp() {
-        super.navigationBarSetUp()
-        navigationController?.navigationBar.topItem?.title = "Shows"
+   override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       //  navigationController?.navigationBar.topItem?.title = "Shows"
     }
     override func setUptable(){
            super.setUptable()
@@ -24,6 +24,7 @@ class TVShowsViewController: BaseViewController {
        }
     func SetupDataProviders(){
         dataprovider = DataSourceProviderForTable()
+        guard let dataprovider = dataprovider else{return}
         table.dataSource = dataprovider
         table.delegate  = dataprovider
         dataprovider.screenSegus = self
