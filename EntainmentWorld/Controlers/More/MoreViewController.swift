@@ -77,8 +77,8 @@ extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     private  func LoadSearchView(rowNo: Int){
-        let searchVC = UIStoryboard(name: "Search", bundle: nil).instantiateViewController(withIdentifier: "Search")
-        let searchShowsVC = UIStoryboard(name: "SearchShows", bundle: nil).instantiateViewController(withIdentifier: "SearchShows")
+        let searchVC = UIStoryboard(name: Constants.SEARCHMOVIES_STORYBOARD_IDENTIFERS, bundle: nil).instantiateViewController(withIdentifier: Constants.SEARCHMOVIES_STORYBOARD_IDENTIFERS)
+        let searchShowsVC = UIStoryboard(name: Constants.SEARCH_SHOWS_STORYBOARD_IDENTIFER, bundle: nil).instantiateViewController(withIdentifier: Constants.SEARCH_SHOWS_STORYBOARD_IDENTIFER)
         if(rowNo==0){
             navigationController?.pushViewController(searchVC, animated: true)
         }
@@ -89,8 +89,8 @@ extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     private func LoadBrowsByGenreView(rowNo: Int){
-        let discoverVC = UIStoryboard(name: "Discover", bundle: nil).instantiateViewController(withIdentifier: "Discover")
-        let tvShowGenreVC = UIStoryboard(name: "ShowsGenre", bundle: nil).instantiateViewController(withIdentifier: "ShowsGenre")
+        let discoverVC = UIStoryboard(name: Constants.DICCOVER_STORYBOARD_IDENTIFER, bundle: nil).instantiateViewController(withIdentifier: Constants.DICCOVER_STORYBOARD_IDENTIFER)
+        let tvShowGenreVC = UIStoryboard(name:Constants.TV_SHOWS_GENRE_STORYBOARD_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.TV_SHOWS_GENRE_STORYBOARD_IDENTIFIER)
         if(rowNo==0){
             navigationController?.pushViewController(discoverVC, animated: true)
         }

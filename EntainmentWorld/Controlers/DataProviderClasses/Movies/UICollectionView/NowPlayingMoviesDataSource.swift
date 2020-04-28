@@ -16,7 +16,7 @@ class NowPlayingMoviesDataSource :BaseDataProviderForMovieCollectionCell<MoviesD
         
                 cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
         
-        cell.titleTextLabel.text = ""
+        cell.titleTextLabel.text = Constants.EMPTY_TEXT
         
     
         let pPath = moviesList[indexPath.row].poster_path

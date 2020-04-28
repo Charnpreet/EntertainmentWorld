@@ -32,7 +32,7 @@ class TVShowsViewController: BaseViewController {
 }
 extension TVShowsViewController : DoSegus {
     func LoadSegus(item : TVShows) {
-        let detailVC = UIStoryboard(name: "TVShowsDetails", bundle: nil).instantiateViewController(withIdentifier: "ItemDetails") as! ItemDetailViewControllerForTable
+        let detailVC = UIStoryboard(name: Constants.SHOW_DETAILS_STORYBOARD_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.SHOW_DETAILS_VIEW_CONTROLLER_IDENTIFIER) as! ItemDetailViewControllerForTable
         detailVC.item = item
         navigationController?.pushViewController(detailVC, animated: true)
     }

@@ -23,24 +23,18 @@ class TVShowsGenre: BaseControllerForGenre<Genre> {
         })
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
     }
-//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let header =  super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath)
-//        self.textlabel?.text = "TV Shows Genre"
-//        return header
-//    }
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         LoadSegus(genreId: itemList[indexPath.row].id )
     }
     
     func LoadSegus(genreId : Int){
-          let vc = UIStoryboard(name: "TVShowsListByGenre", bundle: nil).instantiateViewController(withIdentifier: "TVShowsListByGenre") as! TVShowsListByGenre
+        let vc = UIStoryboard(name: Constants.TV_SHOWS_GENRE_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.TV_SHOWS_GENRE_IDENTIFIER) as! TVShowsListByGenre
         vc.genreId = genreId
           navigationController?.pushViewController(vc, animated: true)
       }

@@ -21,7 +21,7 @@ class SearchShows : SearchViewController<TVShows> {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
-        cell.titleTextLabel.text = ""
+        cell.titleTextLabel.text = Constants.EMPTY_TEXT
         
         guard let poster = searchedItems[indexPath.row].poster_path else {
             cell.titleTextLabel.text = searchedItems[indexPath.row].name
@@ -61,14 +61,14 @@ class SearchShows : SearchViewController<TVShows> {
     }
     
     func LoadSegus(item : TVShows){
-        let detailVC = UIStoryboard(name: "TVShowsDetails", bundle: nil).instantiateViewController(withIdentifier: "ItemDetails") as! ItemDetailViewControllerForTable
+        let detailVC = UIStoryboard(name: Constants.SHOW_DETAILS_STORYBOARD_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.SHOW_DETAILS_VIEW_CONTROLLER_IDENTIFIER) as! ItemDetailViewControllerForTable
         detailVC.item = item
         navigationController?.pushViewController(detailVC, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
         searchTextField  = setUpSearchTextField()
         searchTextField.placeholder = "Search Tv Shows"
         navigationController?.navigationBar.addSubview(self.searchTextField)
@@ -78,7 +78,7 @@ class SearchShows : SearchViewController<TVShows> {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
         self.searchTextField.removeFromSuperview()
     }
 }

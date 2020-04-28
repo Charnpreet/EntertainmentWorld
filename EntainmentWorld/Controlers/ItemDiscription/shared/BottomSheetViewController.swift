@@ -15,14 +15,14 @@ class BottomSheetViewController: UIViewController {
     var rating: Float!
     var totalVotes: String?
     
-    var totalVideosLabel = UILabel(frame: CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 60, width: 100, height: 30))
-    fileprivate var totalVotesLabel = UILabel(frame: CGRect(x: 0, y: 60, width: 100, height: 30))
-    fileprivate var ratingLabel = UILabel(frame: CGRect(x: 15, y: 20, width: 40, height: 30))
-    let cp = CircularAnimationView(frame: CGRect(x: 10, y: 20, width: 50, height: 30))
+    var totalVideosLabel = UILabel(frame: Frames.TOTAL_VIDEOS_LABEL_FRAME_CG_REACT)
+    fileprivate var totalVotesLabel = UILabel(frame: Frames.TOTAL_VOTES_LABEL_FRAME_CG_REACT)
+    fileprivate var ratingLabel = UILabel(frame: Frames.RATING_LABEL_FRAME_CG_REACT)
+    let cp = CircularAnimationView(frame: Frames.CIRCULAR_ANIMATION_VIEW_FRAME_CG_REACT)
     var playButton: UIButton!
     // fileprivate var buttonImage = UIImage(named: "play")
-    fileprivate var noVideButtonImage = UIImage(named: "noPlay")
-    let fullView: CGFloat = Constants.IOS_SCREEN_HEIGHT/9.5
+    fileprivate var noVideButtonImage = UIImage(named: Constants.NO_PLAY_VIDEO_BUTTON_IMAGE)
+    let fullView: CGFloat = Constants.IOS_SCREEN_HEIGHT/3
     var partialView: CGFloat {
         return UIScreen.main.bounds.height - 100
     }
@@ -43,13 +43,10 @@ class BottomSheetViewController: UIViewController {
     
     func setUptopView(){
         let topView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: 90))
-        topView.backgroundColor = .black
+        topView.backgroundColor = .clear
         setupButton(view: topView)
         setUplabel(view: topView)
         LoadCircularAnimation(view: topView)
-        topView.layer.borderWidth = 3
-        topView.layer.cornerRadius = 25
-        topView.layer.borderColor = UIColor.systemRed.cgColor
         self.view.addSubview(topView)
 
     }
@@ -82,7 +79,7 @@ class BottomSheetViewController: UIViewController {
     
     
     func setupButton(view: UIView){
-          playButton = UIButton(frame: CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 13, width: 40, height: 40))
+        playButton = UIButton(frame: Frames.PLAY_VIDEO_BUTTON_FRAME_CG_REACT)
           guard let playButton = playButton else{return}
           playButton.backgroundColor = .clear
           playButton.setImage( noVideButtonImage, for: .normal)
@@ -104,7 +101,9 @@ class BottomSheetViewController: UIViewController {
         view.addGestureRecognizer(gesture)
     }
     fileprivate func setUpTableView(){
-        let frame = CGRect(x: 0, y: 100, width: Constants.IOS_SCREEN_WIDTH, height: self.view.frame.height - 150)
+        
+        let height = fullView+100
+        let frame = CGRect(x: 0, y: 100, width: Constants.IOS_SCREEN_WIDTH, height: self.view.frame.height - height)
         table = CustomTable(frame: frame, style: .plain)
         self.table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.TABLE_VIEW_CELL_IDENTIFIER)
         self.table.dataSource = self
@@ -133,18 +132,15 @@ class BottomSheetViewController: UIViewController {
         let visualEffect = UIVisualEffectView.init(effect: blurEffect)
         let bluredView = UIVisualEffectView.init(effect: blurEffect)
         bluredView.contentView.addSubview(visualEffect)
-        visualEffect.backgroundColor = UIColor.black
-       // visualEffect.isOpaque  = false
+      //  visualEffect.isOpaque  = false
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
-        bluredView.alpha = 1.0
+        bluredView.alpha = 0.2
         view.insertSubview(bluredView, at: 0)
     }
     
     func roundViews() {
-        view.layer.cornerRadius = 30
-        view.layer.borderWidth = 3
-        view.layer.borderColor = UIColor.systemRed.cgColor
+        view.layer.cornerRadius = 25
         view.clipsToBounds = true
     }
     
@@ -193,7 +189,6 @@ extension BottomSheetViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell = cell as UITableViewCell
         let cellBckgrdView = UIView()
-        cell.backgroundColor = .black
         cellBckgrdView.backgroundColor = .black
         cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
         cell.accessoryType = .disclosureIndicator

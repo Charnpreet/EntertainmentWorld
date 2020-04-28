@@ -19,7 +19,7 @@ class SearchMovies: SearchViewController<MoviesDetails> {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
-        cell.titleTextLabel.text = ""
+        cell.titleTextLabel.text = Constants.EMPTY_TEXT
         
         guard let poster = searchedItems[indexPath.row].poster_path else {
             cell.titleTextLabel.text = searchedItems[indexPath.row].title
@@ -57,7 +57,7 @@ class SearchMovies: SearchViewController<MoviesDetails> {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
          navigationController?.navigationBar.isHidden = false
         searchTextField  = setUpSearchTextField()
         searchTextField.placeholder = "Search Movies"
@@ -66,7 +66,7 @@ class SearchMovies: SearchViewController<MoviesDetails> {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        navigationController?.navigationBar.topItem?.title = ""
+        navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
         self.searchTextField.removeFromSuperview()
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -74,7 +74,7 @@ class SearchMovies: SearchViewController<MoviesDetails> {
     }
     
     func LoadSegus(item : MoviesDetails){
-        let detailVC = UIStoryboard(name: "moviesDiscription", bundle: nil).instantiateViewController(withIdentifier: "moviesDiscription") as! MoviesDetailsController
+        let detailVC = UIStoryboard(name: Constants.MOVIE_DETAILS_STORYBOARD_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.MOVIE_DETAILS_STORYBOARD_IDENTIFIER) as! MoviesDetailsController
         detailVC.item = item
         navigationController?.pushViewController(detailVC, animated: true)
     }

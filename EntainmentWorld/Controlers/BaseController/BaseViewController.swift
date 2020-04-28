@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 //
 // base controller for Tv and Movie Shows
 // both will inhrit common properties from it
@@ -26,7 +25,7 @@ class BaseViewController: UIViewController {
      }
      //setup table view
      func setUptable(){
-         let frame = CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: Constants.IOS_SCREEN_HEIGHT)
+        let frame = Frames.BASE_VC_TABLE_FRAME_CG_REACT 
         table = CustomTable(frame: frame, style: .plain)
         guard let table = table else{return}
          view.addSubview(table)

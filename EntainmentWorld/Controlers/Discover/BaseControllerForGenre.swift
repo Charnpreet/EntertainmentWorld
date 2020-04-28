@@ -19,7 +19,7 @@ class BaseControllerForGenre<T>: UIViewController,UICollectionViewDataSource,UIC
     }
     
     func setupCollectionView(){
-        let frame = CGRect(x:0 , y:1 , width: Constants.IOS_SCREEN_WIDTH , height: Constants.IOS_SCREEN_HEIGHT)
+        let frame = Frames.GENRE_BASE_CONTROLLER_FRAME_CG_REACT
         collection =  UICollection.getUICollections(HScrolling: false, frame: frame, layout: UICollectionViewFlowLayout())
         guard let collection = collection else{return}
         collection.register(CollectionViewCell.self, forCellWithReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
@@ -38,20 +38,8 @@ class BaseControllerForGenre<T>: UIViewController,UICollectionViewDataSource,UIC
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
-        //cell.titleTextLabel.text = genreList[indexPath.row].name
         return cell
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Constants.COLLECTION_VIEW_HEADER_IDENTIFIER, for: indexPath)
-//        textlabel = UILabel(frame: CGRect(x: 0, y: 0, width: header.frame.width-10, height: header.frame.height/2))
-////        textlabel?.text = "Movie Genre" //"Browse  By Genre"
-//        textlabel?.textAlignment = .center
-//        textlabel?.textColor = .white
-//        textlabel?.center = header.center
-//        header.addSubview(textlabel ?? UILabel())
-//        return header
-//    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return .init(width: Constants.IOS_SCREEN_WIDTH, height: 0)
     }

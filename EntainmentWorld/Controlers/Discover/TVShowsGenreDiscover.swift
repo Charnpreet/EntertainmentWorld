@@ -33,7 +33,7 @@ class TVShowsListByGenre : BaseControllerForGenre<TVShows>{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         
         cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
-        cell.titleTextLabel.text = ""
+        cell.titleTextLabel.text = Constants.EMPTY_TEXT
         
         guard let poster = itemList[indexPath.row].poster_path else {
             cell.titleTextLabel.text = itemList[indexPath.row].name
@@ -53,7 +53,7 @@ class TVShowsListByGenre : BaseControllerForGenre<TVShows>{
 }
 extension TVShowsListByGenre  : DoSegus {
     func LoadSegus(item : TVShows) {
-        let detailVC = UIStoryboard(name: "TVShowsDetails", bundle: nil).instantiateViewController(withIdentifier: "ItemDetails") as! ItemDetailViewControllerForTable
+        let detailVC = UIStoryboard(name: Constants.SHOW_DETAILS_STORYBOARD_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.SHOW_DETAILS_VIEW_CONTROLLER_IDENTIFIER) as! ItemDetailViewControllerForTable
         detailVC.item = item
         navigationController?.pushViewController(detailVC, animated: true)
     }

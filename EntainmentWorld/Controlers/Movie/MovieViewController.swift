@@ -20,7 +20,6 @@ class MovieViewController: BaseViewController {
             dataProvider.screenSegus = self
             table.dataSource = dataProvider
             table.delegate  = dataProvider
-          //  dataProvider.loadingData()
         
         }
     
@@ -30,7 +29,6 @@ class MovieViewController: BaseViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // navigationController?.navigationBar.topItem?.title = "Movies"
     }
 }
 
@@ -38,7 +36,7 @@ class MovieViewController: BaseViewController {
 
 extension MovieViewController : DoSegusForMovies {
     func LoadSegus(item : MoviesDetails){
-         let detailVC = UIStoryboard(name: "moviesDiscription", bundle: nil).instantiateViewController(withIdentifier: "moviesDiscription") as! MoviesDetailsController
+        let detailVC = UIStoryboard(name: Constants.MOVIE_DETAILS_STORYBOARD_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.MOVIE_DETAILS_STORYBOARD_IDENTIFIER) as! MoviesDetailsController
         detailVC.item = item
         navigationController?.pushViewController(detailVC, animated: true)
     }

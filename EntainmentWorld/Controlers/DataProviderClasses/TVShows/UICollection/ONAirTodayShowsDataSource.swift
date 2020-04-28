@@ -15,7 +15,7 @@ class ONAirTodayShowsDataSource : BaseDataProviderShowsCollectionCell<TVShows>{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
         
-        cell.titleTextLabel.text = ""
+        cell.titleTextLabel.text = Constants.EMPTY_TEXT
         
         let pPath = shows[indexPath.row].poster_path
         guard let posterPath = pPath else {

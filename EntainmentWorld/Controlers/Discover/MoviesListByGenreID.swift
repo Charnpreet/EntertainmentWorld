@@ -27,7 +27,7 @@ class MoviesListByGenreID : BaseControllerForGenre<MoviesDetails>{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         
         cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
-        cell.titleTextLabel.text = ""
+        cell.titleTextLabel.text = Constants.EMPTY_TEXT
         
         guard let poster = itemList[indexPath.row].poster_path else {
             cell.titleTextLabel.text = itemList[indexPath.row].title
@@ -48,7 +48,7 @@ class MoviesListByGenreID : BaseControllerForGenre<MoviesDetails>{
 
 extension MoviesListByGenreID : DoSegusForMovies {
     func LoadSegus(item : MoviesDetails){
-        let detailVC = UIStoryboard(name: "moviesDiscription", bundle: nil).instantiateViewController(withIdentifier: "moviesDiscription") as! MoviesDetailsController
+        let detailVC = UIStoryboard(name: Constants.MOVIE_DETAILS_STORYBOARD_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.MOVIE_DETAILS_STORYBOARD_IDENTIFIER) as! MoviesDetailsController
         detailVC.item = item
         navigationController?.pushViewController(detailVC, animated: true)
     }

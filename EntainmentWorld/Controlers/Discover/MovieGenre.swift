@@ -22,17 +22,12 @@ class  MovieGenre: BaseControllerForGenre<Genre> {
         })
     }
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
     }
-//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let header =  super.collectionView(collectionView, viewForSupplementaryElementOfKind: kind, at: indexPath)
-//        self.textlabel?.text = "Movie Genre"
-//        return header
-//    }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         LoadSegus(genreId: itemList[indexPath.row].id )
     }
@@ -45,7 +40,7 @@ class  MovieGenre: BaseControllerForGenre<Genre> {
     
     
 func LoadSegus(genreId : Int){
-        let vc = UIStoryboard(name: "MoviesListByGenreID", bundle: nil).instantiateViewController(withIdentifier: "MoviesListByGenreID") as! MoviesListByGenreID
+    let vc = UIStoryboard(name: Constants.MOVIE_GENRE_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.MOVIE_GENRE_IDENTIFIER) as! MoviesListByGenreID
       vc.genreId = genreId
         navigationController?.pushViewController(vc, animated: true)
     }

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//SearchControllerDataProvider<T>
 class SearchViewController<T>: UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     var searchTextField : UISearchTextField!
     let db = DBConnection()
@@ -21,7 +20,7 @@ class SearchViewController<T>: UIViewController,UICollectionViewDataSource,UICol
     //header: HeaderForCollectionReusableView
     public func setUpSearchTextField() -> UISearchTextField{
                 print()
-        let frame = CGRect(x: Constants.IOS_SCREEN_WIDTH/8, y: 0, width: (Constants.IOS_SCREEN_WIDTH - Constants.IOS_SCREEN_WIDTH/5), height: 40)
+        let frame = Frames.SEARCHBAR_FRAME_CG_REACT
       let  searchTextField = CustomSearchBar(frame: frame)
         searchTextField.placeholder = "Search Here"
         searchTextField.backgroundColor = .white
@@ -35,7 +34,7 @@ class SearchViewController<T>: UIViewController,UICollectionViewDataSource,UICol
     }
     
     func setupCollectionView(){
-        let frame = CGRect(x:  0 , y: 0 , width: Constants.IOS_SCREEN_WIDTH-1 , height: Constants.IOS_SCREEN_HEIGHT-40)
+        let frame = Frames.SEARCH_VC_COLLECTION_VIEW_FRAME_CG_REACT
         collection =  UICollection.getUICollections(HScrolling: false, frame: frame, layout: UICollectionViewFlowLayout())
         collection.register(CollectionViewCell.self, forCellWithReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
         collection.register(HeaderForCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.COLLECTION_VIEW_HEADER_IDENTIFIER)
@@ -68,7 +67,7 @@ class SearchViewController<T>: UIViewController,UICollectionViewDataSource,UICol
          return header
      }
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-         return .init(width: Constants.IOS_SCREEN_WIDTH, height: 60)
+        return CGSize(width: Constants.IOS_SCREEN_WIDTH, height: Constants.SEARCH_VC_COLLECTION_CELL_HEADER_HEIGHT)
      }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //

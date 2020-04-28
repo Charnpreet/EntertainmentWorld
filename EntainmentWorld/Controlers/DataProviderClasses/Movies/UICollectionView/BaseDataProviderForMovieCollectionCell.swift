@@ -15,7 +15,7 @@ class BaseDataProviderForMovieCollectionCell<T> : NSObject, UICollectionViewData
     var delegate : MovieCollectionViewSelectedProtocol!
     //MARK:-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.width/3.3, height: collectionView.frame.height)  //collectionView.frame.width/2.3
+        return CGSize(width: collectionView.frame.width/3.3, height: collectionView.frame.height)  
        }
     
     //MARK:-

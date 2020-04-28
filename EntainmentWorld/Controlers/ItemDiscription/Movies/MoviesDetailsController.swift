@@ -19,7 +19,7 @@ class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
     
     override  func loadImage(){
         
-        titleTextLabel.text = ""
+        titleTextLabel.text = Constants.EMPTY_TEXT
         guard let poster = item.poster_path else {
             self.titleTextLabel.text = item.title
             return
