@@ -12,7 +12,7 @@ import UIKit
 class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = BackGroundColor.getBackgrndClr() //.black
         loadImage()
         // Do any additional setup after loading the view.
     }

@@ -15,6 +15,7 @@ class DataSourceProviderForTable : NSObject{
     var storedOffsets = [Int: CGFloat]()
     let db = DBConnection()
     var screenSegus : DoSegus!
+    let activityIndicator = ActivityIndicator.getActivityIndicator()
     // MARK: - popular shows variables
     var currentPageForPopularShows: Int = 1
     var totalPagesForPopularShows: Int = 1
@@ -114,54 +115,83 @@ extension DataSourceProviderForTable : UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let tablecell = cell as? UItableCell else { return}
-           
-           
-           if(indexPath.section==0){
-                popularShowsDataSource      = PopularShowsDataSource()
-               popularShowsDataSource.loadMoreContent = self
-               popularShowsDataSource.delegate = self
+        cell.addSubview(activityIndicator)
+        activityIndicator.center = cell.center
+        activityIndicator.startAnimating()
+        
+        if(indexPath.section==0){
+            popularShowsDataSource      = PopularShowsDataSource()
+            popularShowsDataSource.loadMoreContent = self
+            popularShowsDataSource.delegate = self
             self.loadPopularShows(pageNO: 1, completionHandler:{(loaded) in
-                   tablecell.initializeCollectionViewWithDataSource(self.popularShowsDataSource, delegate: self.popularShowsDataSource, forRow: indexPath.row)
-                   tablecell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-               })
-           }
-           if(indexPath.section==1){
-               
-              topRatedShowsDataSource     = TOPRatedShowsDataSource()
-               topRatedShowsDataSource.loadMoreContent = self
-               topRatedShowsDataSource.delegate = self
+                if(loaded){
+                    tablecell.initializeCollectionViewWithDataSource(self.popularShowsDataSource, delegate: self.popularShowsDataSource, forRow: indexPath.row)
+                    tablecell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
+                    
+                }else{
+                    self.activityIndicator.stopAnimating()
+                    
+                    print("unable to load erro")
+                }
+                
+            })
+        }
+        if(indexPath.section==1){
+            
+            topRatedShowsDataSource     = TOPRatedShowsDataSource()
+            topRatedShowsDataSource.loadMoreContent = self
+            topRatedShowsDataSource.delegate = self
             
             
-               self.loadTopratedShows(pageNO: 1, completionHandler:{(loaded) in
-                   tablecell.initializeCollectionViewWithDataSource(self.topRatedShowsDataSource, delegate: self.topRatedShowsDataSource, forRow: indexPath.row)
-                  tablecell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-                   
-               })
-           }
-           if(indexPath.section==2){
-               
+            self.loadTopratedShows(pageNO: 1, completionHandler:{(loaded) in
+                
+                if(loaded){
+                    tablecell.initializeCollectionViewWithDataSource(self.topRatedShowsDataSource, delegate: self.topRatedShowsDataSource, forRow: indexPath.row)
+                    tablecell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
+                    self.activityIndicator.stopAnimating()
+                    
+                }else{
+                    self.activityIndicator.stopAnimating()
+                }
+                
+            })
+        }
+        if(indexPath.section==2){
+            
             onAirShowsDataSource = OnAirShowsDataSource()
             onAirShowsDataSource.loadMoreContent = self
             onAirShowsDataSource.delegate = self
             
             
-               self.loadOnAirShows(pageNO: 1, completionHandler:{(loaded) in
-                   tablecell.initializeCollectionViewWithDataSource(self.onAirShowsDataSource , delegate: self.onAirShowsDataSource , forRow: indexPath.row)
-                   tablecell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-               })
-           }
-           if(indexPath.section==3){
-               
+            self.loadOnAirShows(pageNO: 1, completionHandler:{(loaded) in
+                if(loaded){
+                    tablecell.initializeCollectionViewWithDataSource(self.onAirShowsDataSource , delegate: self.onAirShowsDataSource , forRow: indexPath.row)
+                    tablecell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
+                    self.activityIndicator.stopAnimating()
+                    
+                }else{
+                    self.activityIndicator.stopAnimating()
+                }
+            })
+        }
+        if(indexPath.section==3){
+            
             onAirTodayShowsDataSource   = ONAirTodayShowsDataSource()
             onAirTodayShowsDataSource.loadMoreContent = self
             onAirTodayShowsDataSource.delegate = self
             
             
-               self.loadOnAirTodayShows(pageNO: 1, completionHandler:{(loaded) in
-                   tablecell.initializeCollectionViewWithDataSource(self.onAirTodayShowsDataSource, delegate: self.onAirTodayShowsDataSource, forRow: indexPath.row)
+            self.loadOnAirTodayShows(pageNO: 1, completionHandler:{(loaded) in
+                if(loaded){
+                    tablecell.initializeCollectionViewWithDataSource(self.onAirTodayShowsDataSource, delegate: self.onAirTodayShowsDataSource, forRow: indexPath.row)
                     tablecell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-               })
-           }
+                    self.activityIndicator.stopAnimating()
+                }else{
+                    self.activityIndicator.stopAnimating()
+                }
+                
+            })
+        }
     }
     
     
@@ -180,10 +210,10 @@ extension DataSourceProviderForTable : UITableViewDataSource, UITableViewDelegat
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor.black
+        view.tintColor = BackGroundColor.getBackgrndClr()
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.white
-        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        header.textLabel?.textColor =  BackGroundColor.textColor()
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
     }
 }
 
@@ -195,77 +225,37 @@ extension DataSourceProviderForTable : LoadMoreDataProtocol{
     func loadMoreOnAirTodayShowData(completionHandler: @escaping (Bool) -> Void) {
         currentPageForOnAirTodayShows += 1
         if(currentPageForOnAirTodayShows <= totalPagesForOnAirTodayShows){
-            loadOnAirTodayShows(pageNO: currentPageForOnAirTodayShows, completionHandler:{ (loaded) in
-                if(loaded){
-                    completionHandler(true)
-                }
-                else{
-                    print("unable to load more populaor shows")
-                    completionHandler(false)
-                }
-                
+            loadOnAirTodayShows(pageNO: currentPageForOnAirTodayShows, completionHandler:{ (result) in
+                completionHandler(result)
             })
-        }
-        else{
-            print("no more pages to load")
-            completionHandler(false)
         }
     }
     
     func loadMorePopularShowData(completionHandler: @escaping (Bool) -> Void) {
         currentPageForPopularShows += 1
         if(currentPageForPopularShows <= totalPagesForPopularShows){
-            loadPopularShows(pageNO: currentPageForPopularShows, completionHandler:{(loaded) in
-                if(loaded){
-                    completionHandler(true)
-                }else{
-                    print("unable load popular show")
-                    completionHandler(false)
-                }
-                
+            loadPopularShows(pageNO: currentPageForPopularShows, completionHandler:{(result) in
+                completionHandler(result)
             })
-        }
-        else{
-            print("no more pages to load")
-            completionHandler(false)
         }
     }
     
     func loadMoreTopRatedShowData(completionHandler: @escaping (Bool) -> Void) {
         currentPageForTopRatedShows += 1
         if(currentPageForTopRatedShows <= totaltPagesForTopRatedShows){
-            loadTopratedShows(pageNO: currentPageForTopRatedShows, completionHandler:{ (loaded) in
-                if(loaded){
-                    completionHandler(true)
-                }else{
-                    print("loading not completed for Top Rated Shows")
-                    completionHandler(false)
-                }
-                
+            loadTopratedShows(pageNO: currentPageForTopRatedShows, completionHandler:{ (result) in
+                completionHandler(result)
             })
         }
-        else{
-            print("no more pages to load")
-            completionHandler(false)
-        }
+        
     }
     
     func loadMoreOnAirShowData(completionHandler:@escaping(Bool)->Void) {
         currentPageForOnAirShows += 1
         if(currentPageForOnAirShows <= totalPagesForOnAirShows) {
-            loadOnAirShows(pageNO: currentPageForOnAirShows, completionHandler:{ (loaded) in
-                if(loaded){
-                    completionHandler(true)
-                }else{
-                    print("loading not completed for air show")
-                    completionHandler(false)
-                }
-                
+            loadOnAirShows(pageNO: currentPageForOnAirShows, completionHandler:{ (result) in
+             completionHandler(result)
             })
-        }
-        else{
-            print("no more pages to load")
-            completionHandler(false)
         }
         
     }

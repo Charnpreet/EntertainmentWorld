@@ -8,45 +8,49 @@
 
 import UIKit
 
-class SearchMovies: SearchViewController<MoviesDetails> {
-    
+class SearchMovies: BaseControllerForGenreNSearch<MoviesDetails> {
+    var searchTextField : UISearchTextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collection.dataSource = self
         self.collection.delegate = self
+        self.view.addSubview(activityIndicator)
+        activityIndicator.center = self.view.center
+        activityIndicator.startAnimating()
     }
     
+    
+    //
+    //    //header: HeaderForCollectionReusableView
+    public func setUpSearchTextField() -> UISearchTextField{
+        print()
+        let frame = Frames.SEARCHBAR_FRAME_CG_REACT
+        let  searchTextField = CustomSearchBar(frame: frame)
+        searchTextField.backgroundColor = .white
+        searchTextField.placeholder = "Search Movies"
+        searchTextField.textColor = .black
+        searchTextField.addTarget(self, action: #selector(getSearchEditFIeldText(_:)), for: .editingChanged);
+        return searchTextField
+    }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
-        cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
-        cell.titleTextLabel.text = Constants.EMPTY_TEXT
-        
-        guard let poster = searchedItems[indexPath.row].poster_path else {
-            cell.titleTextLabel.text = searchedItems[indexPath.row].title
-            return cell
-        }
-        
-        let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(poster)"
-        guard let url = URL(string: urlString ) else {
-            cell.titleTextLabel.text = searchedItems[indexPath.row].title
-            
-            return cell }
-        db.downloadImage(from: url, completionHandler: {(img) in
-            cell.cellImage.image = img
-        })
-        
+        let cell =  super.collectionView(collectionView, cellForItemAt: indexPath) as! CollectionViewCell
+         let pPath = itemList[indexPath.row].poster_path
+         let tittle = itemList[indexPath.row].title ?? ""
+         Shared.LoadPosterImagesForCollectionCell(cell : cell, pPath: pPath, text :tittle, db:db)
         return cell
     }
-    override func getSearchEditFIeldText(_ sender: UISearchTextField){
+    
+    @objc func getSearchEditFIeldText(_ sender: UISearchTextField){
         guard   let text_To_search = searchTextField.text else {return}
         if(!text_To_search.isEmpty){
-            self.searchedItems.removeAll()
+            self.itemList.removeAll()
             self.collection.reloadData()
             db.searchDataBase(pageNO: 1, route: Routes.SEARCH_MOVIES, query: text_To_search, completionHandler: { (movies: MovieResponse)  in
                 
                 for movie in movies.results {
-                    self.searchedItems.append(movie)
+                    self.itemList.append(movie)
                 }
+                self.activityIndicator.stopAnimating()
                 self.collection.reloadData()
             })
             
@@ -58,9 +62,8 @@ class SearchMovies: SearchViewController<MoviesDetails> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
-         navigationController?.navigationBar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
         searchTextField  = setUpSearchTextField()
-        searchTextField.placeholder = "Search Movies"
         navigationController?.navigationBar.addSubview(self.searchTextField)
     }
     
@@ -70,7 +73,7 @@ class SearchMovies: SearchViewController<MoviesDetails> {
         self.searchTextField.removeFromSuperview()
     }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        LoadSegus(item: searchedItems[indexPath.row] )
+        LoadSegus(item: itemList[indexPath.row] )
     }
     
     func LoadSegus(item : MoviesDetails){

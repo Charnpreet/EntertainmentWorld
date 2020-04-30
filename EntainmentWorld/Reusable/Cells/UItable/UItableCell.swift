@@ -22,7 +22,9 @@ class UItableCell: UITableViewCell {
          }
          
          get {
-             return collection.contentOffset.x
+            guard let collection = collection else {return 0.0}
+            
+            return collection.contentOffset.x
          }
      }
 
@@ -30,6 +32,7 @@ class UItableCell: UITableViewCell {
     // MARK:- class init methods
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        backgroundColor = BackGroundColor.getBackgrndClr() 
     }
 
     required init?(coder: NSCoder) {
@@ -43,7 +46,7 @@ class UItableCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
-        backgroundColor = .black
+        backgroundColor = BackGroundColor.getBackgrndClr()
     }
     
     // MARK:- INITILIZES COLLECTION VIEW AND SETS ITS DATA SOURCE AND DELGATE PROVIDERS
@@ -55,7 +58,7 @@ class UItableCell: UITableViewCell {
          flowLayout.scrollDirection = .horizontal
          let collectionView = UICollectionView(frame: frame, collectionViewLayout: flowLayout)
          collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
-         collectionView.backgroundColor = UIColor.black
+         collectionView.backgroundColor =  BackGroundColor.getBackgrndClr()               
          collectionView.dataSource = self.collectionViewDataSource
          collectionView.delegate = self.collectionViewDelegate
          collectionView.tag = row

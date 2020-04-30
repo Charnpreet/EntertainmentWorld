@@ -40,7 +40,6 @@ class Constants{
     static let SEARCH_SHOWS_STORYBOARD_IDENTIFER = "SearchShows"
     
     
-    
     static let SEARCH_VC_COLLECTION_CELL_HEADER_HEIGHT = CGFloat(60)
 
 }

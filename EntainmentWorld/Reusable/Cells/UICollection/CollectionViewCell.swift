@@ -14,16 +14,16 @@ class CollectionViewCell: UICollectionViewCell {
     override init(frame : CGRect) {
         super.init(frame : frame)
          contentView.addSubview(cellImage)
-        backgroundColor = .black
+        backgroundColor = BackGroundColor.getBackgrndClr()  //.black
         cellImage.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         cellImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
         cellImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         cellImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
-        
+        cellImage.backgroundColor = BackGroundColor.getBackgrndClr()
         titleTextLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: 40)) //40
         titleTextLabel.center = contentView.center
         titleTextLabel.textAlignment = .center
-        titleTextLabel.textColor = .white
+        titleTextLabel.textColor = BackGroundColor.textColor()
         titleTextLabel.numberOfLines = 2
         contentView.addSubview(titleTextLabel)
         

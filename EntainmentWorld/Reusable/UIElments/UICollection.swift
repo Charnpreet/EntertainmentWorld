@@ -21,7 +21,7 @@ class UICollection{
              layout.minimumLineSpacing = 8
         }
         let collection = UICollectionView(frame: frame, collectionViewLayout: layout)
-        collection.backgroundColor = .black
+        collection.backgroundColor = BackGroundColor.getBackgrndClr()    //.black
        collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
     }

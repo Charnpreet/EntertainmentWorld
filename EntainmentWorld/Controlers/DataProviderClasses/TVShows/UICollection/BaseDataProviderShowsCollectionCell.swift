@@ -8,9 +8,9 @@
 
 import Foundation
 import UIKit
-class  BaseDataProviderShowsCollectionCell<T>  : NSObject, UICollectionViewDataSource,  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class  BaseDataProviderShowsCollectionCell  : NSObject, UICollectionViewDataSource,  UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     var delegate :CollectionViewSelectedProtocol!
-    var shows: [T] = []
+    var shows: [TVShows] = []
       var loadMoreContent : LoadMoreDataProtocol!
       let db = DBConnection()
       func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -19,6 +19,12 @@ class  BaseDataProviderShowsCollectionCell<T>  : NSObject, UICollectionViewDataS
       }
       func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
+        cell.cellImage.image = UIImage()                    // this is done to make sure we gets blank view beofore updates new image
+        cell.titleTextLabel.text = Constants.EMPTY_TEXT
+        let pPath = shows[indexPath.row].poster_path
+        let tittle = shows[indexPath.row].name ?? ""
+        Shared.LoadPosterImagesForCollectionCell(cell : cell, pPath: pPath, text :tittle, db:db)
+        
           return cell
       }
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -27,11 +33,10 @@ class  BaseDataProviderShowsCollectionCell<T>  : NSObject, UICollectionViewDataS
       
       func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let delegate = delegate else{return}
-        delegate.collectionViewSelected(item: shows[indexPath.row] as! TVShows)
+        delegate.collectionViewSelected(item: shows[indexPath.row])
         //self.
       }
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
     }
 
 }

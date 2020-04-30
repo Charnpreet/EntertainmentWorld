@@ -21,10 +21,10 @@ class Frames {
     
     static let PLAY_VIDEO_BUTTON_FRAME_CG_REACT = CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 13, width: 40, height: 40)
     
-    static let TOTAL_VIDEOS_LABEL_FRAME_CG_REACT = CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 60, width: 100, height: 30)
-    static let TOTAL_VOTES_LABEL_FRAME_CG_REACT = CGRect(x: 0, y: 60, width: 100, height: 30)
-    static let RATING_LABEL_FRAME_CG_REACT = CGRect(x: 15, y: 20, width: 40, height: 30)
-    static let CIRCULAR_ANIMATION_VIEW_FRAME_CG_REACT = CGRect(x: 10, y: 20, width: 50, height: 30)
+    static let TOTAL_VIDEOS_LABEL_FRAME_CG_REACT = CGRect(x: Constants.IOS_SCREEN_WIDTH-60, y: 80, width: 100, height: 30)
+    static let TOTAL_VOTES_LABEL_FRAME_CG_REACT = CGRect(x: 0, y: 80, width: 100, height: 30)
+    static let RATING_LABEL_FRAME_CG_REACT = CGRect(x: 30, y: 20, width: 40, height: 30)
+    static let CIRCULAR_ANIMATION_VIEW_FRAME_CG_REACT = CGRect(x: 25, y: 20, width: 50, height: 30)
     
     static let BASE_VC_TABLE_FRAME_CG_REACT = CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: Constants.IOS_SCREEN_HEIGHT)
     

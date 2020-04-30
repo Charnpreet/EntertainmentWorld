@@ -20,11 +20,10 @@ class BottomSheetViewController: UIViewController {
     fileprivate var ratingLabel = UILabel(frame: Frames.RATING_LABEL_FRAME_CG_REACT)
     let cp = CircularAnimationView(frame: Frames.CIRCULAR_ANIMATION_VIEW_FRAME_CG_REACT)
     var playButton: UIButton!
-    // fileprivate var buttonImage = UIImage(named: "play")
     fileprivate var noVideButtonImage = UIImage(named: Constants.NO_PLAY_VIDEO_BUTTON_IMAGE)
     let fullView: CGFloat = Constants.IOS_SCREEN_HEIGHT/3
     var partialView: CGFloat {
-        return UIScreen.main.bounds.height - 100
+        return UIScreen.main.bounds.height - 120
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,17 +31,15 @@ class BottomSheetViewController: UIViewController {
         roundViews()
     }
     func InitalSetup(){
+        setUptopView()
         setUpPanGesture()
         setUpTableView()
-        setUptopView()
         
     }
     
-    
-    
-    
+    //
     func setUptopView(){
-        let topView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: 90))
+        let topView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: 100))
         topView.backgroundColor = .clear
         setupButton(view: topView)
         setUplabel(view: topView)
@@ -50,8 +47,6 @@ class BottomSheetViewController: UIViewController {
         self.view.addSubview(topView)
 
     }
-    
-    
     //
     func setUplabel(view: UIView){
         guard let rating = rating else{return}
@@ -72,22 +67,24 @@ class BottomSheetViewController: UIViewController {
     }
     
     func LoadCircularAnimation(view: UIView){
-           cp.progressColor =  .systemRed
+        cp.progressColor =  .red
            view.addSubview(cp)
            cp.LoadingBarAnimation(toValue: rating/10)
        }
     
-    
+    //
+    //
     func setupButton(view: UIView){
         playButton = UIButton(frame: Frames.PLAY_VIDEO_BUTTON_FRAME_CG_REACT)
           guard let playButton = playButton else{return}
           playButton.backgroundColor = .clear
           playButton.setImage( noVideButtonImage, for: .normal)
           playButton.isUserInteractionEnabled = false
-          playButton.addTarget(self, action: #selector(ExpandBottamViewSheet), for: .touchUpInside)
+        playButton.addTarget(self, action: #selector(BottomSheetViewController.ExpandBottamViewSheet), for: .touchUpInside)
           view.addSubview(playButton)
       }
-    
+    //
+    //
     fileprivate func labelsetup(label: UILabel, text: String, view: UIView){
         label.text = text
         label.textAlignment = .center
@@ -96,14 +93,18 @@ class BottomSheetViewController: UIViewController {
         label.backgroundColor = .clear
         view.addSubview(label)
        }
+    
+    //
+    //
     fileprivate func setUpPanGesture(){
         let gesture = UIPanGestureRecognizer.init(target: self, action: #selector(BottomSheetViewController.panGesture))
         view.addGestureRecognizer(gesture)
     }
+    //
+    //
     fileprivate func setUpTableView(){
-        
         let height = fullView+100
-        let frame = CGRect(x: 0, y: 100, width: Constants.IOS_SCREEN_WIDTH, height: self.view.frame.height - height)
+        let frame = CGRect(x: 0, y: 120, width: Constants.IOS_SCREEN_WIDTH, height: self.view.frame.height - height)
         table = CustomTable(frame: frame, style: .plain)
         self.table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.TABLE_VIEW_CELL_IDENTIFIER)
         self.table.dataSource = self
@@ -113,32 +114,36 @@ class BottomSheetViewController: UIViewController {
     
     
     @objc func panGesture(_ recognizer: UIPanGestureRecognizer) {
+        let velocity = recognizer.velocity(in: self.view)
+
+        
         if recognizer.state == .ended {
-            UIView.animate(withDuration: 0.6, animations: {
-                self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+            UIView.animate(withDuration: 1.0, animations: {
+                if  velocity.y >= 0 {
+                    self.view.frame = CGRect(x: 0, y: self.partialView, width: self.view.frame.width, height: self.view.frame.height)
+                } else {
+                    self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
+                }
             })
         }
     }
     @objc func ExpandBottamViewSheet(){
         
-        UIView.animate(withDuration: 0.4, animations: {
+        UIView.animate(withDuration: 0.9, animations: {
             self.view.frame = CGRect(x: 0, y: self.fullView, width: self.view.frame.width, height: self.view.frame.height)
         })
         
     }
     func prepareBackgroundView(){
-        //view.backgroundColor = .clear
         let blurEffect = UIBlurEffect.init(style: .dark)
         let visualEffect = UIVisualEffectView.init(effect: blurEffect)
         let bluredView = UIVisualEffectView.init(effect: blurEffect)
         bluredView.contentView.addSubview(visualEffect)
-      //  visualEffect.isOpaque  = false
         visualEffect.frame = UIScreen.main.bounds
         bluredView.frame = UIScreen.main.bounds
         bluredView.alpha = 0.2
         view.insertSubview(bluredView, at: 0)
     }
-    
     func roundViews() {
         view.layer.cornerRadius = 25
         view.clipsToBounds = true
@@ -189,7 +194,7 @@ extension BottomSheetViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let cell = cell as UITableViewCell
         let cellBckgrdView = UIView()
-        cellBckgrdView.backgroundColor = .black
+        cellBckgrdView.backgroundColor = BackGroundColor.getBackgrndClr()
         cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
         cell.accessoryType = .disclosureIndicator
         let player = setUpVieoForYouTubePlayer(width: cell.frame.width, height: cell.frame.height)

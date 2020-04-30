@@ -11,6 +11,7 @@ class TVShowsViewController: BaseViewController {
     var dataprovider: DataSourceProviderForTable!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr() 
         SetupDataProviders()
     }
     

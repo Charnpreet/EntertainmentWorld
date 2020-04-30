@@ -9,19 +9,23 @@
 import Foundation
 import  UIKit
 
-class TVShowsGenre: BaseControllerForGenre<Genre> {
+class TVShowsGenre: BaseControllerForGenreNSearch<Genre> {
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollectionView()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr() 
         self.collection.dataSource = self
         self.collection.delegate = self
-        // Do any additional setup after loading the view.
-        db.LoadGenre(route: Routes.TV_SHOWS_GENRE, completionHandler: {(tvShowGenre : GenreCollection) in
-            self.itemList.removeAll()
-            self.itemList = tvShowGenre.genres
-            self.collection.reloadData()
-        })
+        loadGenreList()
     }
+    
+    func loadGenreList(){
+           db.LoadGenre(route: Routes.MOVIE_GENRE, completionHandler: {(movieGenre : GenreCollection) in
+               self.itemList.removeAll()
+               self.itemList = movieGenre.genres
+               self.collection.reloadData()
+           })
+       }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
     }

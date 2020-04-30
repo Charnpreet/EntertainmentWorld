@@ -13,6 +13,8 @@ class DataSourceProviderForMovieTable : NSObject {
     var storedOffsets = [Int: CGFloat]()
     let db = DBConnection()
     var screenSegus : DoSegusForMovies!
+    let activityIndicator = ActivityIndicator.getActivityIndicator()
+    
     // MARK: - popular movies variables
     var currentPageForPopularMovies: Int = 1
     var totalPagesForPopularMovies: Int = 1
@@ -39,7 +41,7 @@ class DataSourceProviderForMovieTable : NSObject {
     func loadPopularMovies (pageNO: Int,  completionHandler:@escaping(Bool)->Void){
         db.loadDataFromDB(pageNO: pageNO, route: Routes.POPULAR_MOVIES_ROUTE, completionHandler:{ (movies: MovieResponse?, err) in
             if let err = err {
-                print(err)
+                print(err.localizedDescription)
                 completionHandler(false)
             } else{
                 guard let movies = movies else{return}
@@ -112,51 +114,93 @@ extension DataSourceProviderForMovieTable : UITableViewDataSource, UITableViewDe
         let cellBckgrdView = UIView()
         cellBckgrdView.backgroundColor = .clear
         cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
-        
+        cell.addSubview(activityIndicator)
+        activityIndicator.center = cell.center
+        activityIndicator.startAnimating()
         if(indexPath.section==0){
             
-            popularMoviesDataSource     =  PopularMoviesDataSource()
+            popularMoviesDataSource    =  PopularMoviesDataSource()
             popularMoviesDataSource.loadMoreContent = self
             popularMoviesDataSource.delegate = self
-            print(popularMoviesDataSource.moviesList.count)
             loadPopularMovies(pageNO: 1, completionHandler:{(loaded) in
-                cell.initializeCollectionViewWithDataSource(self.popularMoviesDataSource, delegate: self.popularMoviesDataSource, forRow: indexPath.row)
-                cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
+                if(loaded){
+                    cell.initializeCollectionViewWithDataSource(self.popularMoviesDataSource, delegate: self.popularMoviesDataSource, forRow: indexPath.row)
+                    cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
+                    self.activityIndicator.stopAnimating()
+                }else{
+                    self.activityIndicator.stopAnimating()
+                }
             })
         }
         
         if(indexPath.section==1){
-                  nowPlayingMoviesDataSource  = NowPlayingMoviesDataSource()
-                  nowPlayingMoviesDataSource.loadMoreContent = self
-                  nowPlayingMoviesDataSource.delegate = self
-                  NowPlayingMovies(pageNO: 1, completionHandler:{(loaded) in
-                      cell.initializeCollectionViewWithDataSource(self.nowPlayingMoviesDataSource, delegate: self.nowPlayingMoviesDataSource, forRow: indexPath.row)
-                     cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-                  })
-                  
-              }
-              if(indexPath.section==2){
-                  
-                  upcomingMoviesDataSource    = UpcomingMoviesDataSource()
-                  upcomingMoviesDataSource.loadMoreContent = self
-                  upcomingMoviesDataSource.delegate = self
-                  self.loadUpcomingMovies(pageNO: 1, completionHandler:{(loaded) in
-                      cell.initializeCollectionViewWithDataSource(self.upcomingMoviesDataSource , delegate: self.upcomingMoviesDataSource , forRow: indexPath.row)
-                      cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-                  })
-              }
-              if(indexPath.section==3){
-                  
-                  topRatedMoviesDataSource    = TopRatedMoviesDataSource()
-                  topRatedMoviesDataSource.loadMoreContent = self
-                  topRatedMoviesDataSource.delegate = self
-                  loadTopratedMovies(pageNO: 1, completionHandler:{(loaded) in
-                      cell.initializeCollectionViewWithDataSource(self.topRatedMoviesDataSource, delegate: self.topRatedMoviesDataSource, forRow: indexPath.row)
-                      cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-                  })
-                  
-              }
+            nowPlayingMoviesDataSource  = NowPlayingMoviesDataSource()
+            nowPlayingMoviesDataSource.loadMoreContent = self
+            nowPlayingMoviesDataSource.delegate = self
+            NowPlayingMovies(pageNO: 1, completionHandler:{(loaded) in
+                if(loaded){
+                    cell.initializeCollectionViewWithDataSource(self.nowPlayingMoviesDataSource, delegate: self.nowPlayingMoviesDataSource, forRow: indexPath.row)
+                    cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
+                    self.activityIndicator.stopAnimating()
+                }else{
+                    self.activityIndicator.stopAnimating()
+                }
+
+            })
+            
+        }
+        if(indexPath.section==2){
+            
+            upcomingMoviesDataSource = UpcomingMoviesDataSource()
+            upcomingMoviesDataSource.loadMoreContent = self
+            upcomingMoviesDataSource.delegate = self
+            loadUpcomingMovies(pageNO: 1, completionHandler:{(loaded) in
+                if(loaded){
+                    cell.initializeCollectionViewWithDataSource(self.upcomingMoviesDataSource , delegate: self.upcomingMoviesDataSource , forRow: indexPath.row)
+                    cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
+                    self.activityIndicator.stopAnimating()
+                }else{
+                    self.activityIndicator.stopAnimating()
+                }
+
+            })
+            
+        }
+        if(indexPath.section==3){
+            
+            topRatedMoviesDataSource    = TopRatedMoviesDataSource()
+            topRatedMoviesDataSource.loadMoreContent = self
+            topRatedMoviesDataSource.delegate = self
+            loadTopratedMovies(pageNO: 1, completionHandler:{(loaded) in
+                if(loaded){
+                    cell.initializeCollectionViewWithDataSource(self.topRatedMoviesDataSource, delegate: self.topRatedMoviesDataSource, forRow: indexPath.row)
+                    cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
+                    self.activityIndicator.stopAnimating()
+                }else{
+                    self.activityIndicator.stopAnimating()
+                }
+
+            })
+            
+        }
         return cell
+    }
+    
+    
+    func loadData(cell : UItableCell, indexPath : IndexPath){
+        topRatedMoviesDataSource    = TopRatedMoviesDataSource()
+        topRatedMoviesDataSource.loadMoreContent = self
+        topRatedMoviesDataSource.delegate = self
+        loadTopratedMovies(pageNO: 1, completionHandler:{(loaded) in
+            if(loaded){
+                cell.initializeCollectionViewWithDataSource(self.topRatedMoviesDataSource, delegate: self.topRatedMoviesDataSource, forRow: indexPath.row)
+                cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
+                self.activityIndicator.stopAnimating()
+            }else{
+                self.activityIndicator.stopAnimating()
+            }
+
+        })
     }
     
     
@@ -174,10 +218,10 @@ extension DataSourceProviderForMovieTable : UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = UIColor.black
+        view.tintColor = BackGroundColor.getBackgrndClr()
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = UIColor.white
-        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 16.0)
+        header.textLabel?.textColor = BackGroundColor.textColor()
+        header.textLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
     }
 }
 
@@ -188,18 +232,9 @@ extension DataSourceProviderForMovieTable :LoadMoreMovieDataProtocol{
     func loadMoreTopRatedmoviesData(completionHandler: @escaping (Bool) -> Void) {
         currentPageForTopRatedMovies += 1
         if(currentPageForTopRatedMovies <= totaltPagesForTopRatedMovies){
-            loadTopratedMovies(pageNO: currentPageForTopRatedMovies, completionHandler: {(loaded) in
-                if(loaded){
-                    completionHandler(true)
-                    
-                }else{
-                    print("unable to load more top rated movies")
-                    completionHandler(false)
-                }
+            loadTopratedMovies(pageNO: currentPageForTopRatedMovies, completionHandler: {(result) in
+                completionHandler(result)
             })
-        }else{
-            print("no more pages to load")
-            completionHandler(false)
         }
     }
     
@@ -208,61 +243,32 @@ extension DataSourceProviderForMovieTable :LoadMoreMovieDataProtocol{
     func loadMoreNowPlayingMoviesData(completionHandler: @escaping (Bool) -> Void) {
         currentPageForNowPlayingMovies += 1
         if(currentPageForNowPlayingMovies <= totalPagesForNowPlayingMovies){
-            NowPlayingMovies(pageNO: currentPageForNowPlayingMovies , completionHandler:{(loaded) in
-                if(loaded){
-                    completionHandler(true)
-                    
-                }else{
-                    print("unable to load more now playing movies")
-                    completionHandler(false)
-                }
+            NowPlayingMovies(pageNO: currentPageForNowPlayingMovies , completionHandler:{(result) in
+                completionHandler(result)
             })
-        }else{
-            print("no more pages to load")
-            completionHandler(false)
         }
+        
     }
-    
     
     // not loadinf more than 1 page
     func loadMorePopularMoviesData(completionHandler: @escaping (Bool) -> Void) {
         currentPageForPopularMovies += 1
         if(currentPageForPopularMovies  <= totalPagesForPopularMovies){
-            loadPopularMovies(pageNO: currentPageForPopularMovies, completionHandler: {(loaded) in
-                if(loaded){
-                    completionHandler(true)
-                    
-                }else{
-                    print("unable to load popular movies")
-                    completionHandler(false)
-                }
+            loadPopularMovies(pageNO: currentPageForPopularMovies, completionHandler: {(result) in
+                completionHandler(result)
             })
-        }else{
-            print("no more pages to load")
-            completionHandler(false)
         }
     }
     
     func loadMoreUpComingMoviesData(completionHandler: @escaping (Bool) -> Void) {
         currentPageForUpComingMovies += 1
         if(currentPageForUpComingMovies  <= totalPagesForUpComingMovies){
-            loadUpcomingMovies(pageNO: currentPageForUpComingMovies, completionHandler:{(loaded) in
-                if(loaded){
-                    completionHandler(true)
-                    
-                }else{
-                    print("unable to load more upcoming movies")
-                    completionHandler(false)
-                }
+            loadUpcomingMovies(pageNO: currentPageForUpComingMovies, completionHandler:{(result) in
+                completionHandler(result)
             })
-        }else{
-            print("no more pages to load")
-            completionHandler(false)
         }
     }
 }
-
-
 extension DataSourceProviderForMovieTable:  MovieCollectionViewSelectedProtocol {
     
     func collectionViewSelected(item : MoviesDetails) //_ collectionViewItem : Int

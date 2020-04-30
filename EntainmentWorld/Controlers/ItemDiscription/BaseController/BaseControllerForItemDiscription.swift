@@ -12,6 +12,7 @@ class BaseControllerForItemDiscription<T> : UIViewController {
     fileprivate var buttonImage = UIImage(named: Constants.PLAY_VIDEO_BUTTON_IMAGE)
     var item: T!
     var navBarImg: UIImage!
+     var noNetworkView: UIView!
     var firstLabel :  UILabel!
     var titleTextLabel : UILabel!
     var videos : [VideoDetails] = []
@@ -20,10 +21,24 @@ class BaseControllerForItemDiscription<T> : UIViewController {
     @IBOutlet var backGroundImage: UIImageView! = UIImageView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = BackGroundColor.getBackgrndClr() //.black
         SetUpTitleLabel()
+        noNetworkViewSetup()
+        let position = CGFloat(50)
+        let c = NetworkConnectivity.shared
+        c.startMonitoring(completionHandler:{(loaded) in
+            if(!loaded){
+                self.noNetworkView.isHidden = false
+                NoNetworkViews.AnimateNoNetworkViews(viewNeedtedToBeAnimated: self.noNetworkView, parentView: self.view, position: position)
+                
+            }
+        })
     }
     
+    public func noNetworkViewSetup(){
+           noNetworkView   = NoNetworkViews.getNoNetworkViews()
+           self.view.addSubview(noNetworkView)
+       }
     func loadImage(){
         
     }

@@ -14,7 +14,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wL6-9u-S7a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="169" y="902"/>
+            <point key="canvasLocation" x="18" y="960"/>
         </scene>
         <!--Movies-->
         <scene sceneID="kcC-Hl-0vS">
