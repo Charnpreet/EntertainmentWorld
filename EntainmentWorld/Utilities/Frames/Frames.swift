@@ -28,5 +28,5 @@ class Frames {
     
     static let BASE_VC_TABLE_FRAME_CG_REACT = CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: Constants.IOS_SCREEN_HEIGHT)
     
-    static let GENRE_BASE_CONTROLLER_FRAME_CG_REACT = CGRect(x:0 , y:1 , width: Constants.IOS_SCREEN_WIDTH , height: Constants.IOS_SCREEN_HEIGHT)
+    static let GENRE_BASE_CONTROLLER_FRAME_CG_REACT = CGRect(x:0 , y:0 , width: Constants.IOS_SCREEN_WIDTH , height: Constants.IOS_SCREEN_HEIGHT-83)
 }

@@ -7,13 +7,17 @@
 //
 import Foundation
 import UIKit
-class BaseControllerForItemDiscription<T> : UIViewController {
+//UIViewController
+class BaseControllerForItemDiscription<T> : UIViewController{
+    var persistentManager: PersistentDataManager?
     fileprivate var noVideButtonImage = UIImage(named: Constants.NO_PLAY_VIDEO_BUTTON_IMAGE)
     fileprivate var buttonImage = UIImage(named: Constants.PLAY_VIDEO_BUTTON_IMAGE)
     var item: T!
+    let favImage = UIImage(named: "fav")
+    let favImageSelected = UIImage(named: "favSaved")
     var navBarImg: UIImage!
-     var noNetworkView: UIView!
-    var firstLabel :  UILabel!
+    var noNetworkView: UIView!
+    var favMovie : Bool = false
     var titleTextLabel : UILabel!
     var videos : [VideoDetails] = []
     var bottomSheetVC : BottomSheetViewController!
@@ -23,22 +27,28 @@ class BaseControllerForItemDiscription<T> : UIViewController {
         super.viewDidLoad()
         view.backgroundColor = BackGroundColor.getBackgrndClr() //.black
         SetUpTitleLabel()
-        noNetworkViewSetup()
-        let position = CGFloat(50)
-        let c = NetworkConnectivity.shared
-        c.startMonitoring(completionHandler:{(loaded) in
-            if(!loaded){
-                self.noNetworkView.isHidden = false
-                NoNetworkViews.AnimateNoNetworkViews(viewNeedtedToBeAnimated: self.noNetworkView, parentView: self.view, position: position)
-                
-            }
-        })
+        //  noNetworkViewSetup()
+    }
+    
+    //
+    // when customizing a bar button, it must check if movie id is already in coredata database,
+    // it should update pic accroding to that
+    // method which must check if item exists
+    // if it does then don't update
+    
+    func CustomizingNavigationBar(){
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title:"", style: .plain, target: self, action: #selector(addTapped))
+    }
+    
+    
+    @objc func addTapped(){
+        
     }
     
     public func noNetworkViewSetup(){
-           noNetworkView   = NoNetworkViews.getNoNetworkViews()
-           self.view.addSubview(noNetworkView)
-       }
+        noNetworkView   = NoNetworkViews.getNoNetworkViews()
+        self.view.addSubview(noNetworkView)
+    }
     func loadImage(){
         
     }
@@ -64,22 +74,16 @@ class BaseControllerForItemDiscription<T> : UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.isHidden = true
+        persistentManager = PersistentDataManager.shared
         ClearNavigationBar()
+        CustomizingNavigationBar()
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
-        firstLabel.removeFromSuperview()
         self.navigationController?.navigationBar.isTranslucent = false
     }
     public func AddLabelToNavigationBar(){
-        guard let height = navigationController?.navigationBar.frame.height else {return}
-        let firstFrame = CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: height)
-        firstLabel = UILabel(frame: firstFrame)
-        firstLabel.textAlignment = .center
-        firstLabel.textColor = .white
-        guard let firstLabel = firstLabel else {return}
-        self.navigationController?.navigationBar.addSubview(firstLabel)
         self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
     }
     fileprivate func ClearNavigationBar(){

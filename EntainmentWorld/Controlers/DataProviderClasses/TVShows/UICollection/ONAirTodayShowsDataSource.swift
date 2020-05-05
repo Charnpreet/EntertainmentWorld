@@ -14,12 +14,15 @@ class ONAirTodayShowsDataSource : BaseDataProviderShowsCollectionCell{
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         super.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
         if indexPath.row == shows.count - 1 {
-            self.loadMoreContent.loadMoreOnAirTodayShowData(completionHandler: {(loaded) in
-                if(loaded){
-                  collectionView.reloadData()
-                }
-                
-            })
+            currentPage += 1
+            if(currentPage  <= totalPages){
+                self.loadMoreContent.loadMoreOnAirTodayShowData(pageNO: currentPage,completionHandler: {(loaded) in
+                    if(loaded){
+                        collectionView.reloadData()
+                    }
+                    
+                })
+            }
         }
     }
 }

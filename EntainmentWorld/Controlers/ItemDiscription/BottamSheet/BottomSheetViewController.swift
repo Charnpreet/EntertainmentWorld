@@ -14,7 +14,6 @@ class BottomSheetViewController: UIViewController {
     var table : CustomTable!
     var rating: Float!
     var totalVotes: String?
-    
     var totalVideosLabel = UILabel(frame: Frames.TOTAL_VIDEOS_LABEL_FRAME_CG_REACT)
     fileprivate var totalVotesLabel = UILabel(frame: Frames.TOTAL_VOTES_LABEL_FRAME_CG_REACT)
     fileprivate var ratingLabel = UILabel(frame: Frames.RATING_LABEL_FRAME_CG_REACT)
@@ -63,7 +62,6 @@ class BottomSheetViewController: UIViewController {
         labelsetup(label: totalVideosLabel, text: "0 videos", view: view) //
         totalVideosLabel.font = UIFont.boldSystemFont(ofSize: 10)
         totalVideosLabel.textAlignment = .left
-        
     }
     
     func LoadCircularAnimation(view: UIView){
@@ -134,16 +132,6 @@ class BottomSheetViewController: UIViewController {
         })
         
     }
-    func prepareBackgroundView(){
-        let blurEffect = UIBlurEffect.init(style: .dark)
-        let visualEffect = UIVisualEffectView.init(effect: blurEffect)
-        let bluredView = UIVisualEffectView.init(effect: blurEffect)
-        bluredView.contentView.addSubview(visualEffect)
-        visualEffect.frame = UIScreen.main.bounds
-        bluredView.frame = UIScreen.main.bounds
-        bluredView.alpha = 0.2
-        view.insertSubview(bluredView, at: 0)
-    }
     func roundViews() {
         view.layer.cornerRadius = 25
         view.clipsToBounds = true
@@ -154,6 +142,16 @@ class BottomSheetViewController: UIViewController {
         return player
     }
     
+    func prepareBackgroundView(){
+        let blurEffect = UIBlurEffect.init(style: .dark)
+        let visualEffect = UIVisualEffectView.init(effect: blurEffect)
+        let bluredView = UIVisualEffectView.init(effect: blurEffect)
+        bluredView.contentView.addSubview(visualEffect)
+        visualEffect.frame = UIScreen.main.bounds
+        bluredView.frame = UIScreen.main.bounds
+        bluredView.alpha = 0.2
+        view.insertSubview(bluredView, at: 0)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -174,33 +172,5 @@ class BottomSheetViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.tabBarController?.tabBar.isHidden = false
-    }
-}
-
-
-extension BottomSheetViewController: UITableViewDataSource, UITableViewDelegate{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return videoUrl.count
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.TABLE_VIEW_CELL_IDENTIFIER)!
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        let cell = cell as UITableViewCell
-        let cellBckgrdView = UIView()
-        cellBckgrdView.backgroundColor = BackGroundColor.getBackgrndClr()
-        cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
-        cell.accessoryType = .disclosureIndicator
-        let player = setUpVieoForYouTubePlayer(width: cell.frame.width, height: cell.frame.height)
-        cell.addSubview(player)
-        if(self.videoUrl.count>0){
-            player.loadVideoID(videoUrl[indexPath.row])
-        }
     }
 }

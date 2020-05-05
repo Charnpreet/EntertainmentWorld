@@ -10,9 +10,9 @@ import Foundation
 
 protocol LoadMoreMovieDataProtocol {
     
-    func loadMoreTopRatedmoviesData(completionHandler:@escaping(Bool)->Void)
-    func loadMoreNowPlayingMoviesData(completionHandler:@escaping(Bool)->Void)
-    func loadMorePopularMoviesData(completionHandler:@escaping(Bool)->Void)
-    func loadMoreUpComingMoviesData(completionHandler:@escaping(Bool)->Void)
+    func loadMoreTopRatedmoviesData(pageNO: Int, completionHandler:@escaping(Bool)->Void)
+    func loadMoreNowPlayingMoviesData(pageNO: Int, completionHandler:@escaping(Bool)->Void)
+    func loadMorePopularMoviesData(pageNO: Int,completionHandler:@escaping(Bool)->Void)
+    func loadMoreUpComingMoviesData(pageNO: Int, completionHandler:@escaping(Bool)->Void)
     
 }

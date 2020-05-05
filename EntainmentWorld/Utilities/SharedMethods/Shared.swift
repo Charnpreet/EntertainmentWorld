@@ -28,4 +28,15 @@ class Shared {
         })
 
     }
+    
+    
+    static func setUpSearchTextField(text: String) -> UISearchTextField{
+         let frame = Frames.SEARCHBAR_FRAME_CG_REACT
+         let  searchTextField = CustomSearchBar(frame: frame)
+         searchTextField.backgroundColor = .white
+         searchTextField.placeholder = text
+         searchTextField.textColor = .black
+        //searchTextField.addTarget(self, action: #selector(getSearchEditFIeldText(_:)), for: .editingChanged);
+         return searchTextField
+     }
 }

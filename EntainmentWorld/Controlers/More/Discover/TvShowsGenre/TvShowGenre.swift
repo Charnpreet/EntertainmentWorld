@@ -9,23 +9,22 @@
 import Foundation
 import  UIKit
 
-class TVShowsGenre: BaseControllerForGenreNSearch<Genre> {
+class TVShowsGenreIdList: RootControllerWithUICollectionView<Genre> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = BackGroundColor.getBackgrndClr() 
         self.collection.dataSource = self
         self.collection.delegate = self
         loadGenreList()
+        
     }
-    
     func loadGenreList(){
-           db.LoadGenre(route: Routes.MOVIE_GENRE, completionHandler: {(movieGenre : GenreCollection) in
-               self.itemList.removeAll()
-               self.itemList = movieGenre.genres
-               self.collection.reloadData()
-           })
-       }
-    
+        db.LoadGenre(route: Routes.MOVIE_GENRE, completionHandler: {(movieGenre : GenreCollection) in
+            self.itemList.removeAll()
+            self.itemList = movieGenre.genres
+            self.collection.reloadData()
+        })
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
     }
@@ -44,7 +43,7 @@ class TVShowsGenre: BaseControllerForGenreNSearch<Genre> {
       }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
+        let cell =  super.collectionView(collectionView, cellForItemAt: indexPath) as! CollectionViewCell
         cell.titleTextLabel.text = itemList[indexPath.row].name
         return cell
     }

@@ -9,16 +9,34 @@ import Foundation
 import UIKit
 class DBConnection {
     
-    private func load<T:Decodable>(error: Error ,data: Data, completionHandler:@escaping(T?, Error?)->Void){
-        do{
-            let deocder = JSONDecoder()
-            deocder.keyDecodingStrategy = .convertFromSnakeCase
-            let movies = try JSONDecoder().decode(T.self, from: data)
-            completionHandler(movies, nil)
-        }
-        catch{
-            print(error)
-            completionHandler(nil, error)
+    
+
+     func loadItembyId<T:Decodable>(route: String, movieId: Int, completionHandler:@escaping(T?, Error?)->Void){
+        if(Connection.API_KEY.isEmpty){
+            print("You must have API Key")
+        } else{
+            
+            guard let url = URL(string: "\(Connection.API_BASE_URL)\(route)\(movieId)\(Routes.API_KEY_KEYWORD)\(Connection.API_KEY)") else { return }
+            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+                if (error != nil){
+                    print ("error")
+                    completionHandler(nil ,error)
+                }else{
+                    do{
+                        guard let data = data else { return }
+                        //let deocder = JSONDecoder()
+                        let itemResponse = try JSONDecoder().decode(T.self, from: data)
+                        DispatchQueue.main.async {
+                            completionHandler(itemResponse, nil)
+                        }
+                    } catch{
+                        print(error)
+                        completionHandler(nil, error)
+                    }
+                    
+                }
+            }
+            task.resume()
         }
     }
     

@@ -48,4 +48,10 @@ class Routes  {
 // Mark: - Youtube video Url Route
     
     static let YOUTUBE_VIDEO_URL = "https://www.youtube.com/watch?v="
+    
+    // Mark: - SEARCH MOVIE BY ID ROUTE
+    
+    static let SEARCH_MOVIE_BY_ID = "movie/"
+    static let SEARCH_TV_SHOWS_BY_ID = "tv/"
+    static let API_KEY_KEYWORD = "?api_key="
 }

@@ -19,16 +19,6 @@ class BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         intialSetup()
-        let c = NetworkConnectivity.shared
-        c.startMonitoring(completionHandler:{(loaded) in
-            if(!loaded){
-                self.noNetworkView.isHidden = false
-                NoNetworkViews.AnimateNoNetworkViews(viewNeedtedToBeAnimated: self.noNetworkView, parentView: self.view, position: 50)
-            
-            }else{
-                self.table.reloadData()
-            }
-        })
     }
     // inital setup for Movies controller
     func intialSetup(){

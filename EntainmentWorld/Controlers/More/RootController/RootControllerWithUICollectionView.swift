@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BaseControllerForGenreNSearch<T> : UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+class RootControllerWithUICollectionView<T: Hashable> : UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     let db = DBConnection()
     let activityIndicator =  ActivityIndicator.getActivityIndicator()
     var collection: UICollectionView!
@@ -17,30 +17,30 @@ class BaseControllerForGenreNSearch<T> : UIViewController,UICollectionViewDataSo
     var noNetworkView: UIView!
     var nBarHeight: CGFloat?
     var tBarHeight: CGFloat?
+    var dataSource: UICollectionViewDiffableDataSource<Section,T>!
+    var currentSnapshot: NSDiffableDataSourceSnapshot<Section,T>!
+    enum Section {
+        case main
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         setupCollectionView()
-         noNetworkViewSetup()
-            nBarHeight = self.navigationController?.navigationBar.frame.size.height
-        let position = CGFloat((nBarHeight ?? 44)+50)
-        let c = NetworkConnectivity.shared
-        c.startMonitoring(completionHandler:{(loaded) in
-            if(!loaded){
-                self.noNetworkView.isHidden = false
-                NoNetworkViews.AnimateNoNetworkViews(viewNeedtedToBeAnimated: self.noNetworkView, parentView: self.view, position: position)
-            
-            }else{
-                self.collection.reloadData()
-            }
-        })
+        self.collection.keyboardDismissMode = .onDrag
 
     }
-    
-    public func noNetworkViewSetup(){
-        noNetworkView   = NoNetworkViews.getNoNetworkViews()
-        self.view.addSubview(noNetworkView)
+    func createSnapShot(from itemList: [T]){
+        currentSnapshot =  NSDiffableDataSourceSnapshot<Section,T>()
+        currentSnapshot.appendSections([.main])
+        currentSnapshot.appendItems(itemList)
+        guard let dataSource = dataSource else{return}
+        dataSource.apply(currentSnapshot, animatingDifferences: true)
+        self.activityIndicator.stopAnimating()
     }
+    
+    
+    
+    
     
     func setupCollectionView(){
         let frame = Frames.GENRE_BASE_CONTROLLER_FRAME_CG_REACT
@@ -75,4 +75,9 @@ class BaseControllerForGenreNSearch<T> : UIViewController,UICollectionViewDataSo
         // need to leave it blank or it wont work in child classes
     }
     
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        //
+              // this will be over riden in child classes
+              // need to leave it blank or it wont work in child classes
+    }
 }

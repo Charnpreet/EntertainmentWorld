@@ -8,7 +8,7 @@
 
 import Foundation
 import  UIKit
-class  MovieGenre: BaseControllerForGenreNSearch<Genre> {
+class  MovieGenreIdList: RootControllerWithUICollectionView<Genre> {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = BackGroundColor.getBackgrndClr() 
@@ -38,7 +38,7 @@ class  MovieGenre: BaseControllerForGenreNSearch<Genre> {
     }
     
    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
+    let cell =  super.collectionView(collectionView, cellForItemAt: indexPath) as! CollectionViewCell
            cell.titleTextLabel.text = itemList[indexPath.row].name
            return cell
        }

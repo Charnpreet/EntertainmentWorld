@@ -13,11 +13,15 @@ import UIKit
 class TOPRatedShowsDataSource : BaseDataProviderShowsCollectionCell{
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == shows.count - 1 {
-            self.loadMoreContent.loadMoreTopRatedShowData(completionHandler: {(loaded) in
-                if(loaded){
-                  collectionView.reloadData()
-                }
-            })
+            currentPage += 1
+            if(currentPage <= totalPages){
+                
+                self.loadMoreContent.loadMoreTopRatedShowData(pageNO: currentPage, completionHandler: {(loaded) in
+                    if(loaded){
+                        collectionView.reloadData()
+                    }
+                })
+            }
         }
     }
 }

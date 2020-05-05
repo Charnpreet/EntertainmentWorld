@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-class TVShows : Decodable {
+class TVShows : Decodable{
     var original_name:      String?
     var id:                 Int
     var name:               String?
@@ -35,8 +35,16 @@ class TVShows : Decodable {
         original_language   = jsonObject.object(forKey: "original_language") as? String
         backdrop_path = jsonObject.object(forKey: "backdrop_path") as? String
         overview = jsonObject.object(forKey: "overview") as? String
-        
-        
-        
     }
+}
+
+extension TVShows : Equatable, Hashable {
+    static func == (lhs: TVShows, rhs: TVShows) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    public func hash(into hasher: inout Hasher) {
+            hasher.combine(ObjectIdentifier(self).hashValue)
+}
+
+    
 }

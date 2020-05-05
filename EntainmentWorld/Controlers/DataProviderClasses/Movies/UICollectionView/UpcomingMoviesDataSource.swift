@@ -11,12 +11,16 @@ import UIKit
 class UpcomingMoviesDataSource : BaseDataProviderForMovieCollectionCell{
     //MARK:-
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        super.collectionView(collectionView, willDisplay: cell, forItemAt: indexPath)
         if indexPath.row == moviesList.count - 1 {
-            self.loadMoreContent.loadMoreUpComingMoviesData(completionHandler:  {(loaded) in
+            visiblePage += 1
+             if(visiblePage  <= totalNoOfPages){
+                self.loadMoreContent.loadMoreUpComingMoviesData(pageNO: visiblePage, completionHandler:  {(loaded) in
                 if(loaded){
                     collectionView.reloadData()
                 }
             })
+        }
         }
     }
 }
