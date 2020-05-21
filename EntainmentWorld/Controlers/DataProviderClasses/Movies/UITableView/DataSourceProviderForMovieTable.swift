@@ -234,7 +234,6 @@ extension DataSourceProviderForMovieTable:  MovieCollectionViewSelectedProtocol 
     
     func collectionViewSelected(item : MoviesDetails) //_ collectionViewItem : Int
     {
-        print("collection view selected")
         self.screenSegus.LoadSegus(item: item)
     }
     

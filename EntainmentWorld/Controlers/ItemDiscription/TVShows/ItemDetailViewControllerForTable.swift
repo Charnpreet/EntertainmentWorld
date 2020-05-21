@@ -100,12 +100,14 @@ class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows
                 navigationItem.rightBarButtonItem?.setBackgroundImage(favImageSelected, for: .normal, barMetrics: .default)
                    favMovie = true
                 addCollectionToDataBase()
+                DisplayView(text: "Saved To Collection", clr: .systemGreen)
             }
             else{
             navigationItem.rightBarButtonItem?.setBackgroundImage(favImage, for: .normal, barMetrics: .default)
             favMovie = false
             guard let tvShowId = tvShowId else{return}
             deleteMovie(item: tvShowId)
+            DisplayView(text: "Removed From Collection", clr: .systemRed)
             }
     }
     

@@ -10,34 +10,41 @@ import UIKit
 class DBConnection {
     
     
+    public func LoadContent<T:Decodable>(url: URL, completionHandler:@escaping(T?, Error?)->Void){
+        
+        let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
+            if (error != nil){
+                print ("error")
+                completionHandler(nil ,error)
+            }else{
+                do{
+                    guard let data = data else { return }
+                    let itemResponse = try JSONDecoder().decode(T.self, from: data)
+                        completionHandler(itemResponse, nil)
+                } catch{
+                    print(error)
+                    completionHandler(nil, error)
+                }
+                
+            }
+        }
+        task.resume()
+    }
 
      func loadItembyId<T:Decodable>(route: String, movieId: Int, completionHandler:@escaping(T?, Error?)->Void){
+        
         if(Connection.API_KEY.isEmpty){
             print("You must have API Key")
         } else{
-            
-            guard let url = URL(string: "\(Connection.API_BASE_URL)\(route)\(movieId)\(Routes.API_KEY_KEYWORD)\(Connection.API_KEY)") else { return }
-            let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if (error != nil){
-                    print ("error")
-                    completionHandler(nil ,error)
-                }else{
-                    do{
-                        guard let data = data else { return }
-                        //let deocder = JSONDecoder()
-                        let itemResponse = try JSONDecoder().decode(T.self, from: data)
-                        DispatchQueue.main.async {
-                            completionHandler(itemResponse, nil)
-                        }
-                    } catch{
-                        print(error)
-                        completionHandler(nil, error)
-                    }
-                    
-                }
+           guard let url = URL(string: "\(Connection.API_BASE_URL)\(route)\(movieId)\(Routes.API_KEY_KEYWORD)\(Connection.API_KEY)") else { return }
+            LoadContent(url: url, completionHandler:{ (items: T?, err) in
+            DispatchQueue.main.async {
+                completionHandler(items, nil)
             }
-            task.resume()
+            })
+            
         }
+        
     }
     
     public func loadDataFromDB<T:Decodable>(pageNO: Int, route: String,completionHandler:@escaping(T?, Error?)->Void){

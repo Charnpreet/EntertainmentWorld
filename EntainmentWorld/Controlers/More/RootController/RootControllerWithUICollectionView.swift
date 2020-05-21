@@ -7,8 +7,9 @@
 //
 
 import UIKit
-
-class RootControllerWithUICollectionView<T: Hashable> : UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+ //UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UICollectionViewDelegate
+//RootVCForCollectionView<T: Hashable>
+class RootControllerWithUICollectionView<T: Hashable> : UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     let db = DBConnection()
     let activityIndicator =  ActivityIndicator.getActivityIndicator()
     var collection: UICollectionView!
@@ -50,16 +51,16 @@ class RootControllerWithUICollectionView<T: Hashable> : UIViewController,UIColle
         collection.register(HeaderForCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.COLLECTION_VIEW_HEADER_IDENTIFIER)
         view.addSubview(collection)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return  itemList.count
     }
-    
-    
+
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width/3.2, height: collectionView.frame.width/2.3)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER, for: indexPath) as! CollectionViewCell
         cell.cellImage.image = UIImage() // this is done to make sure we gets blank view beofore updates new image
@@ -74,7 +75,7 @@ class RootControllerWithUICollectionView<T: Hashable> : UIViewController,UIColle
         // this will be over riden in child classes
         // need to leave it blank or it wont work in child classes
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         //
               // this will be over riden in child classes

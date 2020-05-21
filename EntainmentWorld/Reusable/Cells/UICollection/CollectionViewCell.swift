@@ -33,4 +33,9 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+
+class BaseCollectionCell<U> : CollectionViewCell{
+    var item: U!
+}
  

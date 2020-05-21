@@ -15,7 +15,6 @@ class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
         super.viewDidLoad()
         view.backgroundColor = BackGroundColor.getBackgrndClr() //.black
         loadImage()
-        // Do any additional setup after loading the view.
     }
     
     override  func loadImage(){
@@ -102,12 +101,14 @@ class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
                 navigationItem.rightBarButtonItem?.setBackgroundImage(favImageSelected, for: .normal, barMetrics: .default)
                    favMovie = true
                 addCollectionToDataBase()
+                DisplayView(text: "Saved To Collection", clr: .systemGreen)
             }
             else{
             navigationItem.rightBarButtonItem?.setBackgroundImage(favImage, for: .normal, barMetrics: .default)
             favMovie = false
             guard let mvoieId = mvoieId else{return}
             deleteMovie(item: mvoieId)
+            DisplayView(text: "Removed From Collection", clr: .systemRed)
             }
     }
     

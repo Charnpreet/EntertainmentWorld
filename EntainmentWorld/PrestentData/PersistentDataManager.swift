@@ -70,6 +70,19 @@ final class PersistentDataManager {
         context.delete(object)
         Save()
     }
+    
+    func TotalNoOfItems<T: NSManagedObject>(_ objectType: T.Type)-> Int{
+        var count = 0
+        let entityName = String(describing: objectType)
+         let fetechRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        do {
+            count = try context.count(for: fetechRequest)
+        }catch{
+            print(error)
+            return count
+        }
+        return count
+    }
 }
  
  

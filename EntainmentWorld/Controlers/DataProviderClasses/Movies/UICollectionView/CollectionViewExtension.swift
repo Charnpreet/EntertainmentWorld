@@ -37,7 +37,6 @@ extension BaseDataProviderForMovieCollectionCell  :  UICollectionViewDataSource,
     //MARK:-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let delegate = self.delegate else{return}
-        print(indexPath)
         delegate.collectionViewSelected(item: moviesList[indexPath.row])
     }
     

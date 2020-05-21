@@ -15,18 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WsD-Xf-hGC">
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WsD-Xf-hGC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="WsD-Xf-hGC" secondAttribute="bottom" id="B11-nl-b7Q"/>
-                            <constraint firstItem="WsD-Xf-hGC" firstAttribute="trailing" secondItem="bsb-XS-Idm" secondAttribute="trailing" id="aj1-Na-6ch"/>
-                            <constraint firstItem="WsD-Xf-hGC" firstAttribute="leading" secondItem="bsb-XS-Idm" secondAttribute="leading" id="qYk-th-pg5"/>
-                            <constraint firstItem="WsD-Xf-hGC" firstAttribute="top" secondItem="gfL-oM-qVY" secondAttribute="top" id="uWM-jC-nGj"/>
-                        </constraints>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bsb-XS-Idm"/>
                     </view>
                     <connections>

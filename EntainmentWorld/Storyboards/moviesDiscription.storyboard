@@ -15,19 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iTL-6l-Ci3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTL-6l-Ci3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="iTL-6l-Ci3" firstAttribute="leading" secondItem="sDR-bh-apw" secondAttribute="leading" id="8TX-Nl-VP6"/>
-                            <constraint firstAttribute="bottom" secondItem="iTL-6l-Ci3" secondAttribute="bottom" id="ZQA-Au-MEE"/>
-                            <constraint firstItem="iTL-6l-Ci3" firstAttribute="top" secondItem="zu4-YL-Xul" secondAttribute="top" id="frn-U8-ibK"/>
-                            <constraint firstItem="iTL-6l-Ci3" firstAttribute="trailing" secondItem="sDR-bh-apw" secondAttribute="trailing" id="x0O-ne-Slz"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="sDR-bh-apw"/>
                     </view>
                     <navigationItem key="navigationItem" id="vxE-Tm-ULP"/>

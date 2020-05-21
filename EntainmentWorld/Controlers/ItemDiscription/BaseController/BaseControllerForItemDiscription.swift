@@ -25,26 +25,55 @@ class BaseControllerForItemDiscription<T> : UIViewController{
     @IBOutlet var backGroundImage: UIImageView! = UIImageView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = BackGroundColor.getBackgrndClr() //.black
+        view.backgroundColor = BackGroundColor.getBackgrndClr()
         SetUpTitleLabel()
-        //  noNetworkViewSetup()
     }
-    
-    //
-    // when customizing a bar button, it must check if movie id is already in coredata database,
-    // it should update pic accroding to that
-    // method which must check if item exists
-    // if it does then don't update
     
     func CustomizingNavigationBar(){
         navigationItem.rightBarButtonItem = UIBarButtonItem(title:"", style: .plain, target: self, action: #selector(addTapped))
     }
     
-    
     @objc func addTapped(){
         
     }
     
+    private func startAnimation(UiView: UIView, label: UILabel){
+        UiView.frame = CGRect(x: 10, y: 90, width: Constants.IOS_SCREEN_WIDTH - 20, height: 50)
+          label.frame = CGRect(x: 0, y: 0, width: UiView.frame.width, height: UiView.frame.height)
+             self.view.layoutIfNeeded()
+    }
+    private func stopAnimation(UiView: UIView){
+        UiView.transform = CGAffineTransform(scaleX: 1, y: 0.00001)
+          self.view.layoutIfNeeded()
+    }
+    
+    private func removeViews(UiView: UIView, label: UILabel){
+        label.removeFromSuperview()
+        UiView.removeFromSuperview()
+    }
+    // added fav view
+    // this should we visible only when user click on add to fav collection icon
+    func DisplayView(text: String, clr : UIColor){
+        let UiView = UIView(frame: CGRect(x: 10, y: 90, width: Constants.IOS_SCREEN_WIDTH - 20, height: 0))
+        let label = UILabel()
+        label.textColor = .white
+        UiView.addSubview(label)
+        label.textAlignment = .center
+        self.view.addSubview(UiView)
+        UiView.backgroundColor = clr
+        UiView.layer.borderColor = UIColor.red.cgColor
+        label.text = text
+        UIView.animate(withDuration: 0.6, delay: 0.0, options: .curveEaseInOut, animations: {
+            self.startAnimation(UiView: UiView, label: label)
+          }, completion:{
+            _ in UIView.animate(withDuration: 1.6, delay: 0.0, options: .curveEaseInOut, animations: {
+                 self.stopAnimation(UiView:UiView)
+            }, completion: { _ in
+                self.removeViews(UiView: UiView, label: label)
+            })
+          })
+    }
+    //
     public func noNetworkViewSetup(){
         noNetworkView   = NoNetworkViews.getNoNetworkViews()
         self.view.addSubview(noNetworkView)
