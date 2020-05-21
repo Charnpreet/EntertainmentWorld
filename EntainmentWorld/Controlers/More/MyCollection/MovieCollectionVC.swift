@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class MovieCell : BaseCollectionCell<MoviesDetails>{
     override var item: MoviesDetails!{
         didSet{
@@ -38,16 +37,19 @@ class MovieCollectionVC: Mycollection<MovieCell, MoviesDetails>{
     
     
       func loadFavMovieCollectionFromDB(){
+        self.itemList.removeAll()
             for id in itemIdsList {
-                self.itemList.removeAll()
+                dc.enter()
                 db.loadItembyId(route: Routes.SEARCH_MOVIE_BY_ID, movieId: id, completionHandler: { (movie: MoviesDetails?, err)  in
                     guard let movie = movie else {
                         return}
                     self.itemList.append(movie)
-                    self.collection.reloadData()
+                    self.dc.leave()
                 })
             }
-
+        dc.notify(queue: .main, execute: {
+            self.collection.reloadData()
+        })
         }
     
    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

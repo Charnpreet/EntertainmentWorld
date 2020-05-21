@@ -11,6 +11,7 @@ import UIKit
 //UIViewController
 class Mycollection<U: BaseCollectionCell<T>, T:Hashable> : RootVCForCollectionView<U, T>  {
     var db = DBConnection()
+    let dc = DispatchGroup()
     var navBarImg: UIImage!
     var itemIdsList :[Int] = []
     var selectedItemIndex: Int?

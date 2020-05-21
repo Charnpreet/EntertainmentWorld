@@ -41,15 +41,20 @@ class MyTvShowsCollection: Mycollection<TVShowCell, TVShows> {
     
     
     func loadFavTvShowseCollectionFromDB(){
-        
+        self.itemList.removeAll()
         for id in itemIdsList {
-            self.itemList.removeAll()
+            dc.enter()
             db.loadItembyId(route: Routes.SEARCH_TV_SHOWS_BY_ID, movieId: id, completionHandler: { (shows: TVShows?, err)  in
                 guard let shows = shows else {return}
                 self.itemList.append(shows)
                 self.collection.reloadData()
+                self.dc.leave()
+                
             })
         }
+        dc.notify(queue: .main, execute: {
+            self.collection.reloadData()
+        })
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
