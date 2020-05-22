@@ -18,3 +18,14 @@ class Genre : Decodable{
     var id: Int
     var name: String
 }
+
+extension Genre : Equatable, Hashable {
+    static func == (lhs: Genre, rhs: Genre) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    public func hash(into hasher: inout Hasher) {
+            hasher.combine(ObjectIdentifier(self).hashValue)
+}
+
+    
+}

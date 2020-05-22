@@ -9,9 +9,10 @@
 import UIKit
 
 class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows>{
+    var tvShowId: TvShows?
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        view.backgroundColor = BackGroundColor.getBackgrndClr()  //.black
         loadImage()
         // Do any additional setup after loading the view.
     }
@@ -50,7 +51,7 @@ class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows
     }
     override func AddLabelToNavigationBar() {
         super.AddLabelToNavigationBar()
-        self.firstLabel.text = item.name
+        //  self.firstLabel.text = item.name
     }
     
     fileprivate func addView(){
@@ -71,12 +72,73 @@ class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows
         bottomSheetVC.view.frame = CGRect(x: 0, y: self.view.frame.maxY, width: width, height: height)
     }
     
-    
-    
     func addBottomSheetView() {
         addView()
         
     }
+    
+    
+    override func CustomizingNavigationBar() {
+        super.CustomizingNavigationBar()
+        if(isItFavCollection()){
+            navigationItem.rightBarButtonItem?.setBackgroundImage(favImageSelected, for: .normal, barMetrics: .default)
+        }
+        else{
+            navigationItem.rightBarButtonItem?.setBackgroundImage(favImage, for: .normal, barMetrics: .default)
+        }
+    }
+    
+    
+      func deleteMovie(item: TvShows){
+        guard let persistentManager = persistentManager else {return}
+        persistentManager.deleteItem(item)
+      }
+    
+    override func addTapped() {
+        super.addTapped()
+            if(!itemAlreadyThere()){
+                navigationItem.rightBarButtonItem?.setBackgroundImage(favImageSelected, for: .normal, barMetrics: .default)
+                   favMovie = true
+                addCollectionToDataBase()
+                DisplayView(text: "Saved To Collection", clr: .systemGreen)
+            }
+            else{
+            navigationItem.rightBarButtonItem?.setBackgroundImage(favImage, for: .normal, barMetrics: .default)
+            favMovie = false
+            guard let tvShowId = tvShowId else{return}
+            deleteMovie(item: tvShowId)
+            DisplayView(text: "Removed From Collection", clr: .systemRed)
+            }
+    }
+    
+    func addCollectionToDataBase(){
+        guard let persistentManager = persistentManager else {return}
+        let show = TvShows(context: persistentManager.context)
+        show.id = Int64(item.id)
+        
+        persistentManager.Save()
+    }
+    
+    private func itemAlreadyThere()->Bool{
+    guard let persistentManager = persistentManager else {return false}
+        var fav = false
+        let itemId =  persistentManager.Fetech(TvShows.self)
+        itemId.forEach({
+            if($0.id ==  item.id){
+                tvShowId = $0
+                fav = true
+            }
+        })
+        return fav
+    }
+    
+    
+    
+    func isItFavCollection()->Bool{
+        favMovie = itemAlreadyThere()
+        return favMovie
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         AddLabelToNavigationBar()

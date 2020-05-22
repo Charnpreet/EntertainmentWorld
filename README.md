@@ -6,6 +6,6 @@ Swift movie app fetching data from TheMovieWorld API
     // setup No Network alert
     // setup Error displaying functionality
     // implment trending in movies and tv shows
-    // setup loading activity indicator 
     // setup alert when there is no API Key Available
+    // how to find out which screen is visible to user
     

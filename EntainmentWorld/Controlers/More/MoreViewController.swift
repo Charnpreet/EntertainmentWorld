@@ -10,40 +10,51 @@ import UIKit
 
 class MoreViewController: BaseViewController {
     let db = DBConnection()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+       // self.table.sectionHeaderHeight = 70
+      //  self.navigationController?.navigationBar.prefersLargeTitles = true
+        view.backgroundColor = BackGroundColor.getBackgrndClr()  //.black
         self.table.rowHeight = Constants.IOS_SCREEN_HEIGHT/12
         // Do any additional setup after loading the view.
         self.table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
         self.table.dataSource = self
         self.table.delegate = self
+        self.table.rowHeight = 50
+        self.table.isScrollEnabled = false
     }
+    
+    func setUpHeader(view: UIView){
+        let label = UILabel(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height:  30))
+        label.text = "...MORE"
+        label.font = label.font.withSize(20)
+        label.textColor = .white
+        label.textAlignment = .center
+        label.center = view.center
+        view.addSubview(label)
+    }
+    
 }
 
 extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 5
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: Constants.IOS_SCREEN_HEIGHT/4))
+        setUpHeader(view: view)
+        return view
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return Constants.IOS_SCREEN_HEIGHT/4
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(indexPath.section==0){
-            LoadSearchView(rowNo: indexPath.row)
-        }
-        if(indexPath.section==1){
-            LoadBrowsByGenreView(rowNo: indexPath.row)
-        }
-        
-        
+        onRowItemClick(for: indexPath.row)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         self.navigationController?.navigationBar.isHidden = false
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,53 +63,49 @@ extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
         cellBckgrdView.backgroundColor = .clear
         cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
         cell.accessoryType = .disclosureIndicator
-        cell.layer.cornerRadius = 25
-        //cell.layer.borderColor = UIColor.red.cgColor
-        cell.layer.borderWidth = 5
-        if(indexPath.section==0){
-            if(indexPath.row==0){
-                cell.textLabel?.text = "Search Movie"
-            }
-            if(indexPath.row==1){
-                cell.textLabel?.text = "Search Tv Shows"
-            }
+        cell.layer.borderWidth = 1
+        cell.layer.cornerRadius = 1
+        if(indexPath.row==0){
+            cell.textLabel?.text = "Search Movie"
         }
-        if(indexPath.section==1){
-            if(indexPath.row==0){
-                cell.textLabel?.text = "Browse Movies By Genre"
-            }
-            if(indexPath.row==1){
-                cell.textLabel?.text = "Browse TV Shows By Genre"
-            }
+        if(indexPath.row==1){
+            cell.textLabel?.text = "Search Tv Shows"
         }
-        
+        if(indexPath.row==2){
+            cell.textLabel?.text = "Movies By Genre"
+        }
+        if(indexPath.row==3){
+            cell.textLabel?.text = "TV Shows By Genre"
+        }
+        if(indexPath.row==4){
+            cell.textLabel?.text = "My Collection"
+        }
         
         return cell
     }
-    
-    private  func LoadSearchView(rowNo: Int){
+    private func onRowItemClick(for row: Int){
         let searchVC = UIStoryboard(name: Constants.SEARCHMOVIES_STORYBOARD_IDENTIFERS, bundle: nil).instantiateViewController(withIdentifier: Constants.SEARCHMOVIES_STORYBOARD_IDENTIFERS)
         let searchShowsVC = UIStoryboard(name: Constants.SEARCH_SHOWS_STORYBOARD_IDENTIFER, bundle: nil).instantiateViewController(withIdentifier: Constants.SEARCH_SHOWS_STORYBOARD_IDENTIFER)
-        if(rowNo==0){
-            navigationController?.pushViewController(searchVC, animated: true)
-        }
-        else{
-            
-            navigationController?.pushViewController(searchShowsVC, animated: true)
-        }
-    }
-    
-    private func LoadBrowsByGenreView(rowNo: Int){
         let discoverVC = UIStoryboard(name: Constants.DICCOVER_STORYBOARD_IDENTIFER, bundle: nil).instantiateViewController(withIdentifier: Constants.DICCOVER_STORYBOARD_IDENTIFER)
         let tvShowGenreVC = UIStoryboard(name:Constants.TV_SHOWS_GENRE_STORYBOARD_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.TV_SHOWS_GENRE_STORYBOARD_IDENTIFIER)
-        if(rowNo==0){
+        let mycollectionVC = UIStoryboard(name:"Mycollection", bundle: nil).instantiateViewController(withIdentifier: "Mycollection")
+        
+        if(row==0){
+            navigationController?.pushViewController(searchVC, animated: true)
+        }
+        if(row==1){
+            navigationController?.pushViewController(searchShowsVC, animated: true)
+        }
+        
+        if(row==2){
             navigationController?.pushViewController(discoverVC, animated: true)
         }
-        if(rowNo==1){
+        if(row==3){
             navigationController?.pushViewController(tvShowGenreVC, animated: true)
         }
-            
-       
+        if(row==4){
+           navigationController?.pushViewController(mycollectionVC, animated: true)
+       }
     }
 }
 

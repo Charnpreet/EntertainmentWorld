@@ -40,3 +40,14 @@ class MoviesDetails : Decodable {
         release_date = jsonObject.object(forKey: "release_date") as? String
     }
 }
+
+extension MoviesDetails : Equatable, Hashable {
+    static func == (lhs: MoviesDetails, rhs: MoviesDetails) -> Bool {
+        return ObjectIdentifier(lhs) == ObjectIdentifier(rhs)
+    }
+    public func hash(into hasher: inout Hasher) {
+            hasher.combine(ObjectIdentifier(self).hashValue)
+}
+
+    
+}

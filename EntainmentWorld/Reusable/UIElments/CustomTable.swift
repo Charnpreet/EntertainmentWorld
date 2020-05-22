@@ -22,7 +22,7 @@ var safeArea: UILayoutGuide!
   
     //setup table view
      func setUptable(){
-            backgroundColor = .black
+        backgroundColor = BackGroundColor.getBackgrndClr()             //.black
             rowHeight = CGFloat(Constants.HEIGHT_OF_TABLE_ROWS)
             tableHeaderView?.backgroundColor = .red
      }

@@ -36,9 +36,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nlZ-Td-7sX"/>
                     </view>
-                    <connections>
-                        <outlet property="webViewKit" destination="WRK-IP-iAi" id="hl0-pu-eqQ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j6Z-Mu-23h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

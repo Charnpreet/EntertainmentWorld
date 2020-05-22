@@ -11,18 +11,19 @@ class MovieViewController: BaseViewController {
     var dataProvider : DataSourceProviderForMovieTable!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
+        navigationController?.navigationBar.backgroundColor = BackGroundColor.getBackgrndClr() 
         DataProviders()
     }
     
-        func DataProviders(){
-            dataProvider = DataSourceProviderForMovieTable()
-            guard let dataProvider = dataProvider else{return}
-            dataProvider.screenSegus = self
-            table.dataSource = dataProvider
-            table.delegate  = dataProvider
+    func DataProviders(){
+        dataProvider = DataSourceProviderForMovieTable()
+        guard let dataProvider = dataProvider else{return}
+        dataProvider.screenSegus = self
+        table.dataSource = dataProvider
+        table.delegate  = dataProvider
         
-        }
-    
+    }
     override func setUptable(){
         super.setUptable()
         table.register(UItableCell.self, forCellReuseIdentifier: Constants.TABLE_VIEW_CELL_IDENTIFIER)
@@ -32,7 +33,6 @@ class MovieViewController: BaseViewController {
     }
 }
 
-    
 
 extension MovieViewController : DoSegusForMovies {
     func LoadSegus(item : MoviesDetails){
