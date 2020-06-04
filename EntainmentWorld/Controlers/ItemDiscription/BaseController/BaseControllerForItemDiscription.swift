@@ -63,10 +63,10 @@ class BaseControllerForItemDiscription<T> : UIViewController{
         UiView.backgroundColor = clr
         UiView.layer.borderColor = UIColor.red.cgColor
         label.text = text
-        UIView.animate(withDuration: 0.6, delay: 0.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
             self.startAnimation(UiView: UiView, label: label)
           }, completion:{
-            _ in UIView.animate(withDuration: 1.6, delay: 0.0, options: .curveEaseInOut, animations: {
+            _ in UIView.animate(withDuration: 0.2, delay: 0.6, options: .curveEaseInOut, animations: {
                  self.stopAnimation(UiView:UiView)
             }, completion: { _ in
                 self.removeViews(UiView: UiView, label: label)

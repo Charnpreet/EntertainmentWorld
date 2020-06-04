@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 class TVShowsListByGenre : RootControllerWithUICollectionView<TVShows>{
+    let nvigationLabel = UILabel(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: 40))
     var genreId: Int!
     var curentPage: Int = 1
     var totalPages: Int = 1
@@ -24,6 +25,21 @@ class TVShowsListByGenre : RootControllerWithUICollectionView<TVShows>{
         LoadConentWithGnreId(PageNO: curentPage, genreId: genreId)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+           self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
+           nvigationLabel.text = "TV Shows"
+           nvigationLabel.textColor = .red
+           nvigationLabel.textAlignment = .center
+           self.navigationController?.navigationBar.addSubview(nvigationLabel)
+       }
+       
+       override func viewWillDisappear(_ animated: Bool) {
+           self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
+           nvigationLabel.removeFromSuperview()
+       
+       }
+    
+    
     func configureDataSource() {
         
         dataSource = UICollectionViewDiffableDataSource<Section, TVShows>(collectionView: collection, cellProvider: {collection, indexPath, itemList in

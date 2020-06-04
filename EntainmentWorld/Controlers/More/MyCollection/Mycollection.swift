@@ -18,9 +18,6 @@ class Mycollection<U: BaseCollectionCell<T>, T:Hashable> : RootVCForCollectionVi
     var persistentManager: PersistentDataManager?
     override func viewDidLoad() {
         super.viewDidLoad()
-      //  ClearNavigationBar()
-       // self.view.backgroundColor = .black
-        //self.extendedLayoutIncludesOpaqueBars = true
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -34,15 +31,5 @@ class Mycollection<U: BaseCollectionCell<T>, T:Hashable> : RootVCForCollectionVi
             self.collection.reloadData()
         }
     }
-//    fileprivate func ClearNavigationBar(){
-//        navBarImg = UIImage()
-//        guard let navBarImg = navBarImg else {return}
-//        // self.navigationController?.navigationBar.layer.shadowOpacity = 0.95
-//        self.navigationController?.navigationBar.setBackgroundImage(navBarImg, for: .default)
-//        self.navigationController?.navigationBar.shadowImage = navBarImg
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.navigationBar.backgroundColor = .clear
-//        self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
-//    }
 }
     

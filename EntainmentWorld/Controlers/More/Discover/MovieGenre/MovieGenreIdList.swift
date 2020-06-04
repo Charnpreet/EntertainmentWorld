@@ -9,6 +9,7 @@
 import Foundation
 import  UIKit
 class  MovieGenreIdList: RootControllerWithUICollectionView<Genre> {
+    let nvigationLabel = UILabel(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: 40))
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = BackGroundColor.getBackgrndClr() 
@@ -27,12 +28,18 @@ class  MovieGenreIdList: RootControllerWithUICollectionView<Genre> {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
-    }
+           self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
+           nvigationLabel.text = "Movies"
+           nvigationLabel.textColor = .red
+           nvigationLabel.textAlignment = .center
+           self.navigationController?.navigationBar.addSubview(nvigationLabel)
+       }
+       
+       override func viewWillDisappear(_ animated: Bool) {
+           self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
+           nvigationLabel.removeFromSuperview()
+       
+       }
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         LoadSegus(genreId: itemList[indexPath.row].id )
     }

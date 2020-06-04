@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 class MoviesListByGenreID : RootControllerWithUICollectionView<MoviesDetails>{
+    let nvigationLabel = UILabel(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: 40))
     var genreId: Int!
     var curentPage: Int = 1
     var totalPages: Int = 1
@@ -25,6 +26,21 @@ class MoviesListByGenreID : RootControllerWithUICollectionView<MoviesDetails>{
         configureDataSource()
         LoadConentWithGnreId(pageNo: curentPage, genreId: genreId)
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+           self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
+           nvigationLabel.text = "Movies"
+           nvigationLabel.textColor = .red
+           nvigationLabel.textAlignment = .center
+           self.navigationController?.navigationBar.addSubview(nvigationLabel)
+       }
+       
+       override func viewWillDisappear(_ animated: Bool) {
+           self.navigationController?.navigationBar.topItem?.title = Constants.EMPTY_TEXT
+           nvigationLabel.removeFromSuperview()
+       
+       }
     
     func configureDataSource() {
           

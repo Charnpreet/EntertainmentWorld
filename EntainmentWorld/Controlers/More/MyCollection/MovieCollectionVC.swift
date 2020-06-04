@@ -7,17 +7,6 @@
 //
 
 import UIKit
-class MovieCell : BaseCollectionCell<MoviesDetails>{
-    override var item: MoviesDetails!{
-        didSet{
-                let pPath = item.poster_path
-                let tittle = item.title ?? ""
-                let db = DBConnection()
-                Shared.LoadPosterImages(cellImage : cellImage, pPath: pPath, text : tittle, db: db)
-        }
-    }
-}
-//
 class MovieCollectionVC: Mycollection<MovieCell, MoviesDetails>{
     override func viewDidLoad() {
         super.viewDidLoad()

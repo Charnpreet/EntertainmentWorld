@@ -5,7 +5,6 @@
 //  Created by CHARNPREET SINGH on 14/4/20.
 //  Copyright © 2020 CHARNPREET SINGH. All rights reserved.
 //
-
 import UIKit
 class TVShowsViewController: BaseViewController {
     var dataprovider: DataSourceProviderForTable!

@@ -117,7 +117,7 @@ extension DataSourceProviderForTable : UITableViewDataSource, UITableViewDelegat
         return Constants.TV_SHOW_CATEGORIES[section]
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        // return the number of sections
         return Constants.TV_SHOW_CATEGORIES.count
     }
     
