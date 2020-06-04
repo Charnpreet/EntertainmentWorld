@@ -29,6 +29,7 @@ class Shared {
 
     }
     
+
     static func LoadPosterImages(cellImage : UIImageView, pPath: String?, text : String, db: DBConnection){
           guard let posterPath = pPath else {
              // cell.titleTextLabel.text = text

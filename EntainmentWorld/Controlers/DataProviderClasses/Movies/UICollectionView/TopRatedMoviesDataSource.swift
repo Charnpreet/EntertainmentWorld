@@ -26,3 +26,6 @@ class TopRatedMoviesDataSource :BaseDataProviderForMovieCollectionCell {
         }
     }
 }
+//class TopRatedMoviesDataSource :BaseDPForMovies<U: BaseCollectionCell<T>, T: Hashable>{
+//    
+//}

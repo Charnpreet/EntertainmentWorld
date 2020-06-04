@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class MovieViewController: BaseViewController {
+class MovieViewController: BaseVCForTableView {
     var dataProvider : DataSourceProviderForMovieTable!
     override func viewDidLoad() {
         super.viewDidLoad()

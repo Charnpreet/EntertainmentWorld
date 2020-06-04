@@ -6,7 +6,7 @@
 //  Copyright © 2020 CHARNPREET SINGH. All rights reserved.
 //
 import UIKit
-class TVShowsViewController: BaseViewController {
+class TVShowsViewController: BaseVCForTableView {
     var dataprovider: DataSourceProviderForTable!
     override func viewDidLoad() {
         super.viewDidLoad()

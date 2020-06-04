@@ -108,8 +108,8 @@ extension DataSourceProviderForMovieTable : UITableViewDataSource, UITableViewDe
         cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
         cell.addSubview(activityIndicator)
         activityIndicator.center = cell.center
-        activityIndicator.startAnimating()
         if(indexPath.section==0){
+            activityIndicator.startAnimating()
             popularMoviesDataSource    =  PopularMoviesDataSource()
             popularMoviesDataSource.loadMoreContent = self
             popularMoviesDataSource.delegate = self
@@ -117,14 +117,13 @@ extension DataSourceProviderForMovieTable : UITableViewDataSource, UITableViewDe
                 if(loaded){
                     cell.initializeCollectionViewWithDataSource(self.popularMoviesDataSource, delegate: self.popularMoviesDataSource, forRow: indexPath.row)
                     cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-                    self.activityIndicator.stopAnimating()
-                }else{
-                    self.activityIndicator.stopAnimating()
                 }
+                self.activityIndicator.stopAnimating()
             })
         }
-        
+
         if(indexPath.section==1){
+            activityIndicator.startAnimating()
             nowPlayingMoviesDataSource  = NowPlayingMoviesDataSource()
             nowPlayingMoviesDataSource.loadMoreContent = self
             nowPlayingMoviesDataSource.delegate = self
@@ -132,16 +131,13 @@ extension DataSourceProviderForMovieTable : UITableViewDataSource, UITableViewDe
                 if(loaded){
                     cell.initializeCollectionViewWithDataSource(self.nowPlayingMoviesDataSource, delegate: self.nowPlayingMoviesDataSource, forRow: indexPath.row)
                     cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-                    self.activityIndicator.stopAnimating()
-                }else{
-                    self.activityIndicator.stopAnimating()
                 }
-
+                 self.activityIndicator.stopAnimating()
             })
 
         }
         if(indexPath.section==2){
-
+            activityIndicator.startAnimating()
             upcomingMoviesDataSource = UpcomingMoviesDataSource()
             upcomingMoviesDataSource.loadMoreContent = self
             upcomingMoviesDataSource.delegate = self
@@ -149,16 +145,13 @@ extension DataSourceProviderForMovieTable : UITableViewDataSource, UITableViewDe
                 if(loaded){
                     cell.initializeCollectionViewWithDataSource(self.upcomingMoviesDataSource , delegate: self.upcomingMoviesDataSource , forRow: indexPath.row)
                     cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-                    self.activityIndicator.stopAnimating()
-                }else{
-                    self.activityIndicator.stopAnimating()
                 }
-
+                 self.activityIndicator.stopAnimating()
             })
 
         }
         if(indexPath.section==3){
-
+            activityIndicator.startAnimating()
             topRatedMoviesDataSource    = TopRatedMoviesDataSource()
             topRatedMoviesDataSource.loadMoreContent = self
             topRatedMoviesDataSource.delegate = self
@@ -166,11 +159,8 @@ extension DataSourceProviderForMovieTable : UITableViewDataSource, UITableViewDe
                 if(loaded){
                     cell.initializeCollectionViewWithDataSource(self.topRatedMoviesDataSource, delegate: self.topRatedMoviesDataSource, forRow: indexPath.row)
                     cell.collectionViewOffset = self.storedOffsets[indexPath.row] ?? 0
-                    self.activityIndicator.stopAnimating()
-                }else{
-                    self.activityIndicator.stopAnimating()
                 }
-
+                 self.activityIndicator.stopAnimating()
             })
 
         }

@@ -9,13 +9,13 @@
 import Foundation
 import UIKit
 class BaseDataProviderForMovieCollectionCell : NSObject {
+    typealias T = MoviesDetails
     var visiblePage: Int = 1
-    var totalNoOfPages: Int = 1
-    
+    var totalNoOfPages: Int = 1 
     var moviesList :[MoviesDetails] = []
     let db = DBConnection()
     var  loadMoreContent :LoadMoreMovieDataProtocol!
-    var delegate : MovieCollectionViewSelectedProtocol!
+    var delegate :   MovieCollectionViewSelectedProtocol!
 
     
     var currentPage : Int{

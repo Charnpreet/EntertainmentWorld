@@ -10,7 +10,7 @@ import UIKit
 //
 // base controller for Tv and Movie Shows
 // both will inhrit common properties from it
-class BaseViewController: UIViewController {
+class BaseVCForTableView: UIViewController {
     var table : CustomTable!
     var safeArea: UILayoutGuide!
     var noNetworkView: UIView!

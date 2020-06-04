@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MoreViewController: BaseViewController {
+class MoreViewController: BaseVCForTableView {
     let db = DBConnection()
     
     override func viewDidLoad() {
