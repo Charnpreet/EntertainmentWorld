@@ -1,0 +1,171 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Constants"
+provides-nominal:
+- "15EntainmentWorld9ConstantsC"
+provides-member:
+- ["15EntainmentWorld9ConstantsC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "-"
+- "/"
+- "CGFloat"
+- "CGRect"
+- "Constants"
+- "FloatLiteralType"
+- "IntegerLiteralType"
+- "StringLiteralType"
+- "UIScreen"
+depends-member:
+- ["So6CGRectV", "height"]
+- ["So6CGRectV", "init"]
+- ["So6CGRectV", "width"]
+- ["s7CVarArgP", "bounds"]
+- ["s7CVarArgP", "main"]
+- ["15EntainmentWorld9ConstantsC", "CGFloat"]
+- ["15EntainmentWorld9ConstantsC", "CGRect"]
+- ["15EntainmentWorld9ConstantsC", "COLLECTION_VIEW_CELL_IDENTIFIER"]
+- ["15EntainmentWorld9ConstantsC", "COLLECTION_VIEW_HEADER_IDENTIFIER"]
+- ["15EntainmentWorld9ConstantsC", "Constants"]
+- ["15EntainmentWorld9ConstantsC", "DARK_MODE_SWITCH_FRAME"]
+- ["15EntainmentWorld9ConstantsC", "DARK_MODE_UI_LABEL_FRAME"]
+- ["15EntainmentWorld9ConstantsC", "DARK_MODE_UI_LABEL_TEXT"]
+- ["15EntainmentWorld9ConstantsC", "DICCOVER_STORYBOARD_IDENTIFER"]
+- ["15EntainmentWorld9ConstantsC", "EMPTY_TEXT"]
+- ["15EntainmentWorld9ConstantsC", "HEIGHT_OF_TABLE_ROWS"]
+- ["15EntainmentWorld9ConstantsC", "IOS_SCREEN_HEIGHT"]
+- ["15EntainmentWorld9ConstantsC", "IOS_SCREEN_WIDTH"]
+- ["15EntainmentWorld9ConstantsC", "MOVIE_CATEGORIES"]
+- ["15EntainmentWorld9ConstantsC", "MOVIE_DETAILS_STORYBOARD_IDENTIFIER"]
+- ["15EntainmentWorld9ConstantsC", "MOVIE_GENRE_IDENTIFIER"]
+- ["15EntainmentWorld9ConstantsC", "NO_OF_ROWS_IN_EACH_TABLE_SECTION"]
+- ["15EntainmentWorld9ConstantsC", "NO_PLAY_VIDEO_BUTTON_IMAGE"]
+- ["15EntainmentWorld9ConstantsC", "PLAY_VIDEO_BUTTON_IMAGE"]
+- ["15EntainmentWorld9ConstantsC", "PROFILE_IMAGE_FRAME"]
+- ["15EntainmentWorld9ConstantsC", "SEARCHMOVIES_STORYBOARD_IDENTIFERS"]
+- ["15EntainmentWorld9ConstantsC", "SEARCH_SHOWS_STORYBOARD_IDENTIFER"]
+- ["15EntainmentWorld9ConstantsC", "SEARCH_VC_COLLECTION_CELL_HEADER_HEIGHT"]
+- ["15EntainmentWorld9ConstantsC", "SHOW_DETAILS_STORYBOARD_IDENTIFIER"]
+- ["15EntainmentWorld9ConstantsC", "SHOW_DETAILS_VIEW_CONTROLLER_IDENTIFIER"]
+- ["15EntainmentWorld9ConstantsC", "TABLE_VIEW_CELL_IDENTIFIER"]
+- ["15EntainmentWorld9ConstantsC", "TV_SHOWS_GENRE_IDENTIFIER"]
+- ["15EntainmentWorld9ConstantsC", "TV_SHOWS_GENRE_STORYBOARD_IDENTIFIER"]
+- ["15EntainmentWorld9ConstantsC", "TV_SHOW_CATEGORIES"]
+- ["15EntainmentWorld9ConstantsC", "UIScreen"]
+- ["15EntainmentWorld9ConstantsC", "USER_EMAIL_UI_LABEL_FRAME"]
+- ["15EntainmentWorld9ConstantsC", "USER_NAME_UI_LABEL_FRAME"]
+- ["15EntainmentWorld9ConstantsC", "WEBVIEW_KEYPATH"]
+- ["15EntainmentWorld9ConstantsC", "WEBVIEW_LOGINSCREEN_URL"]
+- ["15EntainmentWorld9ConstantsC", "init"]
+- ["s28CustomDebugStringConvertibleP", "bounds"]
+- ["s28CustomDebugStringConvertibleP", "height"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- ["s28CustomDebugStringConvertibleP", "main"]
+- ["s28CustomDebugStringConvertibleP", "width"]
+- ["s17CustomReflectableP", "height"]
+- ["s17CustomReflectableP", "init"]
+- ["s17CustomReflectableP", "width"]
+- ["s23CustomStringConvertibleP", "bounds"]
+- ["s23CustomStringConvertibleP", "main"]
+- ["Se", "height"]
+- ["Se", "init"]
+- ["Se", "width"]
+- ["SE", "height"]
+- ["SE", "init"]
+- ["SE", "width"]
+- ["SQ", "bounds"]
+- ["SQ", "height"]
+- ["SQ", "init"]
+- ["SQ", "main"]
+- ["SQ", "width"]
+- ["SH", "bounds"]
+- ["SH", "main"]
+- ["So8NSObjectC", "bounds"]
+- ["So8NSObjectC", "main"]
+- ["So8NSObjectP", "bounds"]
+- ["So8NSObjectP", "main"]
+- ["So8UIScreenC", "bounds"]
+- ["So8UIScreenC", "main"]
+- ["So18UITraitEnvironmentP", "bounds"]
+- ["So18UITraitEnvironmentP", "main"]
+- ["s30_CustomPlaygroundQuickLookableP", "height"]
+- ["s30_CustomPlaygroundQuickLookableP", "init"]
+- ["s30_CustomPlaygroundQuickLookableP", "width"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "bounds"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "main"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "bounds"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "main"]
+- ["s21_ObjectiveCBridgeableP", "height"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- ["s21_ObjectiveCBridgeableP", "width"]
+depends-nominal:
+- "So6CGRectV"
+- "s7CVarArgP"
+- "15EntainmentWorld9ConstantsC"
+- "s28CustomDebugStringConvertibleP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "Se"
+- "SE"
+- "SQ"
+- "SH"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- "So8UIScreenC"
+- "So18UITraitEnvironmentP"
+- "s30_CustomPlaygroundQuickLookableP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "10Foundation37_KeyValueCodingAndObservingPublishingP"
+- "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/ObjectiveC.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/CoreData.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/CoreImage.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/QuartzCore.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Dispatch.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Network.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Metal.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Darwin.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Foundation.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/CoreFoundation.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/CoreGraphics.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Swift.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/UIKit.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Combine.framework/Modules/Combine.swiftmodule/x86_64-apple-ios-simulator.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/ObjectiveC.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreData.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreImage.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/QuartzCore.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Dispatch.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Network.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Metal.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Darwin.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Foundation.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreFoundation.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreGraphics.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Swift.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/UIKit.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Combine.swiftmodule/x86_64-apple-ios-simulator.swiftmodule"
+- "/Users/charnpreet/Desktop/semester1_2020/DATA_DRIVEN_MOBILE_APPLICATIONS/EntainmentWorld/Build/Products/Debug-iphonesimulator/YouTubePlayer/YouTubePlayer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule"
+- "/Users/charnpreet/Desktop/semester1_2020/DATA_DRIVEN_MOBILE_APPLICATIONS/EntainmentWorld/Build/Products/Debug-iphonesimulator/YouTubePlayer/YouTubePlayer-umbrella.h"
+- "/Users/charnpreet/Desktop/semester1_2020/DATA_DRIVEN_MOBILE_APPLICATIONS/EntainmentWorld/Build/Products/Debug-iphonesimulator/YouTubePlayer/Swift Compatibility Header/YouTubePlayer-Swift.h"
+- "/Users/charnpreet/Desktop/semester1_2020/DATA_DRIVEN_MOBILE_APPLICATIONS/EntainmentWorld/Build/Products/Debug-iphonesimulator/YouTubePlayer/YouTubePlayer.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Network.framework/Headers/Network.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "f06f09cab70af2e25dcbbe952286c06f"

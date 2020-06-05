@@ -7,18 +7,18 @@
 //
 
 import UIKit
-
 class BaseVCForSearch<U: BaseCollectionCell<T>, T: Hashable>: BaseVCForSearch_Genre<U, T> {
     var searchTextField : UISearchTextField!
     var text_To_search : String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         searchTextField  = setUpSearchTextField()
         navigationController?.navigationBar.addSubview(self.searchTextField)
-        // Do any additional setup after loading the view.
+        self.collection.keyboardDismissMode = .onDrag
+        guard let activityIndicator = activityIndicator else{return}
+        activityIndicator.startAnimating()
     }
-    
-    
     func loadData(text_To_search: String, PageNo: Int){
         if(T.self == MoviesDetails.self){
             db.searchDataBase(pageNO: PageNo, route: Routes.SEARCH_MOVIES, query: text_To_search, completionHandler: { (movies: MovieResponse)  in
@@ -38,6 +38,8 @@ class BaseVCForSearch<U: BaseCollectionCell<T>, T: Hashable>: BaseVCForSearch_Ge
     }
        
        @objc func getSearchEditFIeldText(_ sender: UISearchTextField){
+            guard let activityIndicator = activityIndicator else{return}
+                   activityIndicator.startAnimating()
               text_To_search = searchTextField.text
               guard let   text_To_search  =   text_To_search  else {return}
               if(!text_To_search.isEmpty){

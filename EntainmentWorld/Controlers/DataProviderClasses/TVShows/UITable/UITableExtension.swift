@@ -42,8 +42,6 @@ extension DataSourceProviderForTable : UITableViewDataSource, UITableViewDelegat
                     
                 }else{
                     self.activityIndicator.stopAnimating()
-                    
-                    print("unable to load erro")
                 }
                 
             })

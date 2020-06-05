@@ -12,6 +12,7 @@ class SearchShows : BaseVCForSearch<TVShowCell, TVShows> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
          searchTextField.placeholder = "Search TV Shows"
     }
 }

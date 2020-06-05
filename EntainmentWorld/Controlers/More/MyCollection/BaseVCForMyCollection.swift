@@ -16,6 +16,7 @@ class BaseVCForMyCollection: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
          initalSetup()
     }
     
@@ -33,6 +34,7 @@ class BaseVCForMyCollection: UIViewController {
         let segmentItems = ["Movies", "TV Shows"]
         segmentController = UISegement.getSegmentedControll(frame: frame, items: segmentItems, bgColr: .black, sitemTintClr: .white)
         segmentController.selectedSegmentIndex = 0
+        segmentController.backgroundColor = BackGroundColor.getBackgrndClr()
         segmentController.addTarget(self, action: #selector(LoadChildVC), for: .valueChanged)
         self.navigationController?.navigationBar.addSubview(segmentController)
     }

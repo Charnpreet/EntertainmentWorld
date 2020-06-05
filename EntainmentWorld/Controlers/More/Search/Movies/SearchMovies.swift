@@ -11,6 +11,7 @@ class SearchMovies: BaseVCForSearch<MovieCell, MoviesDetails> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
          searchTextField.placeholder = "Search Movies"
     }
 }

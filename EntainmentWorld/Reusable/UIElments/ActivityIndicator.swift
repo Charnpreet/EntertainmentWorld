@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 class ActivityIndicator {
     
-    
     static func getActivityIndicator ()-> UIActivityIndicatorView{
         
         let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))

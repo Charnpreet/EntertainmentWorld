@@ -14,6 +14,7 @@ class BaseVCForGenreItemList<U: BaseCollectionCell<T>, T: Hashable>: BaseVCForSe
     var genreCatgoryName: String!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         LoadConentWithGnreId(pageNo: curentPage, genreId: genreId)
         // Do any additional setup after loading the view.
     }

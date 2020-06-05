@@ -11,6 +11,7 @@ import UIKit
 class MoviesListByGenreID : BaseVCForGenreItemList<MovieCell, MoviesDetails>{
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

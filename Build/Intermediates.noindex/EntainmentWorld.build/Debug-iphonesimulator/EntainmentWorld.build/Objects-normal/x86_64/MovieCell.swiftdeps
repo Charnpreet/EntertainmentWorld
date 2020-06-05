@@ -1,0 +1,360 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "MovieCell"
+provides-nominal:
+- "15EntainmentWorld9MovieCellC"
+provides-member:
+- ["15EntainmentWorld9MovieCellC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "??"
+- "BaseCollectionCell"
+- !private "DBConnection"
+- "MovieCell"
+- "MoviesDetails"
+- !private "Shared"
+- !private "StringLiteralType"
+depends-member:
+- !private ["15EntainmentWorld18BaseCollectionCellC", "DBConnection"]
+- ["15EntainmentWorld18BaseCollectionCellC", "MoviesDetails"]
+- !private ["15EntainmentWorld18BaseCollectionCellC", "Shared"]
+- ["15EntainmentWorld18BaseCollectionCellC", ""]
+- !private ["15EntainmentWorld18BaseCollectionCellC", "cellImage"]
+- !private ["15EntainmentWorld18BaseCollectionCellC", "deinit"]
+- ["15EntainmentWorld18BaseCollectionCellC", "init"]
+- ["15EntainmentWorld18BaseCollectionCellC", "item"]
+- !private ["15EntainmentWorld18BaseCollectionCellC", "titleTextLabel"]
+- !private ["So15CALayerDelegateP", "DBConnection"]
+- !private ["So15CALayerDelegateP", "Shared"]
+- ["So15CALayerDelegateP", ""]
+- !private ["So15CALayerDelegateP", "cellImage"]
+- !private ["So15CALayerDelegateP", "init"]
+- !private ["So15CALayerDelegateP", "item"]
+- !private ["So15CALayerDelegateP", "titleTextLabel"]
+- !private ["s7CVarArgP", "DBConnection"]
+- !private ["s7CVarArgP", "Shared"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "cellImage"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "item"]
+- !private ["s7CVarArgP", "titleTextLabel"]
+- !private ["15EntainmentWorld18CollectionViewCellC", "DBConnection"]
+- ["15EntainmentWorld18CollectionViewCellC", "MoviesDetails"]
+- !private ["15EntainmentWorld18CollectionViewCellC", "Shared"]
+- !private ["15EntainmentWorld18CollectionViewCellC", "cellImage"]
+- ["15EntainmentWorld18CollectionViewCellC", "init"]
+- ["15EntainmentWorld18CollectionViewCellC", "item"]
+- !private ["15EntainmentWorld18CollectionViewCellC", "titleTextLabel"]
+- !private ["s28CustomDebugStringConvertibleP", "DBConnection"]
+- !private ["s28CustomDebugStringConvertibleP", "Shared"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "cellImage"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "item"]
+- !private ["s28CustomDebugStringConvertibleP", "poster_path"]
+- !private ["s28CustomDebugStringConvertibleP", "title"]
+- !private ["s28CustomDebugStringConvertibleP", "titleTextLabel"]
+- !private ["s17CustomReflectableP", "poster_path"]
+- !private ["s17CustomReflectableP", "title"]
+- !private ["s23CustomStringConvertibleP", "DBConnection"]
+- !private ["s23CustomStringConvertibleP", "Shared"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "cellImage"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "item"]
+- !private ["s23CustomStringConvertibleP", "titleTextLabel"]
+- !private ["15EntainmentWorld12DBConnectionC", "init"]
+- !private ["Se", "poster_path"]
+- !private ["Se", "title"]
+- !private ["SE", "poster_path"]
+- !private ["SE", "title"]
+- !private ["SQ", "DBConnection"]
+- !private ["SQ", "Shared"]
+- ["SQ", ""]
+- !private ["SQ", "cellImage"]
+- !private ["SQ", "init"]
+- !private ["SQ", "item"]
+- !private ["SQ", "poster_path"]
+- !private ["SQ", "title"]
+- !private ["SQ", "titleTextLabel"]
+- !private ["s23ExpressibleByNilLiteralP", "poster_path"]
+- !private ["s23ExpressibleByNilLiteralP", "title"]
+- !private ["SH", "DBConnection"]
+- !private ["SH", "Shared"]
+- ["SH", ""]
+- !private ["SH", "cellImage"]
+- !private ["SH", "init"]
+- !private ["SH", "item"]
+- !private ["SH", "poster_path"]
+- !private ["SH", "title"]
+- !private ["SH", "titleTextLabel"]
+- !private ["15EntainmentWorld9MovieCellC", "DBConnection"]
+- ["15EntainmentWorld9MovieCellC", "MoviesDetails"]
+- !private ["15EntainmentWorld9MovieCellC", "Shared"]
+- !private ["15EntainmentWorld9MovieCellC", "cellImage"]
+- ["15EntainmentWorld9MovieCellC", "deinit"]
+- ["15EntainmentWorld9MovieCellC", "init"]
+- ["15EntainmentWorld9MovieCellC", "item"]
+- !private ["15EntainmentWorld9MovieCellC", "titleTextLabel"]
+- !private ["15EntainmentWorld13MoviesDetailsC", "poster_path"]
+- !private ["15EntainmentWorld13MoviesDetailsC", "title"]
+- !private ["So8NSCodingP", "DBConnection"]
+- !private ["So8NSCodingP", "Shared"]
+- ["So8NSCodingP", ""]
+- !private ["So8NSCodingP", "cellImage"]
+- !private ["So8NSCodingP", "init"]
+- !private ["So8NSCodingP", "item"]
+- !private ["So8NSCodingP", "titleTextLabel"]
+- !private ["So8NSObjectC", "DBConnection"]
+- ["So8NSObjectC", "MoviesDetails"]
+- !private ["So8NSObjectC", "Shared"]
+- !private ["So8NSObjectC", "cellImage"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "item"]
+- !private ["So8NSObjectC", "titleTextLabel"]
+- !private ["So8NSObjectP", "DBConnection"]
+- !private ["So8NSObjectP", "Shared"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "cellImage"]
+- !private ["So8NSObjectP", "init"]
+- !private ["So8NSObjectP", "item"]
+- !private ["So8NSObjectP", "titleTextLabel"]
+- !private ["Sq", "poster_path"]
+- !private ["Sq", "title"]
+- !private ["15EntainmentWorld6SharedC", "LoadPosterImages"]
+- !private ["So29UIAccessibilityIdentificationP", "DBConnection"]
+- !private ["So29UIAccessibilityIdentificationP", "Shared"]
+- ["So29UIAccessibilityIdentificationP", ""]
+- !private ["So29UIAccessibilityIdentificationP", "cellImage"]
+- !private ["So29UIAccessibilityIdentificationP", "init"]
+- !private ["So29UIAccessibilityIdentificationP", "item"]
+- !private ["So29UIAccessibilityIdentificationP", "titleTextLabel"]
+- !private ["So12UIAppearanceP", "DBConnection"]
+- !private ["So12UIAppearanceP", "Shared"]
+- ["So12UIAppearanceP", ""]
+- !private ["So12UIAppearanceP", "cellImage"]
+- !private ["So12UIAppearanceP", "init"]
+- !private ["So12UIAppearanceP", "item"]
+- !private ["So12UIAppearanceP", "titleTextLabel"]
+- !private ["So21UIAppearanceContainerP", "DBConnection"]
+- !private ["So21UIAppearanceContainerP", "Shared"]
+- ["So21UIAppearanceContainerP", ""]
+- !private ["So21UIAppearanceContainerP", "cellImage"]
+- !private ["So21UIAppearanceContainerP", "init"]
+- !private ["So21UIAppearanceContainerP", "item"]
+- !private ["So21UIAppearanceContainerP", "titleTextLabel"]
+- !private ["So24UICollectionReusableViewC", "DBConnection"]
+- ["So24UICollectionReusableViewC", "MoviesDetails"]
+- !private ["So24UICollectionReusableViewC", "Shared"]
+- !private ["So24UICollectionReusableViewC", "cellImage"]
+- ["So24UICollectionReusableViewC", "init"]
+- ["So24UICollectionReusableViewC", "item"]
+- !private ["So24UICollectionReusableViewC", "titleTextLabel"]
+- !private ["So20UICollectionViewCellC", "DBConnection"]
+- ["So20UICollectionViewCellC", "MoviesDetails"]
+- !private ["So20UICollectionViewCellC", "Shared"]
+- !private ["So20UICollectionViewCellC", "cellImage"]
+- ["So20UICollectionViewCellC", "init"]
+- ["So20UICollectionViewCellC", "item"]
+- !private ["So20UICollectionViewCellC", "titleTextLabel"]
+- !private ["So17UICoordinateSpaceP", "DBConnection"]
+- !private ["So17UICoordinateSpaceP", "Shared"]
+- ["So17UICoordinateSpaceP", ""]
+- !private ["So17UICoordinateSpaceP", "cellImage"]
+- !private ["So17UICoordinateSpaceP", "init"]
+- !private ["So17UICoordinateSpaceP", "item"]
+- !private ["So17UICoordinateSpaceP", "titleTextLabel"]
+- !private ["So13UIDynamicItemP", "DBConnection"]
+- !private ["So13UIDynamicItemP", "Shared"]
+- ["So13UIDynamicItemP", ""]
+- !private ["So13UIDynamicItemP", "cellImage"]
+- !private ["So13UIDynamicItemP", "init"]
+- !private ["So13UIDynamicItemP", "item"]
+- !private ["So13UIDynamicItemP", "titleTextLabel"]
+- !private ["So18UIFocusEnvironmentP", "DBConnection"]
+- !private ["So18UIFocusEnvironmentP", "Shared"]
+- ["So18UIFocusEnvironmentP", ""]
+- !private ["So18UIFocusEnvironmentP", "cellImage"]
+- !private ["So18UIFocusEnvironmentP", "init"]
+- !private ["So18UIFocusEnvironmentP", "item"]
+- !private ["So18UIFocusEnvironmentP", "titleTextLabel"]
+- !private ["So11UIFocusItemP", "DBConnection"]
+- !private ["So11UIFocusItemP", "Shared"]
+- ["So11UIFocusItemP", ""]
+- !private ["So11UIFocusItemP", "cellImage"]
+- !private ["So11UIFocusItemP", "init"]
+- !private ["So11UIFocusItemP", "item"]
+- !private ["So11UIFocusItemP", "titleTextLabel"]
+- !private ["So20UIFocusItemContainerP", "DBConnection"]
+- !private ["So20UIFocusItemContainerP", "Shared"]
+- ["So20UIFocusItemContainerP", ""]
+- !private ["So20UIFocusItemContainerP", "cellImage"]
+- !private ["So20UIFocusItemContainerP", "init"]
+- !private ["So20UIFocusItemContainerP", "item"]
+- !private ["So20UIFocusItemContainerP", "titleTextLabel"]
+- !private ["So24UILargeContentViewerItemP", "DBConnection"]
+- !private ["So24UILargeContentViewerItemP", "Shared"]
+- ["So24UILargeContentViewerItemP", ""]
+- !private ["So24UILargeContentViewerItemP", "cellImage"]
+- !private ["So24UILargeContentViewerItemP", "init"]
+- !private ["So24UILargeContentViewerItemP", "item"]
+- !private ["So24UILargeContentViewerItemP", "titleTextLabel"]
+- !private ["So30UIPasteConfigurationSupportingP", "DBConnection"]
+- !private ["So30UIPasteConfigurationSupportingP", "Shared"]
+- ["So30UIPasteConfigurationSupportingP", ""]
+- !private ["So30UIPasteConfigurationSupportingP", "cellImage"]
+- !private ["So30UIPasteConfigurationSupportingP", "init"]
+- !private ["So30UIPasteConfigurationSupportingP", "item"]
+- !private ["So30UIPasteConfigurationSupportingP", "titleTextLabel"]
+- !private ["So11UIResponderC", "DBConnection"]
+- ["So11UIResponderC", "MoviesDetails"]
+- !private ["So11UIResponderC", "Shared"]
+- !private ["So11UIResponderC", "cellImage"]
+- ["So11UIResponderC", "init"]
+- ["So11UIResponderC", "item"]
+- !private ["So11UIResponderC", "titleTextLabel"]
+- !private ["So30UIResponderStandardEditActionsP", "DBConnection"]
+- !private ["So30UIResponderStandardEditActionsP", "Shared"]
+- ["So30UIResponderStandardEditActionsP", ""]
+- !private ["So30UIResponderStandardEditActionsP", "cellImage"]
+- !private ["So30UIResponderStandardEditActionsP", "init"]
+- !private ["So30UIResponderStandardEditActionsP", "item"]
+- !private ["So30UIResponderStandardEditActionsP", "titleTextLabel"]
+- !private ["So18UITraitEnvironmentP", "DBConnection"]
+- !private ["So18UITraitEnvironmentP", "Shared"]
+- ["So18UITraitEnvironmentP", ""]
+- !private ["So18UITraitEnvironmentP", "cellImage"]
+- !private ["So18UITraitEnvironmentP", "init"]
+- !private ["So18UITraitEnvironmentP", "item"]
+- !private ["So18UITraitEnvironmentP", "titleTextLabel"]
+- !private ["So23UIUserActivityRestoringP", "DBConnection"]
+- !private ["So23UIUserActivityRestoringP", "Shared"]
+- ["So23UIUserActivityRestoringP", ""]
+- !private ["So23UIUserActivityRestoringP", "cellImage"]
+- !private ["So23UIUserActivityRestoringP", "init"]
+- !private ["So23UIUserActivityRestoringP", "item"]
+- !private ["So23UIUserActivityRestoringP", "titleTextLabel"]
+- !private ["So6UIViewC", "DBConnection"]
+- ["So6UIViewC", "MoviesDetails"]
+- !private ["So6UIViewC", "Shared"]
+- !private ["So6UIViewC", "cellImage"]
+- ["So6UIViewC", "init"]
+- ["So6UIViewC", "item"]
+- !private ["So6UIViewC", "titleTextLabel"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "DBConnection"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "Shared"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "cellImage"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "item"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "titleTextLabel"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "DBConnection"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "Shared"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "cellImage"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "item"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "titleTextLabel"]
+- !private ["s21_ObjectiveCBridgeableP", "poster_path"]
+- !private ["s21_ObjectiveCBridgeableP", "title"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "DBConnection"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "Shared"]
+- ["s38__DefaultCustomPlaygroundQuickLookableP", ""]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "cellImage"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "init"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "item"]
+- !private ["s38__DefaultCustomPlaygroundQuickLookableP", "titleTextLabel"]
+depends-nominal:
+- "15EntainmentWorld18BaseCollectionCellC"
+- "So15CALayerDelegateP"
+- "s7CVarArgP"
+- "15EntainmentWorld18CollectionViewCellC"
+- "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "15EntainmentWorld12DBConnectionC"
+- !private "Se"
+- !private "SE"
+- "SQ"
+- !private "s23ExpressibleByNilLiteralP"
+- "SH"
+- "15EntainmentWorld9MovieCellC"
+- !private "15EntainmentWorld13MoviesDetailsC"
+- "So8NSCodingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "Sq"
+- !private "15EntainmentWorld6SharedC"
+- "So29UIAccessibilityIdentificationP"
+- "So12UIAppearanceP"
+- "So21UIAppearanceContainerP"
+- "So24UICollectionReusableViewC"
+- "So20UICollectionViewCellC"
+- "So17UICoordinateSpaceP"
+- "So13UIDynamicItemP"
+- "So18UIFocusEnvironmentP"
+- "So11UIFocusItemP"
+- "So20UIFocusItemContainerP"
+- "So24UILargeContentViewerItemP"
+- "So30UIPasteConfigurationSupportingP"
+- "So11UIResponderC"
+- "So30UIResponderStandardEditActionsP"
+- "So18UITraitEnvironmentP"
+- "So23UIUserActivityRestoringP"
+- "So6UIViewC"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "10Foundation37_KeyValueCodingAndObservingPublishingP"
+- !private "s21_ObjectiveCBridgeableP"
+- "s38__DefaultCustomPlaygroundQuickLookableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/ObjectiveC.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/CoreData.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/CoreImage.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/QuartzCore.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Dispatch.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Network.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Metal.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Darwin.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Foundation.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/CoreFoundation.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/CoreGraphics.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/Swift.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/UIKit.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/lib/swift/SwiftOnoneSupport.swiftmodule/x86_64.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Combine.framework/Modules/Combine.swiftmodule/x86_64-apple-ios-simulator.swiftinterface"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/ObjectiveC.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreData.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreImage.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/QuartzCore.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Dispatch.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Network.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Metal.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Darwin.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Foundation.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreFoundation.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/CoreGraphics.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Swift.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/UIKit.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/prebuilt-modules/Combine.swiftmodule/x86_64-apple-ios-simulator.swiftmodule"
+- "/Users/charnpreet/Desktop/semester1_2020/DATA_DRIVEN_MOBILE_APPLICATIONS/EntainmentWorld/Build/Products/Debug-iphonesimulator/YouTubePlayer/YouTubePlayer.swiftmodule/x86_64-apple-ios-simulator.swiftmodule"
+- "/Users/charnpreet/Desktop/semester1_2020/DATA_DRIVEN_MOBILE_APPLICATIONS/EntainmentWorld/Build/Products/Debug-iphonesimulator/YouTubePlayer/YouTubePlayer-umbrella.h"
+- "/Users/charnpreet/Desktop/semester1_2020/DATA_DRIVEN_MOBILE_APPLICATIONS/EntainmentWorld/Build/Products/Debug-iphonesimulator/YouTubePlayer/Swift Compatibility Header/YouTubePlayer-Swift.h"
+- "/Users/charnpreet/Desktop/semester1_2020/DATA_DRIVEN_MOBILE_APPLICATIONS/EntainmentWorld/Build/Products/Debug-iphonesimulator/YouTubePlayer/YouTubePlayer.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/OpenGLES.framework/Headers/OpenGLES.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreData.framework/Headers/CoreData.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreImage.framework/Headers/CoreImage.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/QuartzCore.framework/Headers/QuartzCore.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Network.framework/Headers/Network.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Metal.framework/Headers/Metal.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/UserNotifications.framework/Headers/UserNotifications.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/UIKit.framework/Headers/UIKit.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator13.2.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "beb8385b78ff906921fe8ece5640e2aa"

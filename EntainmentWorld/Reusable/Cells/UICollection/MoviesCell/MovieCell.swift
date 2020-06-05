@@ -13,7 +13,7 @@ class MovieCell : BaseCollectionCell<MoviesDetails>{
                 let pPath = item.poster_path
                 let tittle = item.title ?? ""
                 let db = DBConnection()
-                Shared.LoadPosterImages(cellImage : cellImage, pPath: pPath, text : tittle, db: db)
+                Shared.LoadPosterImages(textLabel: self.titleTextLabel, cellImage : cellImage, pPath: pPath, text : tittle, db: db)
         }
     }
 }

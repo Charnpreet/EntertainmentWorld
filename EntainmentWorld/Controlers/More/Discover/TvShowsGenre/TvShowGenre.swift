@@ -11,7 +11,9 @@ import  UIKit
 class TVShowsGenreIdList: BaseVCForGenreCategoryList<GenreCateogryCell, Genre>{
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         loadGenreList()
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -26,7 +28,7 @@ class TVShowsGenreIdList: BaseVCForGenreCategoryList<GenreCateogryCell, Genre>{
     }
     func LoadSegus(genreId : Int, genreCatName: String){
       let vc = UIStoryboard(name: Constants.TV_SHOWS_GENRE_IDENTIFIER, bundle: nil).instantiateViewController(withIdentifier: Constants.TV_SHOWS_GENRE_IDENTIFIER) as! TVShowsListByGenre
-      vc.genreId = genreId
+        vc.genreId = genreId
         vc.genreCatgoryName = genreCatName
         navigationController?.pushViewController(vc, animated: true)
     }

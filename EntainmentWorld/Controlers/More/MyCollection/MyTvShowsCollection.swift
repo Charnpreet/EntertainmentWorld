@@ -11,6 +11,7 @@ class MyTvShowsCollection: Mycollection<TVShowCell, TVShows> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         getTvShowIds()
     }
     
@@ -22,6 +23,7 @@ class MyTvShowsCollection: Mycollection<TVShowCell, TVShows> {
         for tvShow in tvShows{
             itemIdsList.append(Int(tvShow.id))
         }
+        UpDateNoItemInYourCollectionView(totalItems: itemIdsList.count)
         loadFavTvShowseCollectionFromDB()
     }
     

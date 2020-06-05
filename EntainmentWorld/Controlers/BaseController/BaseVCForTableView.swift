@@ -10,27 +10,24 @@ import UIKit
 //
 // base controller for Tv and Movie Shows
 // both will inhrit common properties from it
-class BaseVCForTableView: UIViewController {
+class BaseVCForTableView: BaseVCForAll {
     var table : CustomTable!
-    var safeArea: UILayoutGuide!
-    var noNetworkView: UIView!
     var nBarHeight: CGFloat?
     var tBarHeight: CGFloat?
     override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         intialSetup()
+        if(Connection.API_KEY.isEmpty){
+            self.displayAlert(textToDisplay: "API Key Is Missing")
+        }
     }
     // inital setup for Movies controller
     func intialSetup(){
         setUptable()
         navigationBarSetUp()
-       noNetworkViewSetup()
     }
-    
-    public func noNetworkViewSetup(){
-        noNetworkView   = NoNetworkViews.getNoNetworkViews()
-        self.view.addSubview(noNetworkView)
-    }
+
     //setup table view
     func setUptable(){
         let frame = Frames.BASE_VC_TABLE_FRAME_CG_REACT 
@@ -56,7 +53,6 @@ class BaseVCForTableView: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor :BackGroundColor.textColor()]
     }
     func addConstraintsToTable(view: UIView, table : CustomTable){
-        safeArea = view.layoutMarginsGuide
         guard let safeArea = safeArea  else{return}
         table.translatesAutoresizingMaskIntoConstraints = false
         table.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true

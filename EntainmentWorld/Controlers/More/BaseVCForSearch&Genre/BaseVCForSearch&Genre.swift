@@ -12,6 +12,7 @@ class BaseVCForSearch_Genre<U: BaseCollectionCell<T>, T: Hashable>: RootVCForCol
     var curentPage: Int = 1
     var totalPages: Int = 1
     var db = DBConnection()
+    var activityIndicator: UIActivityIndicatorView?
     enum Section {
         case main
     }
@@ -19,9 +20,23 @@ class BaseVCForSearch_Genre<U: BaseCollectionCell<T>, T: Hashable>: RootVCForCol
      var currentSnapshot: NSDiffableDataSourceSnapshot<Section,T>!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
+        self.extendedLayoutIncludesOpaqueBars = true
         configureDataSource()
+        setupActivityIndicator()
         // Do any additional setup after loading the view.
     }
+    func setupActivityIndicator(){
+      activityIndicator = ActivityIndicator.getActivityIndicator()
+        guard let activityIndicator = activityIndicator else{return}
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        activityIndicator.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        activityIndicator.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        activityIndicator.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+    }
+    
     
     func createSnapShot(from itemList: [T]){
         currentSnapshot =  NSDiffableDataSourceSnapshot<Section,T>()
@@ -29,7 +44,8 @@ class BaseVCForSearch_Genre<U: BaseCollectionCell<T>, T: Hashable>: RootVCForCol
         currentSnapshot.appendItems(itemList)
         guard let dataSource = dataSource else{return}
         dataSource.apply(currentSnapshot, animatingDifferences: true)
-        //self.activityIndicator.stopAnimating()
+        guard let activityIndicator = activityIndicator else{return}
+        activityIndicator.stopAnimating()
     }
     
     func configureDataSource() {
@@ -41,4 +57,7 @@ class BaseVCForSearch_Genre<U: BaseCollectionCell<T>, T: Hashable>: RootVCForCol
               return cell
           })
       }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
 }

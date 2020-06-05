@@ -16,7 +16,6 @@ class TVShowsViewController: BaseVCForTableView {
     
    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       //  navigationController?.navigationBar.topItem?.title = "Shows"
     }
     override func setUptable(){
            super.setUptable()
