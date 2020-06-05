@@ -11,7 +11,7 @@
         <scene sceneID="6JV-BY-YAS">
             <objects>
                 <viewController storyboardIdentifier="ItemDetails" id="O3y-GK-RZl" customClass="ItemDetailViewControllerForTable" customModule="EntainmentWorld" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" opaque="NO" contentMode="scaleToFill" id="gfL-oM-qVY">
+                    <view key="view" contentMode="scaleToFill" id="gfL-oM-qVY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -21,8 +21,6 @@
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="bsb-XS-Idm"/>
                     </view>
                     <connections>

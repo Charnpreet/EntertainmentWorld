@@ -12,13 +12,13 @@ class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows
     var tvShowId: TvShows?
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = BackGroundColor.getBackgrndClr()  //.black
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         loadImage()
         // Do any additional setup after loading the view.
     }
     
     override func loadImage(){
-        
+        titleTextLabel.textColor = BackGroundColor.textColor()
         titleTextLabel.text = Constants.EMPTY_TEXT
         guard let poster = item.poster_path else {
             self.titleTextLabel.text = item.name

@@ -5,9 +5,8 @@
 //  Created by CHARNPREET SINGH on 14/4/20.
 //  Copyright © 2020 CHARNPREET SINGH. All rights reserved.
 //
-
 import UIKit
-class TVShowsViewController: BaseViewController {
+class TVShowsViewController: BaseVCForTableView {
     var dataprovider: DataSourceProviderForTable!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +16,6 @@ class TVShowsViewController: BaseViewController {
     
    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       //  navigationController?.navigationBar.topItem?.title = "Shows"
     }
     override func setUptable(){
            super.setUptable()

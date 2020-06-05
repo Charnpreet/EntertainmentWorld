@@ -8,25 +8,27 @@
 
 import UIKit
 
-class RootVCForCollectionView<U: BaseCollectionCell<T>, T: Hashable> : UIViewController,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UICollectionViewDelegate  {
+class RootVCForCollectionView<U: BaseCollectionCell<T>, T: Hashable> : BaseVCForAll,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UICollectionViewDelegate  {
 var collection: UICollectionView!
     var itemList: [T] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         setupCollectionView()
         collection.dataSource = self
         collection.delegate = self
         // Do any additional setup after loading the view.
     }
     func setupCollectionView(){
-        let difference = (navigationController?.navigationBar.frame.height ?? 90 )  + (tabBarController?.tabBar.frame.height ?? 83)
-        let h = Constants.IOS_SCREEN_HEIGHT - difference
-        let frame = CGRect(x:0 , y:0 , width: Constants.IOS_SCREEN_WIDTH , height: h - 44)
+        let frame = CGRect(x:0 , y:0 , width: Constants.IOS_SCREEN_WIDTH , height: Constants.IOS_SCREEN_HEIGHT)
         collection =  UICollection.getUICollections(HScrolling: false, frame: frame, layout: UICollectionViewFlowLayout())
         guard let collection = collection else{return}
         collection.register(U.self, forCellWithReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
         collection.register(HeaderForCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Constants.COLLECTION_VIEW_HEADER_IDENTIFIER)
         view.addSubview(collection)
+        let adjustForTabbarInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: self.tabBarController!.tabBar.frame.height, right: 0)
+        self.collection.contentInset = adjustForTabbarInsets
+        self.collection.scrollIndicatorInsets = adjustForTabbarInsets
     }
 
        func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

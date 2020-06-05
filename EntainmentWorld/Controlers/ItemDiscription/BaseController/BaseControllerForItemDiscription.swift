@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 //UIViewController
-class BaseControllerForItemDiscription<T> : UIViewController{
+class BaseControllerForItemDiscription<T> : BaseVCForAll{
     var persistentManager: PersistentDataManager?
     fileprivate var noVideButtonImage = UIImage(named: Constants.NO_PLAY_VIDEO_BUTTON_IMAGE)
     fileprivate var buttonImage = UIImage(named: Constants.PLAY_VIDEO_BUTTON_IMAGE)
@@ -16,7 +16,6 @@ class BaseControllerForItemDiscription<T> : UIViewController{
     let favImage = UIImage(named: "fav")
     let favImageSelected = UIImage(named: "favSaved")
     var navBarImg: UIImage!
-    var noNetworkView: UIView!
     var favMovie : Bool = false
     var titleTextLabel : UILabel!
     var videos : [VideoDetails] = []
@@ -25,7 +24,7 @@ class BaseControllerForItemDiscription<T> : UIViewController{
     @IBOutlet var backGroundImage: UIImageView! = UIImageView()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = BackGroundColor.getBackgrndClr()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         SetUpTitleLabel()
     }
     
@@ -63,20 +62,15 @@ class BaseControllerForItemDiscription<T> : UIViewController{
         UiView.backgroundColor = clr
         UiView.layer.borderColor = UIColor.red.cgColor
         label.text = text
-        UIView.animate(withDuration: 0.6, delay: 0.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: 0.3, delay: 0.0, options: .curveLinear, animations: {
             self.startAnimation(UiView: UiView, label: label)
           }, completion:{
-            _ in UIView.animate(withDuration: 1.6, delay: 0.0, options: .curveEaseInOut, animations: {
+            _ in UIView.animate(withDuration: 0.2, delay: 0.6, options: .curveEaseInOut, animations: {
                  self.stopAnimation(UiView:UiView)
             }, completion: { _ in
                 self.removeViews(UiView: UiView, label: label)
             })
           })
-    }
-    //
-    public func noNetworkViewSetup(){
-        noNetworkView   = NoNetworkViews.getNoNetworkViews()
-        self.view.addSubview(noNetworkView)
     }
     func loadImage(){
         
@@ -95,7 +89,7 @@ class BaseControllerForItemDiscription<T> : UIViewController{
     fileprivate func SetUpTitleLabel(){
         titleTextLabel = UILabel(frame: Frames.TITLE_TEXT_LABEL_FRAME_CG_REACT_FOR_ITEM_DISC_VC)
         titleTextLabel.textAlignment = .center
-        titleTextLabel.textColor =  .white
+        titleTextLabel.textColor =  BackGroundColor.textColor()
         self.view.addSubview(titleTextLabel)
         titleTextLabel.center = self.view.center
     }

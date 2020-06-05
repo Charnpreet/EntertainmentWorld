@@ -24,3 +24,7 @@ class UpcomingMoviesDataSource : BaseDataProviderForMovieCollectionCell{
         }
     }
 }
+
+//class UpcomingMoviesDataSource :BaseDPForMovies<U: BaseCollectionCell<T>, T: Hashable>{
+//
+//}

@@ -7,26 +7,13 @@
 //
 
 import UIKit
-
-
-class TVShowCell : BaseCollectionCell<TVShows>{
-    override var item: TVShows!{
-        didSet{
-            let pPath = item.poster_path
-            let tittle = item.name ?? ""
-            let db = DBConnection()
-            Shared.LoadPosterImages(cellImage : cellImage, pPath: pPath, text : tittle, db: db)
-        }
-    }
-}
-
 class MyTvShowsCollection: Mycollection<TVShowCell, TVShows> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         getTvShowIds()
     }
-    
     
     func getTvShowIds(){
         persistentManager = PersistentDataManager.shared
@@ -36,6 +23,7 @@ class MyTvShowsCollection: Mycollection<TVShowCell, TVShows> {
         for tvShow in tvShows{
             itemIdsList.append(Int(tvShow.id))
         }
+        UpDateNoItemInYourCollectionView(totalItems: itemIdsList.count)
         loadFavTvShowseCollectionFromDB()
     }
     

@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 class DBConnection {
-    
-    
     public func LoadContent<T:Decodable>(url: URL, completionHandler:@escaping(T?, Error?)->Void){
         
         let task = URLSession.shared.dataTask(with: url){ (data, response, error) in
@@ -32,9 +30,9 @@ class DBConnection {
     }
 
      func loadItembyId<T:Decodable>(route: String, movieId: Int, completionHandler:@escaping(T?, Error?)->Void){
-        
         if(Connection.API_KEY.isEmpty){
             print("You must have API Key")
+        
         } else{
            guard let url = URL(string: "\(Connection.API_BASE_URL)\(route)\(movieId)\(Routes.API_KEY_KEYWORD)\(Connection.API_KEY)") else { return }
             LoadContent(url: url, completionHandler:{ (items: T?, err) in
@@ -51,7 +49,6 @@ class DBConnection {
         if(Connection.API_KEY.isEmpty){
             print("You must have API Key")
         } else{
-            
             guard let url = URL(string: "\(Connection.API_BASE_URL)\(route)\(Connection.API_KEY)\(Connection.PAGE)\(pageNO)") else { return }
             
             let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -147,8 +144,6 @@ class DBConnection {
         task.resume()
         
     }
-    
-    
     public func downloadImage(from url: URL ,completionHandler:@escaping(_ img :UIImage)->Void){
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if (error != nil){

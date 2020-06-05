@@ -5,21 +5,19 @@
 //  Created by CHARNPREET SINGH on 20/4/20.
 //  Copyright © 2020 CHARNPREET SINGH. All rights reserved.
 //
-
 import Foundation
 import UIKit
 
 class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
-     var mvoieId: Movies?
+    var mvoieId: Movies?
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = BackGroundColor.getBackgrndClr() //.black
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         loadImage()
     }
-    
     override  func loadImage(){
-        
         titleTextLabel.text = Constants.EMPTY_TEXT
+        titleTextLabel.textColor = BackGroundColor.textColor()
         guard let poster = item.poster_path else {
             self.titleTextLabel.text = item.title
             return
@@ -50,7 +48,7 @@ class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
     }
     override func AddLabelToNavigationBar() {
         super.AddLabelToNavigationBar()
-       // firstLabel.text =  item.title
+        // firstLabel.text =  item.title
     }
     
     
@@ -90,26 +88,26 @@ class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
     }
     
     
-      func deleteMovie(item: Movies){
+    func deleteMovie(item: Movies){
         guard let persistentManager = persistentManager else {return}
         persistentManager.deleteItem(item)
-      }
+    }
     
     override func addTapped() {
         super.addTapped()
-            if(!itemAlreadyThere()){
-                navigationItem.rightBarButtonItem?.setBackgroundImage(favImageSelected, for: .normal, barMetrics: .default)
-                   favMovie = true
-                addCollectionToDataBase()
-                DisplayView(text: "Saved To Collection", clr: .systemGreen)
-            }
-            else{
+        if(!itemAlreadyThere()){
+            navigationItem.rightBarButtonItem?.setBackgroundImage(favImageSelected, for: .normal, barMetrics: .default)
+            favMovie = true
+            addCollectionToDataBase()
+            DisplayView(text: "Saved To Collection", clr: .systemGreen)
+        }
+        else{
             navigationItem.rightBarButtonItem?.setBackgroundImage(favImage, for: .normal, barMetrics: .default)
             favMovie = false
             guard let mvoieId = mvoieId else{return}
             deleteMovie(item: mvoieId)
             DisplayView(text: "Removed From Collection", clr: .systemRed)
-            }
+        }
     }
     
     func addCollectionToDataBase(){
@@ -121,7 +119,7 @@ class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
     }
     
     private func itemAlreadyThere()->Bool{
-    guard let persistentManager = persistentManager else {return false}
+        guard let persistentManager = persistentManager else {return false}
         var fav = false
         let itemId =  persistentManager.Fetech(Movies.self)
         itemId.forEach({
@@ -139,7 +137,7 @@ class MoviesDetailsController : BaseControllerForItemDiscription<MoviesDetails>{
         favMovie = itemAlreadyThere()
         return favMovie
     }
- 
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         AddLabelToNavigationBar()

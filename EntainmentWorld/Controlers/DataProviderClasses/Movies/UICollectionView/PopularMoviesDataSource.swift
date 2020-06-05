@@ -26,3 +26,7 @@ class PopularMoviesDataSource : BaseDataProviderForMovieCollectionCell{
     }
     
 }
+
+//class PopularMoviesDataSource :BaseDPForMovies<U: BaseCollectionCell<T>, T: Hashable>{
+//
+//}

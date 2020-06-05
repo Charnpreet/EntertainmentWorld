@@ -26,3 +26,6 @@ class NowPlayingMoviesDataSource :BaseDataProviderForMovieCollectionCell {
         
     }
 }
+//class NowPlayingMoviesDataSource :BaseDPForMovies<U: BaseCollectionCell<T>, T: Hashable>{
+//
+//}

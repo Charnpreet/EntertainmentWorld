@@ -29,16 +29,17 @@ class Shared {
 
     }
     
-    static func LoadPosterImages(cellImage : UIImageView, pPath: String?, text : String, db: DBConnection){
+
+    static func LoadPosterImages(textLabel: UILabel, cellImage : UIImageView, pPath: String?, text : String, db: DBConnection){
           guard let posterPath = pPath else {
-             // cell.titleTextLabel.text = text
+              textLabel.text = text
               return
 
           }
           let urlString = "\(Connection.IMAGE_URL_BASE_PATH)\(posterPath)"
 
           guard let url = URL(string: urlString ) else {
-             // titleTextLabel.text = text
+             textLabel.text = text
               return
 
           }

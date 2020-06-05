@@ -7,15 +7,12 @@
 //
 
 import UIKit
-
-class MoreViewController: BaseViewController {
+class MoreViewController: BaseVCForTableView {
     let db = DBConnection()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // self.table.sectionHeaderHeight = 70
-      //  self.navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = BackGroundColor.getBackgrndClr()  //.black
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         self.table.rowHeight = Constants.IOS_SCREEN_HEIGHT/12
         // Do any additional setup after loading the view.
         self.table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
@@ -23,13 +20,14 @@ class MoreViewController: BaseViewController {
         self.table.delegate = self
         self.table.rowHeight = 50
         self.table.isScrollEnabled = false
+        self.table.tableFooterView = UIView()
     }
     
     func setUpHeader(view: UIView){
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height:  30))
         label.text = "...MORE"
         label.font = label.font.withSize(20)
-        label.textColor = .white
+        label.textColor = BackGroundColor.textColor()
         label.textAlignment = .center
         label.center = view.center
         view.addSubview(label)
@@ -62,9 +60,12 @@ extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
         let cellBckgrdView = UIView()
         cellBckgrdView.backgroundColor = .clear
         cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
-        cell.accessoryType = .disclosureIndicator
-        cell.layer.borderWidth = 1
-        cell.layer.cornerRadius = 1
+        cell.backgroundColor = BackGroundColor.getBackgrndClr()
+        cell.layer.borderWidth = 0.3
+        cell.layer.borderColor = UIColor.systemRed.cgColor
+        cell.layer.cornerRadius = 5
+        setUPImageView(contentView: cell.contentView)
+        cell.textLabel?.textColor = BackGroundColor.textColor()
         if(indexPath.row==0){
             cell.textLabel?.text = "Search Movie"
         }
@@ -80,8 +81,15 @@ extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
         if(indexPath.row==4){
             cell.textLabel?.text = "My Collection"
         }
-        
         return cell
+    }
+    
+    private func setUPImageView(contentView: UIView){
+    let cellImage = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+    cellImage.image = UIImage(named: "black")
+    contentView.addSubview(cellImage)
+    cellImage.center = contentView.center
+    cellImage.frame.origin.x = self.view.frame.width - cellImage.frame.width
     }
     private func onRowItemClick(for row: Int){
         let searchVC = UIStoryboard(name: Constants.SEARCHMOVIES_STORYBOARD_IDENTIFERS, bundle: nil).instantiateViewController(withIdentifier: Constants.SEARCHMOVIES_STORYBOARD_IDENTIFERS)

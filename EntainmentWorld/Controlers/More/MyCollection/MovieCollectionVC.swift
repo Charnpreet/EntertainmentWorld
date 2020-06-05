@@ -7,54 +7,44 @@
 //
 
 import UIKit
-class MovieCell : BaseCollectionCell<MoviesDetails>{
-    override var item: MoviesDetails!{
-        didSet{
-                let pPath = item.poster_path
-                let tittle = item.title ?? ""
-                let db = DBConnection()
-                Shared.LoadPosterImages(cellImage : cellImage, pPath: pPath, text : tittle, db: db)
-        }
-    }
-}
-//
 class MovieCollectionVC: Mycollection<MovieCell, MoviesDetails>{
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
         getMovieId()
     }
     
     func getMovieId(){
         persistentManager = PersistentDataManager.shared
-          guard let persistentManager = persistentManager else {return}
-          let movies = persistentManager.Fetech(Movies.self)
-          itemIdsList.removeAll()
-          for movie in movies{
-              itemIdsList.append(Int(movie.id))
-          }
+        guard let persistentManager = persistentManager else {return}
+        let movies = persistentManager.Fetech(Movies.self)
+        itemIdsList.removeAll()
+        for movie in movies{
+            itemIdsList.append(Int(movie.id))
+        }
+        UpDateNoItemInYourCollectionView(totalItems: itemIdsList.count)
         loadFavMovieCollectionFromDB()
-      }
+    }
     
-    
-      func loadFavMovieCollectionFromDB(){
+    func loadFavMovieCollectionFromDB(){
         self.itemList.removeAll()
-            for id in itemIdsList {
-                dc.enter()
-                db.loadItembyId(route: Routes.SEARCH_MOVIE_BY_ID, movieId: id, completionHandler: { (movie: MoviesDetails?, err)  in
-                    guard let movie = movie else {
-                        return}
-                    self.itemList.append(movie)
-                    self.dc.leave()
-                })
-            }
+        for id in itemIdsList {
+            dc.enter()
+            db.loadItembyId(route: Routes.SEARCH_MOVIE_BY_ID, movieId: id, completionHandler: { (movie: MoviesDetails?, err)  in
+                guard let movie = movie else {
+                    return}
+                self.itemList.append(movie)
+                self.dc.leave()
+            })
+        }
         dc.notify(queue: .main, execute: {
             self.collection.reloadData()
         })
-        }
+    }
     
-   override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    selectedItemIndex = indexPath.row
-    LoadMovieSegus(item: itemList[indexPath.row])
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedItemIndex = indexPath.row
+        LoadMovieSegus(item: itemList[indexPath.row])
     }
     
     func LoadMovieSegus(item : MoviesDetails){

@@ -16,3 +16,20 @@ protocol LoadMoreMovieDataProtocol {
     func loadMoreUpComingMoviesData(pageNO: Int, completionHandler:@escaping(Bool)->Void)
     
 }
+
+
+
+protocol loadMoreTopRatedContent {
+    func loadMoreTopRatedContentData(pageNO: Int, completionHandler:@escaping(Bool)->Void)
+}
+
+protocol loadMoreNowPlayingContent {
+    func loadMoreNowPlayingContentData(pageNO: Int, completionHandler:@escaping(Bool)->Void)
+}
+protocol loadMorePopularContent {
+   func loadMorePopularContentData(pageNO: Int,completionHandler:@escaping(Bool)->Void)
+}
+
+protocol loadMoreUpComingContent {
+    func loadMoreUpComingContentData(pageNO: Int, completionHandler:@escaping(Bool)->Void)
+}

@@ -18,3 +18,4 @@ protocol MovieCollectionViewSelectedProtocol {
 protocol  DoSegusForMovies {
     func LoadSegus(item : MoviesDetails)
 }
+
