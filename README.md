@@ -1,4 +1,5 @@
 # EntainmentWorld
+    ![main](https://user-images.githubusercontent.com/29935876/83937609-9e2ed080-a811-11ea-9766-91390e2db7b1.gif)
 ## OverView
     .   Swift movie app fetching data from TheMovieWorld API
     .   explore movies and TV shows 
@@ -6,7 +7,6 @@
 
 ## ScreenShots
     Movie & Shows Screen Preview
-    ![main](https://user-images.githubusercontent.com/29935876/83937609-9e2ed080-a811-11ea-9766-91390e2db7b1.gif)
 ### Features
     1. JSON Decoder
     2.  YouTube Player Integeration
