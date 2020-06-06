@@ -21,7 +21,7 @@
     3.  Open the workspace in Xcode
             Open "EntertainmentWorld..xcworkspace"
     4.  Sign up on https://www.themoviedb.org to get Your Key
-             Go to Utiltiy/Connection and add Your API Key
+             Go to Utiltiy/DB/Connection and add Your API Key
 
 ## Requirements
     Xcode
