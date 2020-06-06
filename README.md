@@ -1,9 +1,8 @@
 # EntainmentWorld
-Swift movie app fetching data from TheMovieWorld API
-
 ## OverView
-
-## Technlogies
+    .   Swift movie app fetching data from TheMovieWorld API
+    .   explore movies and TV shows 
+    .   By Default Movies & TV SHows filters Into 4 Different Categories 
 
 ## ScreenShots
 ### Features
@@ -13,9 +12,13 @@ Swift movie app fetching data from TheMovieWorld API
     4.  MVC - APP Structure
 
 ## How to build
-    1.  Clone the repository
-    2.  Install pods
+    1. Clone the repository
+        https://github.com/Charnpreet/EntertainmentWorld.git
+    2. Install pods
+        . Cd EntertainmentWorld
+        . pod install
     3.  Open the workspace in Xcode
+        Open "EntertainmentWorld..xcworkspace"
     4.  Sign up on https://www.themoviedb.org to get Your Key
     5. Go to Utiltiy/Connection and add Your API Key
 
