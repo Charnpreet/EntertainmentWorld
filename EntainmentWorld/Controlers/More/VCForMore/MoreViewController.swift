@@ -62,7 +62,7 @@ extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
         cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
         cell.backgroundColor = BackGroundColor.getBackgrndClr()
         cell.layer.borderWidth = 0.3
-        cell.layer.borderColor = UIColor.systemRed.cgColor
+        cell.layer.borderColor = UIColor.lightGray.cgColor
         cell.layer.cornerRadius = 5
         setUPImageView(contentView: cell.contentView)
         cell.textLabel?.textColor = BackGroundColor.textColor()
