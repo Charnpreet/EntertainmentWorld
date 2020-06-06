@@ -27,7 +27,7 @@
 
 ## TODO
     Adding Trending Movies and Tv Shows 
-    Introduce Location basded Upcoming Movies and Tv Shows
+    Introduce Location basded Upcoming & Now Playing Movies and Tv Shows
 ## ScreenShots
 | Title                 | Link |
 | --- | --- |
