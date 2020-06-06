@@ -5,7 +5,7 @@
     .   By Default Movies & TV SHows filters Into 4 Different Categories 
 
 ## ScreenShots
-        ![](first.gif)
+        ![Main Screen](first.gif)
 ### Features
     1. JSON Decoder
     2.  YouTube Player Integeration
