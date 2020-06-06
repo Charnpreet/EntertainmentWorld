@@ -18,14 +18,15 @@
         . Cd EntertainmentWorld
         . pod install
     3.  Open the workspace in Xcode
-        Open "EntertainmentWorld..xcworkspace"
+            Open "EntertainmentWorld..xcworkspace"
     4.  Sign up on https://www.themoviedb.org to get Your Key
-    5. Go to Utiltiy/Connection and add Your API Key
+             Go to Utiltiy/Connection and add Your API Key
 
 ## Requirements
     Xcode
     Swift 4 or above
     UIKit
+    IOS 13+
 
 ## TODO
     Adding Trending Movies and Tv Shows 
