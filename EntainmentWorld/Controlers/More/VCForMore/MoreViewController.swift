@@ -13,7 +13,6 @@ class MoreViewController: BaseVCForTableView {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = BackGroundColor.getBackgrndClr()
-        self.table.rowHeight = Constants.IOS_SCREEN_HEIGHT/12
         // Do any additional setup after loading the view.
         self.table.register(UITableViewCell.self, forCellReuseIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)
         self.table.dataSource = self
@@ -45,6 +44,7 @@ extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
         return view
     }
     
+
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Constants.IOS_SCREEN_HEIGHT/4
     }
@@ -57,15 +57,16 @@ extension MoreViewController : UITableViewDataSource, UITableViewDelegate{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.COLLECTION_VIEW_CELL_IDENTIFIER)!
+        cell.backgroundColor = BackGroundColor.getBackgrndClr()
+        cell.selectionStyle = .none
+        // on click while hide custom color
         let cellBckgrdView = UIView()
         cellBckgrdView.backgroundColor = .clear
-        cell.selectedBackgroundView = cellBckgrdView    // on click while hide custom color
-        cell.backgroundColor = BackGroundColor.getBackgrndClr()
-        cell.layer.borderWidth = 0.3
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        cell.layer.cornerRadius = 5
+        cell.selectedBackgroundView = cellBckgrdView
         setUPImageView(contentView: cell.contentView)
         cell.textLabel?.textColor = BackGroundColor.textColor()
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = .systemRed
         if(indexPath.row==0){
             cell.textLabel?.text = "Search Movie"
         }
