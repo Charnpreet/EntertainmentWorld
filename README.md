@@ -38,5 +38,5 @@
 | Browse by Genre. explore movies or tv shows by their Genre Category | ![browsbygenre](https://user-images.githubusercontent.com/29935876/83973759-d296af80-a92b-11ea-8c00-a294a367e1c3.gif)  |
 | More Screen View | ![more](https://user-images.githubusercontent.com/29935876/83973637-34a2e500-a92b-11ea-8c02-50da27c27975.gif)  |
 | MY Collection Screen | ![collection](https://user-images.githubusercontent.com/29935876/83973767-d75b6380-a92b-11ea-9555-c53604ee62ac.gif) |
-| OnClick | ![onclick](https://user-images.githubusercontent.com/29935876/83973773-db878100-a92b-11ea-8e4b-b044350d807a.gif) |
 | YouTube Player Integration | ![youtubeplayer](https://user-images.githubusercontent.com/29935876/83973776-dde9db00-a92b-11ea-88f6-eb171bed7403.gif) |
+| OnCick | ![onclick](https://user-images.githubusercontent.com/29935876/83973773-db878100-a92b-11ea-8e4b-b044350d807a.gif)  |
