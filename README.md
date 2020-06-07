@@ -31,12 +31,12 @@
 ## ScreenShots
 | Title                 | Link |
 | --- | --- |
-|Movie screen with nested Horizontal & Vertical scrollable list | ![main](https://user-images.githubusercontent.com/29935876/83973769-d88c9080-a92b-11ea-83d8-690061d3b4fd.gif)|
-| Search Movies  screen to search movies by its name  | ![search](https://user-images.githubusercontent.com/29935876/83973775-dcb8ae00-a92b-11ea-9680-06cd7fb91d13.gif) |
-| add & Remove Screen to add or remove movies to and from collection  | ![add:remove](https://user-images.githubusercontent.com/29935876/83973757-d1658280-a92b-11ea-9fc4-94e73b3c6b10.gif) |
-| Bottam Card View as a child container with swap gesture | ![moresection](https://user-images.githubusercontent.com/29935876/83973772-da565400-a92b-11ea-9a1a-2d85c5885c26.gif) |
-| Browse by Genre. explore movies or tv shows by their Genre Category | ![browsbygenre](https://user-images.githubusercontent.com/29935876/83973759-d296af80-a92b-11ea-8c00-a294a367e1c3.gif)  |
-| More Screen View | ![more](https://user-images.githubusercontent.com/29935876/83973637-34a2e500-a92b-11ea-8c02-50da27c27975.gif)  |
-| MY Collection Screen | ![collection](https://user-images.githubusercontent.com/29935876/83973767-d75b6380-a92b-11ea-9555-c53604ee62ac.gif) |
-| YouTube Player Integration | ![youtubeplayer](https://user-images.githubusercontent.com/29935876/83973776-dde9db00-a92b-11ea-88f6-eb171bed7403.gif) |
+|Movie screen with nested Horizontal & Vertical scrollable list | ![main](https://user-images.githubusercontent.com/29935876/83977493-34fbaa00-a944-11ea-88fb-0332b39b9b7b.gif)|
+| Search Movies  screen to search movies by its name  | ![search](https://user-images.githubusercontent.com/29935876/83977497-388f3100-a944-11ea-869d-119f6eb8a7cd.gif) |
+| add & Remove Screen to add or remove movies to and from collection  | ![add:remove](https://user-images.githubusercontent.com/29935876/83977489-3036f600-a944-11ea-8dd6-fe377a3f3e5d.gif) |
+| Bottam Card View as a child container with swap gesture | ![bottam](https://user-images.githubusercontent.com/29935876/83977504-40e76c00-a944-11ea-8d30-0816788b6f82.gif) |
+| Browse by Genre. explore movies or tv shows by their Genre Category | ![browsbycat](https://user-images.githubusercontent.com/29935876/83977491-32995000-a944-11ea-84f0-2b2fa4cfe871.gif) |
+| More Screen View | ![more](https://user-images.githubusercontent.com/29935876/83977502-3b8a2180-a944-11ea-9c9c-8fc53283bc14.gif)  |
+| MY Collection Screen | ![mycollection](https://user-images.githubusercontent.com/29935876/83977494-36c56d80-a944-11ea-8e3b-dc7d26df2f42.gif) |
+| YouTube Player Integration | ![youtube](https://user-images.githubusercontent.com/29935876/83977500-3927c780-a944-11ea-8674-22d5ceaaff73.gif) |
 | OnCick | ![onclick](https://user-images.githubusercontent.com/29935876/83973773-db878100-a92b-11ea-8e4b-b044350d807a.gif)  |
