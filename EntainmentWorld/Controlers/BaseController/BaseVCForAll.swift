@@ -43,9 +43,8 @@ class BaseVCForAll: UIViewController {
         alertView = UIView(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: Constants.IOS_SCREEN_HEIGHT))
         guard let alertView = alertView else {return}
         alertView.backgroundColor = BackGroundColor.getBackgrndClr()
-        alertLabel = UILabel()
+        alertLabel = UILabel(frame: CGRect(x: 0, y: 0, width: Constants.IOS_SCREEN_WIDTH, height: Constants.IOS_SCREEN_HEIGHT))
         guard let alertLabel = alertLabel else {return}
-        alertLabel.frame.size = alertView.frame.size
         alertView.addSubview(alertLabel)
         alertLabel.textColor = BackGroundColor.textColor()
         alertLabel.textAlignment = .center
@@ -62,9 +61,8 @@ class BaseVCForAll: UIViewController {
          safeArea = view.layoutMarginsGuide
          noNetworkView   = NoNetworkViews.getNoNetworkViews()
          self.view.addSubview(noNetworkView)
-        guard let safeArea = safeArea  else{return}
         noNetworkView.translatesAutoresizingMaskIntoConstraints = false
-        noNetworkView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
+        noNetworkView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         noNetworkView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         noNetworkView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         noNetworkView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
