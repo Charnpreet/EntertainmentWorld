@@ -29,14 +29,14 @@
     Adding Trending Movies and Tv Shows 
     Introduce Location basded Upcoming & Now Playing Movies and Tv Shows
 ## ScreenShots
-| Title                 | Link |
+| Title                 | Gif |
 | --- | --- |
-|Movie screen with nested Horizontal & Vertical scrollable list | ![main](https://user-images.githubusercontent.com/29935876/83977493-34fbaa00-a944-11ea-88fb-0332b39b9b7b.gif) |
-| Search Movies  screen to search movies by its name  | ![search](https://user-images.githubusercontent.com/29935876/83977497-388f3100-a944-11ea-869d-119f6eb8a7cd.gif) |
-| add & Remove Screen to add or remove movies to and from collection  | ![add:remove](https://user-images.githubusercontent.com/29935876/83977489-3036f600-a944-11ea-8dd6-fe377a3f3e5d.gif) |
-| Bottam Card View as a child container with swap gesture | ![bottam](https://user-images.githubusercontent.com/29935876/83977504-40e76c00-a944-11ea-8d30-0816788b6f82.gif) |
-| Browse by Genre. explore movies or tv shows by their Genre Category | ![browsbycat](https://user-images.githubusercontent.com/29935876/83977491-32995000-a944-11ea-84f0-2b2fa4cfe871.gif) |
-| More Screen View | ![more](https://user-images.githubusercontent.com/29935876/83977502-3b8a2180-a944-11ea-9c9c-8fc53283bc14.gif)  |
-| MY Collection Screen | ![mycollection](https://user-images.githubusercontent.com/29935876/83977494-36c56d80-a944-11ea-8e3b-dc7d26df2f42.gif) |
-| YouTube Player Integration | ![youtube](https://user-images.githubusercontent.com/29935876/83977500-3927c780-a944-11ea-8674-22d5ceaaff73.gif) |
-| OnCick | ![onclick](https://user-images.githubusercontent.com/29935876/84001089-49be5900-a9a9-11ea-94a5-0cee963bc0cc.gif)  |
+|Movie screen with nested Horizontal & Vertical scrollable list | ![main](https://user-images.githubusercontent.com/29935876/84022811-3ec7f080-a9ca-11ea-885c-022748e0c858.gif) |
+| Search Movies  screen to search movies by its name  | ![search](https://user-images.githubusercontent.com/29935876/84022140-20adc080-a9c9-11ea-9525-06ce095056e0.gif) |
+| add & Remove Screen to add or remove movies to and from collection  | ![addRemove](https://user-images.githubusercontent.com/29935876/84022056-0673e280-a9c9-11ea-9fc4-f68c8640fac1.gif) |
+| Bottam Card View as a child container with swap gesture | ![bottamCardView](https://user-images.githubusercontent.com/29935876/84022187-2dcaaf80-a9c9-11ea-8015-cf07383f59cc.gif) |
+| Browse by Genre. explore movies or tv shows by their Genre Category | ![browesByGenre](https://user-images.githubusercontent.com/29935876/84022096-168bc200-a9c9-11ea-9efd-fb7b929e1f06.gif) |
+| More Screen View | ![more](https://user-images.githubusercontent.com/29935876/84022106-18ee1c00-a9c9-11ea-9ac0-175bb9188c3b.gif)  |
+| MY Collection Screen | ![myCollection](https://user-images.githubusercontent.com/29935876/84022117-1be90c80-a9c9-11ea-8481-531f715e3b00.gif) |
+| YouTube Player Integration | ![YouTube](https://user-images.githubusercontent.com/29935876/84022144-21465700-a9c9-11ea-9330-2bc5e9f31ea2.gif) |
+| OnCick | ![onclick](https://user-images.githubusercontent.com/29935876/84022134-1ee3fd00-a9c9-11ea-81a9-954f26fa32ad.gif)  |
