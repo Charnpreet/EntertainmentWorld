@@ -30,12 +30,13 @@ class BaseVCForTableView: BaseVCForAll {
 
     //setup table view
     func setUptable(){
-        let frame = Frames.BASE_VC_TABLE_FRAME_CG_REACT 
-        table = CustomTable(frame: frame, style: .plain)
+        let frame = Frames.BASE_VC_TABLE_FRAME_CG_REACT
+        table = CustomTable(frame: frame, style: .grouped)
         guard let table = table else{return}
         view.addSubview(table)
         addConstraintsToTable(view: view, table : table)
-        self.table.rowHeight = Constants.IOS_SCREEN_HEIGHT/5
+        self.table.contentInset.bottom = self.tabBarController?.tabBar.frame.height ?? 0
+        self.table.rowHeight = Constants.IOS_SCREEN_HEIGHT/5.5
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

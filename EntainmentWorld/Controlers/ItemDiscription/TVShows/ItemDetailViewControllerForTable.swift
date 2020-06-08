@@ -13,6 +13,7 @@ class ItemDetailViewControllerForTable: BaseControllerForItemDiscription<TVShows
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = BackGroundColor.getBackgrndClr()
+        self.backGroundImage.translatesAutoresizingMaskIntoConstraints = false
         loadImage()
         // Do any additional setup after loading the view.
     }

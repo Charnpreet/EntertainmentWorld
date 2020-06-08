@@ -10,7 +10,8 @@ class TVShowsViewController: BaseVCForTableView {
     var dataprovider: DataSourceProviderForTable!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = BackGroundColor.getBackgrndClr() 
+        self.view.backgroundColor = BackGroundColor.getBackgrndClr()
+        navigationController?.navigationBar.backgroundColor = BackGroundColor.getBackgrndClr() 
         SetupDataProviders()
     }
     
